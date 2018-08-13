@@ -1,0 +1,7 @@
+ID,TableName,FieldName,FieldType
+1,TableTest1,ID,sequence
+2,TableTest1,Name,string
+3,TableTest1,Surname,string
+4,TableTest1,Age,integer
+5,TableTest1,Account,integer
+
