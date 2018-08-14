@@ -1,18 +1,21 @@
+## Introduction
+
+These are the most basic commands I need to work with emacs.
+
 ## Basic commands
 
-C-x C-r: recent files (to activate this option, an option must be set in the .emacs file located at the root of the home directory in Debian 9)
-
-C-x C-f: open file/create file
-C-x C-s: save file
+  * C-x C-r: recent files
+	* To activate this option, an option must be set in the .emacs file (located at the root of the home directory in Debian 9.x)
+  * C-x C-f: open file/create file
+  * C-x C-s: save file
 
   * Aborting a command: esc esc esc
   * Listing all buffers: C-x C-b
+  * Change size of font in Emacs: C-x C-+ / C-x C--
+  
+  * Undo: C-x u
 
-Quit: C-x C-c
-
-## Basic options
-
-Change size of font in Emacs: C-x C-+ / C-x C--
+  * Quit: C-x C-c
 
 ## Window management
 
@@ -21,17 +24,17 @@ Split windows
   * In 2 horizontally: C-x 2
   * In 2 vertically: C-x 3
 
-Delete window: C-x 0
-Delete all other windows: C-x 1
+  * Delete window: C-x 0
+  * Delete all other windows: C-x 1
 
-Go to another window: C-x o
+  * Go to another window: C-x o
 
 ## Copy-paste
 
-Start of selection: C-space
-Copy: M-w
-Cut: C-w
-Paste: C-y
+  * Start of selection: C-space
+  * Copy: M-w
+  * Cut: C-w
+  * Paste: C-y
 
 ## Modes
 
