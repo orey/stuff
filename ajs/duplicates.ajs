@@ -1,0 +1,63 @@
+/*
+ * New Archi Script
+ * Copyleft Olivier Rey 2018
+ */
+
+console.clear();
+console.log("Duplicate script");
+
+var msg = "Model name: " + model.name + "\n";
+msg += "Number of ArchiMate elements: " + $('element').size() + "\n";
+msg += "Number of ArchiMate relationships: " + $('relationship').size() + "\n";
+msg += "Number of views: " + $('view').size();
+
+console.log(msg);
+
+var key = window.prompt("Please enter the key string to search for", "ecpdm");
+console.log("Concept string: " + key);
+
+function printMatch(concept, akey) {
+    var uconcept = concept.name.toUpperCase(),
+	ukey = akey.toUpperCase(); 
+    if (uconcept.contains(ukey)) {
+	console.log("Found: " + concept.type + " --- " + concept.name + " ID: " + concept.id);
+    }
+}
+
+var archilabels = [];
+
+var LABEL_BEGIN = "(",
+    LABEL_END = ")",
+    VOID_CHAIN = "";
+
+function extractLabel(chaine) {
+    var n1 = chaine.indexOf(LABEL_BEGIN);
+    if (n1 < 0) return VOID_CHAIN;
+    var n2 = chaine.indexOf(LABEL_END);
+    if (n2)
+	return chaine.substring(n1+1,n2);
+    else
+	return VOID_CHAIN;
+}
+
+var verbose = true;
+
+function parseElemForTag(elem) {
+    var tag = extractLabel(elem.name);
+    if (tag == VOID_CHAIN)
+	return;
+    else
+	console.log(tag);
+    if (archilabels.indexOf(tag) < 0)
+	archilabels.push(tag);
+}
+
+
+$('element').each(function(elem){
+    printMatch(elem, key);
+    parseElemForTag(elem);
+});
+
+console.log("Tags found: ", archilabels);
+
+

@@ -13,7 +13,8 @@ These are the most basic commands I need to work with emacs.
   * Listing all buffers: C-x C-b
   * Change size of font in Emacs: C-x C-+ / C-x C--
   
-  * Undo: C-x u
+  * Undo: C-/ or C-x u
+  * Redo: C-_
 
   * Quit: C-x C-c
 
