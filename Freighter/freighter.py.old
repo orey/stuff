@@ -1,0 +1,197 @@
+import csv, sys, getopt
+
+#--------------------------------------
+#-- IntragroupContainer
+#--------------------------------------
+class IntragroupContainer:
+    """
+    Root class for intragroupe containers.
+    """
+    def __init__(self, row):
+        self.row = row
+    def printRow(self):
+        print row
+
+#--------------------------------------
+#-- IntragroupContainerBayplan
+#--------------------------------------
+class IntragroupContainerBayplan(IntragroupContainer):
+    """
+    This class is containing a mapping of the POO002 report fields.
+    """
+    def __init__(self, row):
+        self.row = row
+        self.BookingNumber = row[0]
+        self.LoadDate = row[1]
+        self.BLNumber = row[2]
+        self.ContainerNumber = row[3]
+        self.ContainerSizeType = row[4]
+        self.ISOCode = row[5]
+        self.CommercialVoyageNumber = row[6]
+        self.OperationalVoyageNumber = row[7]
+        self.PointLoad = row[8]
+        self.PointDish = row[9]
+        self.OperatorCode = row[10]
+        self.Weight = row[11]
+        self.ReeferFlag = row[12]
+        self.HazardousFlag = row[13]
+        self.BookingPOR = row[14]
+        self.BookingPOL = row[15]
+        self.BookingPOD = row[16]
+        self.BookingFPD = row[17]
+
+#--------------------------------------
+#-- IntragroupContainerDocumentation
+#--------------------------------------
+class IntragroupContainerDocumentation(IntragroupContainer):
+    """
+    This class is containing ontaining a mapping of the POO003 report fields.
+    """
+    def __init__(self, row):
+        self.row = row
+        self.BookingNumber = row[0]
+        self.JobStatus = row[1]
+        self.BLNumber = row[2]
+        self.ShipCompCode = row[3]
+        self.ContainerNumber = row[4]
+        self.ContainerSizeType = row[5]
+        self.MainVoyageReference = row[6]
+        self.PhysicalVoyageNumber = row[7]
+        self.POR = row[8]
+        self.POL = row[9]
+        self.POD = row[10]
+        self.FPD = row[11]
+        self.PointOrigin = row[12]
+        self.PointDestination = row[13]
+        self.Weight = row[14]
+        self.ReeferFlag = row[15]
+        self.HazardousFlag = row[16]
+        self.Over_Length_AFT = row[17]
+        self.Over_Length_AFT_Imp = row[18]
+        self.Over_Length_Fore = row[19]
+        self.Over_Length_Fore_Imp = row[20]
+        self.Over_Width_Left = row[21]
+        self.Over_Width_Left_Imp = row[22]
+        self.Over_Width_Right = row[23]
+        self.Over_Width_Right_Imp = row[24]
+        self.Height = row[25]
+        self.Height_Imp = row[26]
+        self.OogFlag = row[27]
+
+
+#--------------------------------------
+#-- Price
+#--------------------------------------
+class Price:
+    def __init__(self,row):
+        self.row = row
+        self.key = (row[0], #POL
+                    row[1], #POD
+                    row[2], #ShipCompCode
+                    row[3], #ReeferFlag
+                    row[4], #HazardousFlag
+                    row[5]) #ContainerSizeType
+        self.value = (row[6], #Currency
+                      row[7]) #Price
+    def printPrice(self):
+        print self.key
+        print self.value
+
+#--------------------
+#-- PriceList
+#--------------------
+class PriceList:
+    def __init__(self):
+        self.dico = dict()
+    def addElement(self, key, value):
+        self.dico[key] = value
+    def printPriceList(self):
+        print self.dico
+
+#--------------------
+#-- usage
+#--------------------
+def usage():
+    print "Usage:"
+    print "For a POO002 report: freighter.py -c -f ContainerDataFile.csv -p PriceList.csv"
+    print "For a POO003 report: freighter.py -d -f DocumentationDataFile.csv -p PriceList.csv"
+    print "Warning: currently, documentation datafile does not contain size/type indications"
+
+#--------------------
+#-- main
+#--------------------
+def main():
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "cdf:p:hv", ["help"])
+    except getopt.GetoptError, err:
+        # print help information and exit:
+        print str(err) # will print something like "option -a not recognized"
+        usage()
+        sys.exit(2)
+    mode = 0
+    dataFile = None
+    priceFile = None
+    verbose = False
+    for o, a in opts:
+        if o == "-v":
+            verbose = True
+        elif o in ("-h", "--help"):
+            usage()
+            sys.exit()
+        elif o in ("-c"):
+            mode = 1 #Container
+        elif o in ("-d"):
+            mode = 2 #Documentation
+        elif o in ("-f"):
+            dataFile = a
+        elif o in ("-p"):
+            priceFile = a
+        else:
+            assert False, "unhandled option"
+
+    if ((mode == 0) or (dataFile == None) or (PriceFile == None)):
+        print "Missing parameters in command line"
+        usage()
+        exit()
+
+    containerReport = "XN183SANLContainerReport.csv"
+    documentationReport = "XN183SANLDocumentationReport.csv"
+
+    containerReader = csv.reader(open(containerReport, "rb"), delimiter=';')
+    documentationReader = csv.reader(open(documentationReport, "rb"), delimiter=';')
+
+    pricingFileName = "IntragroupRatesTest01.csv"
+    pricingReader = csv.reader(open(pricingFileName, "rb"), delimiter=';')
+
+    try:
+        #-------------------------------------------------
+        print "STEP 1: LOADING RATES"
+        i = 0
+        dic = PriceList()
+        for row in pricingReader:
+            prix = Price(row)
+            dic.addElement(prix.key, prix.value)
+            i +=1
+        print "STEP 1: %d prices loaded" % (i-1)
+        dic.printDico()
+
+        for row in documentationReader:
+            fl = IntragroupContainerDocumentation(row)
+            key = (fl.POL, fl.POD, fl.ShipCompCode, fl.ReeferFlag,
+                   fl.HazardousFlag,
+                   '20/ST')
+            try:
+                value = dic.dico[key]
+                print "--> INTRAGROUP PRICE FOUND : key = ", key, "value = ", value
+            except KeyError:
+                print "No value for key : ", key
+        
+    except csv.Error, e:
+        print "Error caught !"
+        sys.exit('file %s, line %d: %s' % (filename, reader.line_num, e))
+
+#--------------------
+#-- Calling main
+#--------------------
+if __name__ == "__main__":
+    main()
