@@ -7,7 +7,9 @@ These are the most basic commands I need to work with emacs.
   * C-x C-r: recent files
 	* To activate this option, an option must be set in the .emacs file (located at the root of the home directory in Debian 9.x)
   * C-x C-f: open file/create file
+  * C-x k: close file (kill)
   * C-x C-s: save file
+  * C-x C-w: save as
 
   * Aborting a command: esc esc esc
   * Listing all buffers: C-x C-b
@@ -51,4 +53,12 @@ https://jblevins.org/projects/markdown-mode/ for installation instructions
 ## Customizations of the .emacs file
 
 Please see the .emacs file sample attached.
+
+### Warning
+
+On Windows platforms, for compativility reasons, the .emacs file is not supported. 2 solutions however:
+
+  * `_emacs` in the HOME folder
+  * `init.el` file in the .emacs.d folder
+
 
