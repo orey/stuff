@@ -44,21 +44,32 @@ Split windows
 Major modes
 
   * Javascript: M-x js-mode
-  * Markdown: M-x markdown-mode
   * Line numbers: M-x linum-mode
+
+### Python mode
+
+Under Windows 10, I had some cursor problems with Python formatting.
+
+I renamed the `ob-python.el` and it seems to work.
+
+
+### Markdown mode
+
+To enter the mode:
+
+  * Markdown: M-x markdown-mode
 
 Note: Markdown must be installed
 https://jblevins.org/projects/markdown-mode/ for installation instructions
 
+Note: Under Windows 10, I could not install the package automatically. Adding the Melpa source does not work. I downloaded the `markdown-2.3.el` file and did a manual install from file
+
+  * M-x package-install-from-file FILE
+  
+That worked.
+
 ## Customizations of the .emacs file
 
 Please see the .emacs file sample attached.
-
-### Warning
-
-On Windows platforms, for compativility reasons, the .emacs file is not supported. 2 solutions however:
-
-  * `_emacs` in the HOME folder
-  * `init.el` file in the .emacs.d folder
 
 
