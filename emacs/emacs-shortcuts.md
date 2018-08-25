@@ -14,6 +14,8 @@ These are the most basic commands I need to work with emacs.
   * Aborting a command: esc esc esc
   * Listing all buffers: C-x C-b
   * Change size of font in Emacs: C-x C-+ / C-x C--
+  * Visual line mode, to wrap lines not cutting words: M-x visual-line-mode
+  * Changing the encoding of the file: C-x C-m f
   
   * Undo: C-/ or C-x u
   * Redo: C-_
@@ -46,12 +48,27 @@ Major modes
   * Javascript: M-x js-mode
   * Line numbers: M-x linum-mode
 
+### Latex mode
+
+M-x latex-mode
+
+Two commands to know when editing:
+
+  * C-c C-o env-name: creates the `begin` and `end` of the environments
+  * C-o C-e: ends the current not ended environment
+  * C-c {: creates {}
+  * C-c }: matches with the recent open {       
+
+To activate spellcheck under Linux:
+
+  * Enter into flyspell-mode: M-X flyspell-mode
+  * M-$: to enter into the dictionary recommendations
+
 ### Python mode
 
 Under Windows 10, I had some cursor problems with Python formatting.
 
-I renamed the `ob-python.el` and it seems to work.
-
+To be retested with Gygwin installation.
 
 ### Markdown mode
 
