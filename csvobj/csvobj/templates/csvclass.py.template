@@ -1,0 +1,14 @@
+#----------------------------------------
+#-- CSV class
+#-- Author: csvobj engine
+#-- Generated code
+#----------------------------------------
+
+class {{name}}:
+    def __init__(self, ID)
+        self.ID = ID
+    {{LOOP attributes}}
+    def set{{ELEM}}(self):
+        self.{{ELEM}} = {{ELEM}}
+    {{ENDLOOP}}
+
