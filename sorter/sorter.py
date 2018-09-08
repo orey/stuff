@@ -29,7 +29,8 @@ DATETAG2 = 'DateTimeDigitized'
 DATETIME1 = 'created'
 DATETIME2 = 'lastmodif'
 
-VERBOSE = True
+VERBOSE = False
+
 
 DUP = 'duplicates'
 SORTED = 'sorted'
@@ -93,6 +94,9 @@ def createFolder(mypath):
 
 
 def createRoot(mypath):
+    if not os.path.isdir(mypath):
+        print("== Error: " + mypath + " is not a valid folder. Exiting...")
+        sys.exit(0)
     myroot = join(mypath, SORTED + "_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
     createFolder(myroot)
     sorted = join(myroot, SORTED)
@@ -218,7 +222,7 @@ def getHash(myfile, algo=0):
 
 
 
-def createDict(dict, folder, algo=0):
+def createDict(dup, dict, folder, algo=0):
     """
     Creates a dict with a hash and the file in order to spot the duplicate files
     even if they don't have the same names
@@ -240,14 +244,25 @@ def createDict(dict, folder, algo=0):
             print("== '" + temp + "'")
             dupes += 1
             # Create folder for dup
-            
+            pathkey = join(dup, h)
+            if not os.path.isdir(pathkey):
+                createFolder(pathkey)
+                copyFile(completename, "", pathkey)
+            copyFile(temp, datetime.now().strftime("%Y%m%d_%H%M%S_%f_"), pathkey)
         except KeyError:
             dict[h] = completename
     if len(folders) == 0 or folders == None:
         return dict
     for d in folders:
-        createDict(dict, d, algo)
+        createDict(dup, dict, d, algo)
     return dict
+
+#def parseDictForCopies(
+
+
+
+
+
 
 def compareHash():
     global VERBOSE
@@ -269,8 +284,9 @@ def compareHash():
     
 
 def testSorted():
+    sorted, dup = createRoot(ROOT)
     dict = {}
-    createDict(dict, '/home/olivier/MEGA/Images-photos', 1)
+    createDict(dup, dict, '/home/olivier/MEGA/Images-photos', 1)
     
     
 if __name__ == "__main__":
