@@ -20,7 +20,7 @@ from shutil import copyfile
 
 FOLDER = '/home/olivier/.aMule/Incoming/'
 EXT = '.jpg'
-MINSIZE = 5000
+MINSIZE = 30000
 MAXSIZE = 15000000
 
 DATETAG1 = 'DateTimeOriginal'
@@ -45,7 +45,7 @@ def copyFile(src, key, dest):
         print("== Error: " + dest + " is not a valid folder")
     filename = os.path.basename(src)
     l = len(filename)
-    temp = key + '_' + filename[:l-4] + EXT
+    temp = key + filename[:l-4] + EXT
     if os.path.isfile(temp):
         print("== Error: file " + temp + " already exists. Skipping...")
         return False
@@ -54,28 +54,37 @@ def copyFile(src, key, dest):
     return True
 
 def analyzePhoto(photo):
-    d = getExif(photo)
-    if not d == None:
-        a =  d[DATETAG1]
-        b =  d[DATETAG2]
-        if VERBOSE:
-            print(a)
-            print(b)
-        if a > b:
-            return createName(b)
-        else:
-            return createName(a)
+    """
+    This method has 3 criterias that are applied in a sequence mode
+    1. File name
+    2. Tags
+    3. File system information
+    The oldest date time is considered the best
+    """
+    ld =[]
+    #-- 1. Search for file name pattern 
+    filename = os.path.basename(photo)
+    if len(filename) > 14:
+        chain = filename[:15]
+        try:
+            d = datetime.strptime(chain, '%Y%m%d_%H%M%S')
+            ld.append(d)
+        except ValueError:
+            pass
+    #-- 2. Analyze photo meta data
+    #d = getExif(photo)
+    #if (not d == None) and (not d == {}):
+    #    try:
+    #        ld.append(d[DATETAG1])
+    #        ld.append(d[DATETAG2])
+    #    except KeyError:
+    #        pass
+    #-- 3. File system
     d = getFileDate(photo)
-    a = d[DATETIME1]
-    b = d[DATETIME2]
-    if VERBOSE:
-        print(a)
-        print(b)
-    if a > b:
-        return createName(b)
-    else:
-        return createName(a)
-        
+    ld.append(d[DATETIME1])
+    ld.append(d[DATETIME2])
+
+    return min(ld)
 
 
 def testCopyFile():
@@ -123,11 +132,15 @@ def getExif(photo):
     datetags = [DATETAG1,DATETAG2]
     exif = {}
     for k, v in f._getexif().items():
-        a = PIL.ExifTags.TAGS[k]
-        #print(a)
+        try:
+            a = PIL.ExifTags.TAGS[k]
+        except KeyError:
+            print("== Unknown tag for photo: " + photo)
+            return None
         for tag in datetags:
             if a == tag:
-                exif[tag] = v
+                #-- v is '2016:09:04 11:06:58'
+                exif[tag] = datetime.strptime(v, "%Y:%m:%d %H:%M:%S")
     return exif
     
 def testGetExif():
@@ -185,17 +198,20 @@ def getFilesInFolder(mypath):
     All is managed with complete names
     The list of files is filtered
     """
-    glob = listdir(mypath)
-    files = []
-    folders = []
-    for f in glob:
-        completef = join(mypath,f)
-        if isfile(completef):
-            if fileOK(completef):
-                files.append(completef)
-        else:
-            folders.append(completef)
-    return files, folders
+    try:
+        glob = listdir(mypath)
+        files = []
+        folders = []
+        for f in glob:
+            completef = join(mypath,f)
+            if isfile(completef):
+                if fileOK(completef):
+                    files.append(completef)
+            else:
+                folders.append(completef)
+        return files, folders
+    except Exception:
+        print("== Problem with folder: " + mypath)
 
 
 def testGetFilesInFolder():
@@ -240,8 +256,10 @@ def createDict(dup, dict, folder, algo=0):
         sys.stdout.flush()
         try:
             temp = dict[h]
-            print('\n== Found duplicate of ' + "'" + completename + "'")
-            print("== '" + temp + "'")
+            #print('\n== Found duplicate of ' + "'" + completename + "'")
+            #print("== '" + temp + "'")
+            sys.stdout.write("DUP|")
+            sys.stdout.flush()
             dupes += 1
             # Create folder for dup
             pathkey = join(dup, h)
@@ -257,7 +275,22 @@ def createDict(dup, dict, folder, algo=0):
         createDict(dup, dict, d, algo)
     return dict
 
-#def parseDictForCopies(
+def copyPhotoToDateFolder(photo, sorted):
+    mdate = analyzePhoto(photo)
+    year = join(sorted, str(mdate.year))
+    createFolder(year) #manages the case when it already exists
+    month = join(year, str(mdate.month).zfill(2))
+    createFolder(month)
+    #day = join(month, str(mdate.day).zfill(2))
+    #createFolder(day)
+    copyFile(photo, "",month)
+
+
+def parseDictForCopies(dict, sorted):
+    values = dict.values()
+    print("Found " + str(len(values)) + " images")
+    for v in values:
+        copyPhotoToDateFolder(v, sorted)
 
 
 
@@ -283,20 +316,27 @@ def compareHash():
     print("== Execution time with sha1: " + str(end2 - start2))
     
 
-def testSorted():
+def main():
+    time1 = time.time()
     sorted, dup = createRoot(ROOT)
     dict = {}
-    createDict(dup, dict, '/home/olivier/MEGA/Images-photos', 1)
+    createDict(dup, dict, '/home/olivier', 1)
+    time2 = time.time()
+    print("=====================================")
+    print("== Spent: " + str(time2-time1))
+    print("=====================================")
+    
+    parseDictForCopies(dict, sorted)
     
     
 if __name__ == "__main__":
-    #main()
+    main()
     #testGetFilesInFolder()
     #compareHash()
     #testGetExif()
     #testCreateRoot()
-    testSorted()
-    testCopyFile()
+    #testSorted()
+    #testCopyFile()
 
 
 
