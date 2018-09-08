@@ -9,7 +9,10 @@ import hashlib
 import sys
 import time
 import os
+import PIL.Image
+import PIL.ExifTags
 
+from datetime import date
 from os import listdir
 from os.path import isfile, join
 
@@ -21,6 +24,35 @@ MAXSIZE = 15000000
 
 VERBOSE = True
 
+def getExif(photo):
+    f = PIL.Image.open(photo)
+    if f._getexif() == None:
+        return None
+    datetags = ['DateTimeOriginal','DateTimeDigitized']
+    exif = {}
+    for k, v in f._getexif().items():
+        a = PIL.ExifTags.TAGS[k]
+        print(a)
+        for tag in datetags:
+            if a == tag:
+                exif[tag] = v
+    return exif
+    
+def testGetExif():
+    file1 = '/home/olivier/photo.jpg'
+    file2 = '/home/olivier/photo2.jpg'
+    d = getExif(file1)
+    print(d)
+    e = getExif(file2)
+    print(e)
+    print(getFileDate(file1))
+    print(getFileDate(file2))
+    
+
+def getFileDate(file):
+    return { 'created'  : date.fromtimestamp(os.path.getctime(file)), \
+             'lastmodif': date.fromtimestamp(os.path.getmtime(file)) }
+    
 
 def convertBytes(num):
     """
@@ -78,7 +110,11 @@ def testGetFilesInFolder():
     print("== Folders:")
     print(folders)
 
+
 def getHash(myfile, algo=0):
+    """
+    Generate hash for several algorithms
+    """
     hasher = None
     if algo == 1:
         hasher = hashlib.sha1()
@@ -109,15 +145,16 @@ def createDict(folder, algo=0):
         sys.stdout.flush()
         try:
             temp = dict[h]
-            if VERBOSE:
-                print('\n== Found duplicate of ' + "'" + completename + "'")
-                print("== '" + temp + "'")
+            print('\n== Found duplicate of ' + "'" + completename + "'")
+            print("== '" + temp + "'")
             dupes += 1
         except KeyError:
             dict[h] = completename
     return dict
 
 def compareHash():
+    global VERBOSE
+    VERBOSE = False
     start1 = time.time()
     dict1 = createDict('/home/olivier/.aMule/Incoming')
     end1 = time.time()
@@ -136,7 +173,8 @@ def compareHash():
 if __name__ == "__main__":
     #main()
     #testGetFilesInFolder()
-    compareHash()
+    #compareHash()
+    testGetExif()
 
 
 
