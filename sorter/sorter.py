@@ -7,6 +7,7 @@
 
 import hashlib
 import sys
+import time
 
 from os import listdir
 from os.path import isfile, join
@@ -16,13 +17,15 @@ FOLDER = '/home/olivier/.aMule/Incoming/'
 EXT = '.pdf'
 
 DICT = {}
+#-- Default hasher
+HASHER = hashlib.md5()
 
 def getFilesInFolder(mypath):
     return [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 
 def getHash(myfile):
-    hasher = hashlib.md5()
+    hasher = HASHER
     with open(myfile, 'rb') as afile:
         buf = afile.read()
         hasher.update(buf)
@@ -51,7 +54,16 @@ def main():
     print("\n== Generated " + str(len(DICT)) + " MD5 keys")
 
 if __name__ == "__main__":
+    start = time.time()
     main()
+    end = time.time()
+    print("== Execution time with md5: " + str(end - start))
+    HASHER = hashlib.sha1()
+    start = time.time()
+    main()
+    end = time.time()
+    print("== Execution time with sha1: " + str(end - start))
+    
 
 
 
