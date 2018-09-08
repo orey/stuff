@@ -36,6 +36,12 @@ DUP = 'duplicates'
 SORTED = 'sorted'
 ROOT = '/home/olivier/Temp'
 
+#-- Stats
+nb_folders = 0
+nb_files   = 0
+nb_dupes   = 0
+    
+
 
 def copyFile(src, key, dest):
     if not os.path.isfile(src):
@@ -243,6 +249,10 @@ def createDict(dup, dict, folder, algo=0):
     Creates a dict with a hash and the file in order to spot the duplicate files
     even if they don't have the same names
     """
+    global nb_folders
+    global nb_files
+    global nb_dupes
+    nb_folders += 1
     files, folders = getFilesInFolder(folder)
     if VERBOSE:
         print("== Folder: " + folder)
@@ -267,7 +277,9 @@ def createDict(dup, dict, folder, algo=0):
                 createFolder(pathkey)
                 copyFile(completename, "", pathkey)
             copyFile(temp, datetime.now().strftime("%Y%m%d_%H%M%S_%f_"), pathkey)
+            nb_dupes +=1
         except KeyError:
+            nb_files += 1
             dict[h] = completename
     if len(folders) == 0 or folders == None:
         return dict
@@ -316,6 +328,13 @@ def compareHash():
     print("== Execution time with sha1: " + str(end2 - start2))
     
 
+def printStats():
+    print("=====================================")
+    print("== Number of folders explored: " + str(nb_folders))
+    print("== Number of files exploredin dict: " + str(nb_files))
+    print("== Number of dupes: " + str(nb_dupes))
+    print("=====================================")
+    
 def main():
     time1 = time.time()
     sorted, dup = createRoot(ROOT)
@@ -325,8 +344,9 @@ def main():
     print("=====================================")
     print("== Spent: " + str(time2-time1))
     print("=====================================")
-    
+    printStats()
     parseDictForCopies(dict, sorted)
+    printStats()
     
     
 if __name__ == "__main__":
