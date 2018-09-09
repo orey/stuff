@@ -218,6 +218,8 @@ def getFilesInFolder(mypath):
         return files, folders
     except Exception:
         print("== Problem with folder: " + mypath)
+        return None, None
+        
 
 
 def testGetFilesInFolder():
@@ -248,14 +250,15 @@ def createDict(dup, dict, folder, algo=0):
     """
     Creates a dict with a hash and the file in order to spot the duplicate files
     even if they don't have the same names
+    Warning: This function is recursive.
     """
     global nb_folders
     global nb_files
     global nb_dupes
     nb_folders += 1
-    if folder == None:
-        return dict
     files, folders = getFilesInFolder(folder)
+    if files == None:
+        return dict;
     if VERBOSE:
         print("== Folder: " + folder)
         print("== " + str(len(files)) + " files found with matching filter")
