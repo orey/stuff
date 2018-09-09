@@ -253,6 +253,8 @@ def createDict(dup, dict, folder, algo=0):
     global nb_files
     global nb_dupes
     nb_folders += 1
+    if folder == None:
+        return dict
     files, folders = getFilesInFolder(folder)
     if VERBOSE:
         print("== Folder: " + folder)
