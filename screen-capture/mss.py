@@ -23,12 +23,11 @@ if __name__ == "__main__":
             s = input("Type any key to exit")
             exit(1)
         with mss() as sct:
-            image = sct.shot()
+            image = sct.shot(output = os.path.join(targetdir, datetime.now().strftime("%Y%m%d_%H%M%S_%f") + ".png"))
             shotnumber += 1
             print("Shot done")
-        if image == "":
+        if image == "" or image == None:
             print("Capture failed. Exiting.")
             exit(0)
-        os.rename (os.path.join(os.getcwd(),image), \
-                   os.path.join(targetdir, datetime.now().strftime("%Y%m%d_%H%M%S_%f") + ".png"))
         
+    
