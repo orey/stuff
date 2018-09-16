@@ -1,7 +1,7 @@
 # Emacs backup files
 *.*~
-.#*
-emacs/#*.*#
+.\#*
+emacs/\#*.*\#
 emacs/*.*~
-#*.*#
+\#*.*\#
 
