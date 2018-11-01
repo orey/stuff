@@ -109,3 +109,4 @@ venv.bak/
 *.py~
 *.rdf
 *.dot
+*.csv
