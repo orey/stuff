@@ -1,4 +1,4 @@
-import uuid, rdflib, sys
+import uuid, rdflib, sys, csv
 
 from rdflib import Graph, Literal, BNode, RDF
 from rdflib.namespace import FOAF, DC
@@ -167,6 +167,20 @@ def test3():
     dot = Digraph(comment='Test3')
     add_rdf_graph_to_dot(dot, store, False)
     dot.render('test3.dot', view=True)
+
+def test4(filename):
+    reader = csv.reader(open(filename, "rb"), delimiter=';')
+    i = 0
+    # create target dict    dic = PriceList()
+#    try:
+#        for row in reader:
+#            obj = OBJ(row)
+#            add to target dict
+#            i +=1
+#        print("%d lines loaded" % (i-1))
+#    except csv.Error as e:
+#        print("Error caught in loading csv file")
+#        print(e)
 
     
 if __name__ == '__main__':
