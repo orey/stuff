@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+>
+  <foaf:Person rdf:nodeID="N489962690c83457094ffb525e3af2d3c">
+    <foaf:name>Donna Fales</foaf:name>
+    <foaf:nick xml:lang="foo">donna</foaf:nick>
+  </foaf:Person>
+</rdf:RDF>

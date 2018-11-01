@@ -1,2 +1,0 @@
-# rdf
-Tests around rdf
