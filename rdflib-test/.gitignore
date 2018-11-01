@@ -108,4 +108,4 @@ venv.bak/
 *.gv
 *.py~
 *.rdf
-
+*.dot

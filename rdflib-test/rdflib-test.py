@@ -1,18 +1,20 @@
-import uuid, rdflib
+import uuid, rdflib, sys
 
 from rdflib import Graph, Literal, BNode, RDF
 from rdflib.namespace import FOAF, DC
 from graphviz import Digraph
 
+MAX_STRING_LENGTH = 40
 
-DISPLAY = { "http://xmlns.com/foaf/0.1/name" : "FOAF:name",
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : "RDF:type",
-            "http://xmlns.com/foaf/0.1/nick" : "FOAF:nickname",
-            "http://xmlns.com/foaf/0.1/Person" : "FOAF:Person"
-}
-
-NODES = {}
-RELS = {}
+def analyze_uri(uri):
+    tokens = uri.split('/')
+    if 'http:' in tokens or 'https:' in tokens:
+        domain = tokens[2].split('.')[-2]
+        mtype  = tokens[-1]
+        return domain + ':' + mtype 
+    else:
+        print('Strange URI: ' + str(uri))
+        return str(uri)
 
 
 class RDFNode():
@@ -22,17 +24,18 @@ class RDFNode():
         if not isinstance(ident, rdflib.term.Identifier):
             raise TypeError("Unrecognized type: " + str(type(ident)))
         if type(ident) == rdflib.term.URIRef:
-            self.name = DISPLAY[ident.toPython()]
-            if self.name == None:
-                self.name = "UNKNOWN"
-                print("Type not in grammar: " + ident.toPython())
+            self.name = analyze_uri(ident.toPython())
         elif type(ident) == rdflib.term.BNode \
           or type(ident) == rdflib.term.Literal:
-            self.name = ident.toPython()
+            value = str(ident.toPython())
+            if len(value) > MAX_STRING_LENGTH:
+                self.name = value[0:MAX_STRING_LENGTH] + '...'
+            else:
+                self.name = value
         else:
             raise TypeError("Unrecognized type: " + str(type(ident)))
     def to_dot(self):
-        return str(self.id), self.name
+        return str(self.id), str(self.name)
     def get_name(self):
         return self.name
     def get_id(self):
@@ -48,76 +51,60 @@ class RDFRel(RDFNode):
         self.source = source
         self.target = target
     def to_dot(self):
-        return self.source.get_id(), self.target.get_id(), \
-               self.name
-#               'label="' + self.name + '"'
+        return self.source.get_id(), self.target.get_id(), str(self.name)
+    def get_source_id(self):
+        return self.source.get_id()
+    def get_target_id(self):
+        return self.target.get_id()
 
-def add_to_nodes_dict(rdfnode):
+def print_rel_as_box(rel, dot):
+    dot.node(rel.get_id(),rel.get_name(), shape='box')
+    dot.edge(rel.get_source_id(), rel.get_id())
+    dot.edge(rel.get_id(), rel.get_target_id())
+            
+
+def add_to_nodes_dict(rdfnode, node_dict):
     '''
     We suppose that the parser will create an instance of node for each
     parse triple
     '''
     name = rdfnode.get_name()
-    if name in NODES:
+    if name in node_dict:
         print("Info: same node won't be written in the dictionary")
-        return NODES[name]
+        return node_dict[name]
     else:
-        NODES[name] = rdfnode
-        return NODES[name]
+        node_dict[name] = rdfnode
+        return node_dict[name]
         
-def add_to_rels_dict(rdfrel):
+def add_to_rels_dict(rdfrel, rel_dict):
     '''
     We suppose that all relationships are unique, even if they have
     the same label
     '''
-    RELS[rdfrel.get_id()] = rdfrel
+    rel_dict[rdfrel.get_id()] = rdfrel
 
-
-
-def get_id_display(thing):
-    if type(thing) == rdflib.term.URIRef:
-        display = DISPLAY[thing.toPython()]
-        if display == None:
-            print("Warning: " + thing.toPython() + " not in grammar")
-            
-
-if __name__ == '__main__':
-
-    store = Graph()
-    #result = g.parse("http://www.w3.org/People/Berners-Lee/card")
-
-
-    # Bind a few prefix, namespace pairs for pretty output
-    store.bind("dc", DC)
-    store.bind("foaf", FOAF)
-
-    # Create an identifier to use as the subject for Donna.
-    donna = BNode()
-
-    # Add triples using store's add method.
-    store.add((donna, RDF.type, FOAF.Person))
-    store.add((donna, FOAF.nick, Literal("donna", lang="foo")))
-    store.add((donna, FOAF.name, Literal("Donna Fales")))
-
+def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True):
+    node_dict = {}
+    rel_dict  = {}
+    for s, p, o in rdfgraph:
+        source = add_to_nodes_dict(RDFNode(s),node_dict)
+        target = add_to_nodes_dict(RDFNode(o),node_dict)
+        add_to_rels_dict(RDFRel(p, source, target),rel_dict)
+    for elem in node_dict.values():
+        dot.node(*elem.to_dot(), color="blue", fontcolor='blue')
+    for elem in rel_dict.values():
+        if rel_as_labels:
+            dot.edge(*elem.to_dot())
+        else:
+            print_rel_as_box(elem, dot)
+    return dot
+    
+def print_store(store):
     # Iterate over triples in store and print them out.
     print("--- printing raw triples ---")
     for s, p, o in store:
         print(s, p, o)
-
-    # For each foaf:Person in the store print out its mbox property.
-    print("--- printing mboxes ---")
-    for person in store.subjects(RDF.type, FOAF["Person"]):
-        for mbox in store.objects(person, FOAF["mbox"]):
-            print(mbox)
-
-    print("graph has %s statements." % len(store))
-    # Serialize the store as RDF/XML to the file donna_foaf.rdf.
-    store.serialize("donna_foaf.rdf", format="pretty-xml", max_depth=3)
-
-    # Let's show off the serializers
-
-    print("RDF Serializations:")
-
+    
     # Serialize as XML
     print("--- start: rdf-xml ---")
     print(store.serialize(format="pretty-xml"))
@@ -133,25 +120,66 @@ if __name__ == '__main__':
     print(store.serialize(format="nt"))
     print("--- end: ntriples ---\n")
     
-    dot = Digraph(comment='RDF display')
-    print("--- generating graphviz diagram ---")
-    for s, p, o in store:
-        print("--- Types ---")
-        print("Type of s: ",type(s))
-        print("Type of p: ",type(p))
-        print("Type of o: ",type(o))
-        print("--- toPython ---")
-        print(s.toPython())
-        print(p.toPython())
-        print(o.toPython())
-        print("--- storing to dot graph ---")
-        source = add_to_nodes_dict(RDFNode(s))
-        target = add_to_nodes_dict(RDFNode(o))
-        add_to_rels_dict(RDFRel(p, source, target))
+def test1():
+    store = Graph()
+
+    # Bind a few prefix, namespace pairs for pretty output
+    store.bind("dc", DC)
+    store.bind("foaf", FOAF)
+
+    # Create an identifier to use as the subject for Donna.
+    donna = BNode()
+
+    # Add triples using store's add method.
+    store.add((donna, RDF.type, FOAF.Person))
+    store.add((donna, FOAF.nick, Literal("donna", lang="foo")))
+    store.add((donna, FOAF.name, Literal("Donna Fales")))
     
-    print("--- generating graphviz diagram ---")
-    for elem in NODES.values():
-        dot.node(*elem.to_dot())
-    for elem in RELS.values():
-        dot.edge(*elem.to_dot())
-    dot.render('test.gv', view=True)   
+    print_store(store)
+    
+    # Dump store
+    store.serialize("test1.rdf", format="pretty-xml", max_depth=3)
+    
+    dot = Digraph(comment='Test1')
+    add_rdf_graph_to_dot(dot, store)
+    dot.render('test1.dot', view=True)
+    
+def test2():
+    store = Graph()
+    result = store.parse("http://www.w3.org/People/Berners-Lee/card")
+    print_store(store)
+
+    # Dump store
+    store.serialize("test2.rdf", format="turtle")
+    
+    dot = Digraph(comment='Test2')
+    add_rdf_graph_to_dot(dot, store)
+    dot.render('test2.dot', view=True)
+
+def test3():
+    store = Graph()
+    result = store.parse("http://www.w3.org/People/Berners-Lee/card")
+    print_store(store)
+
+    # Dump store
+    store.serialize("test3.rdf", format="turtle")
+    
+    dot = Digraph(comment='Test3')
+    add_rdf_graph_to_dot(dot, store, False)
+    dot.render('test3.dot', view=True)
+
+    
+if __name__ == '__main__':
+    print(sys.argv)
+    if len(sys.argv) != 2:
+        test1()
+        exit(1)
+    a = sys.argv[1]
+    if a == 1:
+        test1()
+    elif a == '2':
+        test2()
+    elif a == '3':
+        test3()
+    else:
+        test1()
