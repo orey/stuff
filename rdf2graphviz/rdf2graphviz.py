@@ -57,8 +57,11 @@ class RDFRel(RDFNode):
             raise TypeError("Unrecognize type: " + str(type(target)))
         self.source = source
         self.target = target
-    def to_dot(self):
-        return self.source.get_id(), self.target.get_id(), str(self.name)
+    def to_dot(self, label=True):
+        if label:
+            return self.source.get_id(), self.target.get_id(), str(self.name)
+        else:
+            return self.source.get_id(), self.target.get_id()
     def get_source_id(self):
         return self.source.get_id()
     def get_target_id(self):
@@ -90,7 +93,7 @@ def add_to_rels_dict(rdfrel, rel_dict):
     '''
     rel_dict[rdfrel.get_id()] = rdfrel
 
-def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True):
+def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True, labels=True):
     node_dict = {}
     rel_dict  = {}
     for s, p, o in rdfgraph:
@@ -99,11 +102,15 @@ def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True):
         add_to_rels_dict(RDFRel(p, source, target),rel_dict)
     for elem in node_dict.values():
         dot.node(*elem.to_dot(), color="blue", fontcolor='blue')
-    for elem in rel_dict.values():
-        if rel_as_labels:
-            dot.edge(*elem.to_dot())
-        else:
-            print_rel_as_box(elem, dot)
+    if labels:
+        for elem in rel_dict.values():
+            if rel_as_labels:
+                dot.edge(*elem.to_dot())
+            else:
+                print_rel_as_box(elem, dot)
+    else:
+        for elem in rel_dict.values():
+            dot.edge(*elem.to_dot(labels))
     return dot
     
 def print_store(store):
@@ -174,6 +181,12 @@ def test3():
     dot = Digraph(comment='Test3')
     add_rdf_graph_to_dot(dot, store, False)
     dot.render('test3.dot', view=True)
+
+def rdf_to_graphviz(store, name='default', rel_as_labels=True, labels=True):
+    dot = Digraph(comment=name, format='pdf')
+    dot.graph_attr['rankdir'] = 'LR'
+    add_rdf_graph_to_dot(dot, store, rel_as_labels, labels)
+    dot.render(name + '.dot', view=True)
     
 if __name__ == '__main__':
     print(sys.argv)

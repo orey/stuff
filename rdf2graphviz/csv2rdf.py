@@ -5,28 +5,64 @@
 # License:        GPL v3
 #============================================
 import csv, configparser
+from rdflib import Graph, Literal, URIRef, RDF
+from rdf2graphviz import rdf_to_graphviz
 
 # Keys in the config file
 DOMAIN = 'domain'
-OBJECT = 'object'
+TYPE = 'type'
 PREFIX = 'predicate_prefix'
+DELIMITER = 'delimiter'
 
-class Configuration():
+class Config():
     def __init__(self,config_filename, csv_filename):
         self.domain = ''
-        self.object = ''
+        self.type = ''
         self.prefix = ''
+        self.delimiter = ''
+        self.predicates = []
         self.csv_filename = csv_filename
         self.config = configparser.ConfigParser()
         self.config.read(config_filename)
         if csv_filename in self.config:
             self.domain = self.config[csv_filename][DOMAIN]
-            self.object = self.config[csv_filename][OBJECT]
+            self.type = self.config[csv_filename][TYPE]
             self.prefix = self.config[csv_filename][PREFIX]
+            self.delimiter = self.config[csv_filename][DELIMITER]
+        self.store = Graph()
+        self.type = URIRef(self.domain + self.type)
     def print(self):
         print('Configuration for ' + self.csv_filename + ': ' \
-              + self.domain + '|' + self.object + '|' + self.prefix)
-
+              + self.domain + '|' + self.type + '|' + self.prefix \
+              + '|' + self.delimiter)
+    def parse_file(self):
+        reader = csv.reader(open(self.csv_filename, "r"), \
+                            delimiter=self.delimiter)
+        try:
+            for i, row in enumerate(reader):
+                if i == 0:
+                    for elem in row:
+                        predicate = self.domain + format_predicate(elem)
+                        self.predicates.append(URIRef(predicate))
+                    print(self.predicates)
+                else:
+                    subject = URIRef(self.domain + self.prefix + str(i))
+                    self.store.add((subject, RDF.type, self.type))
+                    for n, elem in enumerate(row):
+                        if not elem == '':
+                            e = Literal(elem)
+                            self.store.add((subject, self.predicates[n], e))
+                        
+            print("%d lines loaded" % (i-1))
+        except csv.Error as e:
+            print("Error caught in loading csv file")
+            print(e)
+    def dump_store(self):
+        storename = self.csv_filename.split('.')[0] + '.rdf'
+        self.store.serialize(storename, format='turtle')
+        print('Store dumped')
+    def get_store(self):
+        return self.store
         
 def format_predicate(pred):
     new = ''
@@ -36,105 +72,16 @@ def format_predicate(pred):
         else:
             new += pred[i]
     return new
+
     
 def test_pred():
     print(format_predicate('I am a big-boy'))
 
 
-def create_predicate_list():
-
-
-
-class CI():
-    def __init__(self, mid, row):
-        self.mid = mid
-        self.WBS = row[0]
-        self.Doc_Type = row[1]
-        self.Part_number = row[2]
-        self.Issue = row[3]
-        self.Father_parts = row[4]
-        self.CI_before = row[5]
-        self.Title = row[6]
-        self.CI_type = row[7]
-        self.Status = row[8]
-        self.Creation_Date = row[9]
-        self.Released_Date = row[10]
-        self.Usage = row[11]
-        self.CI_characteristic = row[12]
-        self.Substitute = row[13]
-        self.Des_group = row[14]
-        self.MOE = row[15]
-        self.SDU = row[16]
-        self.APPLICABILITY = row[17]
-        self.SMR = row[18]
-        self.SAP = row[19]
-        self.Conf = row[20]
-        self.DE_below = row[21]
-        self.ADU_Father = row[22]
-        self.ECR = row[23]
-        self.ECP = row[24]
-        self.ECO_Fathers = row[25]
-        self.ECO = row[26]
-        self.ECO_links = row[27]
-        self.NOT_ECO = row[28]
-        self.Part_Effectivity_EC175_B = row[29]
-        self.Part_Effectivity_Z15F = row[30]
-        self.Part_Effectivity_Z15_Shipset = row[31]
-        self.Part_Effectivity_EC175_B1 = row[32]
-        self.EC175_B_from = row[33]
-        self.EC175_B_to = row[34]
-        self.EC175_B1_from = row[35]
-        self.EC175_B1_to = row[36]
-        self.Average_Weight = row[37]
-        self.Weighed_Weight_1 = row[38]
-        self.Weighed_Weight_2 = row[39]
-        self.Weighed_Weight_3 = row[40]
-        self.Weighed_Weight_4 = row[41]
-        self.Weighed_Weight_5 = row[42]
-        self.Weighed_Weight_6 = row[43]
-        self.Weighed_Weight_7 = row[44]
-        self.Weighed_Weight_8 = row[45]
-        self.Weighed_Weight_9 = row[46]
-        self.Weighed_Weight_10 = row[47]
-        self.Weighed_Weight_11 = row[48]
-        self.Weighed_Weight_12 = row[49]
-        self.Weighed_Weight_13 = row[50]
-        self.Weighed_Weight_14 = row[51]
-        self.Weighed_Weight_15 = row[52]
-        self.WB_Weight = row[53]
-        self.Auto_Calculated_Weight = row[54]
-        self.Calculated_Weight = row[55]
-        self.Estimated_Weight = row[56]
-        self.COG_X = row[57]
-        self.COG_Y = row[58]
-        self.COG_Z = row[59]
-        self.Auto_Calculated_COG_X = row[60]
-        self.Auto_Calculated_COG_Y = row[61]
-        self.Auto_Calculated_COG_Z = row[62]
-        self.WB_COG_X = row[63]
-        self.WB_COG_Y = row[64]
-        self.WB_COG_Z = row[65]
-
-
-def test(filename):
-    reader = csv.reader(open(filename, "r"), delimiter=';')
-    i = 0
-    elems = {}
-    # create target dict    dic = PriceList()
-    try:
-        for row in reader:
-            if i != 0:
-                ci = CI(i, row)
-                elems[i] = ci
-            i +=1
-        print("%d lines loaded" % (i-1))
-    except csv.Error as e:
-        print("Error caught in loading csv file")
-        print(e)
-    
-
 if __name__ == '__main__':
-    test('test.csv')
-    conf = Configuration('csv2rdf.ini','test.csv')
+    conf = Config('csv2rdf.ini','test.csv')
     conf.print()
     test_pred()
+    conf.parse_file()
+    conf.dump_store()
+    rdf_to_graphviz(conf.get_store(),'xyz', True, False)
