@@ -1,10 +1,47 @@
 #============================================
-# File name:      CI.py
+# File name:      csv2rdf.py
 # Author:         Olivier Rey
 # Date:           November 2018
 # License:        GPL v3
 #============================================
-import csv
+import csv, configparser
+
+# Keys in the config file
+DOMAIN = 'domain'
+OBJECT = 'object'
+PREFIX = 'predicate_prefix'
+
+class Configuration():
+    def __init__(self,config_filename, csv_filename):
+        self.domain = ''
+        self.object = ''
+        self.prefix = ''
+        self.csv_filename = csv_filename
+        self.config = configparser.ConfigParser()
+        self.config.read(config_filename)
+        if csv_filename in self.config:
+            self.domain = self.config[csv_filename][DOMAIN]
+            self.object = self.config[csv_filename][OBJECT]
+            self.prefix = self.config[csv_filename][PREFIX]
+    def print(self):
+        print('Configuration for ' + self.csv_filename + ': ' \
+              + self.domain + '|' + self.object + '|' + self.prefix)
+
+        
+def format_predicate(pred):
+    new = ''
+    for i, c in enumerate(pred):
+        if c in [' ', '-']:
+            new += '_'
+        else:
+            new += pred[i]
+    return new
+    
+def test_pred():
+    print(format_predicate('I am a big-boy'))
+
+
+def create_predicate_list():
 
 
 
@@ -98,3 +135,6 @@ def test(filename):
 
 if __name__ == '__main__':
     test('test.csv')
+    conf = Configuration('csv2rdf.ini','test.csv')
+    conf.print()
+    test_pred()
