@@ -84,4 +84,4 @@ if __name__ == '__main__':
     test_pred()
     conf.parse_file()
     conf.dump_store()
-    rdf_to_graphviz(conf.get_store(),'xyz', True, False)
+    rdf_to_graphviz(conf.get_store(),'xyz', 1)

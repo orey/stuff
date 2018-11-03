@@ -58,9 +58,10 @@ class RDFRel(RDFNode):
         self.source = source
         self.target = target
     def to_dot(self, label=True):
+        # returns the label to print
         if label:
             return self.source.get_id(), self.target.get_id(), str(self.name)
-        else:
+        else: # returns only the link
             return self.source.get_id(), self.target.get_id()
     def get_source_id(self):
         return self.source.get_id()
@@ -93,7 +94,12 @@ def add_to_rels_dict(rdfrel, rel_dict):
     '''
     rel_dict[rdfrel.get_id()] = rdfrel
 
-def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True, labels=True):
+def add_rdf_graph_to_dot(dot, rdfgraph, mode=0):
+    '''
+    mode=0 (default): prints labels in edges
+    mode=1: prints labels in boxes
+    mode=2: prints no labels
+    '''
     node_dict = {}
     rel_dict  = {}
     for s, p, o in rdfgraph:
@@ -102,15 +108,15 @@ def add_rdf_graph_to_dot(dot, rdfgraph, rel_as_labels = True, labels=True):
         add_to_rels_dict(RDFRel(p, source, target),rel_dict)
     for elem in node_dict.values():
         dot.node(*elem.to_dot(), color="blue", fontcolor='blue')
-    if labels:
+    if mode==1:
         for elem in rel_dict.values():
-            if rel_as_labels:
-                dot.edge(*elem.to_dot())
-            else:
-                print_rel_as_box(elem, dot)
+            print_rel_as_box(elem, dot)
+    elif mode==2:
+        for elem in rel_dict.values():
+            dot.edge(*elem.to_dot(False))
     else:
         for elem in rel_dict.values():
-            dot.edge(*elem.to_dot(labels))
+            dot.edge(*elem.to_dot())
     return dot
     
 def print_store(store):
@@ -182,10 +188,10 @@ def test3():
     add_rdf_graph_to_dot(dot, store, False)
     dot.render('test3.dot', view=True)
 
-def rdf_to_graphviz(store, name='default', rel_as_labels=True, labels=True):
+def rdf_to_graphviz(store, name='default', mode=0):
     dot = Digraph(comment=name, format='pdf')
     dot.graph_attr['rankdir'] = 'LR'
-    add_rdf_graph_to_dot(dot, store, rel_as_labels, labels)
+    add_rdf_graph_to_dot(dot, store, mode)
     dot.render(name + '.dot', view=True)
     
 if __name__ == '__main__':
