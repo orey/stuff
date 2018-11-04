@@ -4,7 +4,7 @@
 # Date:           November 2018
 # License:        GPL v3
 #============================================
-import csv, configparser
+import getopt, sys, csv, configparser
 from rdflib import Graph, Literal, URIRef, RDF
 from rdf2graphviz import rdf_to_graphviz
 
@@ -14,21 +14,30 @@ TYPE = 'type'
 PREFIX = 'predicate_prefix'
 DELIMITER = 'delimiter'
 
+class Options():
+    def __init__(self, filename):
+        self.filename = filename
+        self.config = configparser.ConfigParser()
+        self.config.read(filename)
+    def get_option(self, datafile, key):
+        # not safe
+        return self.config[datafile][key]
+
+
 class Config():
-    def __init__(self,config_filename, csv_filename):
+    def __init__(self,csv_filename, options, verbose=False):
         self.domain = ''
         self.type = ''
         self.prefix = ''
         self.delimiter = ''
         self.predicates = []
         self.csv_filename = csv_filename
-        self.config = configparser.ConfigParser()
-        self.config.read(config_filename)
-        if csv_filename in self.config:
-            self.domain = self.config[csv_filename][DOMAIN]
-            self.type = self.config[csv_filename][TYPE]
-            self.prefix = self.config[csv_filename][PREFIX]
-            self.delimiter = self.config[csv_filename][DELIMITER]
+        self.options = options
+        self.verbose = verbose
+        self.domain    = self.options.get_option(csv_filename, DOMAIN)
+        self.type      = self.options.get_option(csv_filename, TYPE)
+        self.prefix    = self.options.get_option(csv_filename, PREFIX)
+        self.delimiter = self.options.get_option(csv_filename, DELIMITER)
         self.store = Graph()
         self.type = URIRef(self.domain + self.type)
     def print(self):
@@ -44,7 +53,8 @@ class Config():
                     for elem in row:
                         predicate = self.domain + format_predicate(elem)
                         self.predicates.append(URIRef(predicate))
-                    print(self.predicates)
+                    if self.verbose:
+                        print(self.predicates)
                 else:
                     subject = URIRef(self.domain + self.prefix + str(i))
                     self.store.add((subject, RDF.type, self.type))
@@ -52,18 +62,20 @@ class Config():
                         if not elem == '':
                             e = Literal(elem)
                             self.store.add((subject, self.predicates[n], e))
-                        
-            print("%d lines loaded" % (i-1))
+            if self.verbose:            
+                print("%d lines loaded" % (i-1))
         except csv.Error as e:
             print("Error caught in loading csv file")
             print(e)
     def dump_store(self):
-        storename = self.csv_filename.split('.')[0] + '.rdf'
+        storename = self.csv_filename.split('.')[0] + '.ttl'
         self.store.serialize(storename, format='turtle')
-        print('Store dumped')
+        if self.verbose:
+            print('Store dumped')
     def get_store(self):
         return self.store
-        
+
+
 def format_predicate(pred):
     new = ''
     for i, c in enumerate(pred):
@@ -77,11 +89,98 @@ def format_predicate(pred):
 def test_pred():
     print(format_predicate('I am a big-boy'))
 
+class Semantic():
+    '''
+    Semantic file is a CSV file with in first column the header name of the data file
+    and in the second column orders about the type.
+    '''
+    def __init__(self, semantic, opt, verbose):
+        self.semantic = semantic
+        self.opt      = opt
+        self.verbose  = verbose
+        self.soptions = {}
+        reader = csv.reader(open(self.semantic, "r"), \
+                            delimiter=self.delimiter)
+        
+
+
+def usage():
+    print("Utility to transform CSV files into RDF files")
+    print("Usage: \n $ csv2rdf -f FILE_TO_CONVERT.csv [-o OPTIONS.ini] [-d INT] [-h]")
+    print("Options:")
+    print('"-o": If "-o OPTION.ini" is not provided, "csv2rdf.ini" will be searched for')
+    print('"-d": Option to generate a graphviz/dot file')
+    print('The output RDF file will be "FILE_TO_CONVERT.ttl" and is in Turtle format.')
+    sys.exit(0)
+
+
+def to_int(a, range):
+    '''
+    Returns always a proper integer in the expected range.
+    Default value is 0.
+    '''
+    try:
+        i = int(a)
+        if i in range:
+            return i
+        else:
+            return 0
+    except ValueError:
+        return 0
+
+
+def main():
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "f:o:d:s:hvt",
+                                   ["file=", "options=", "display=", \
+                                    "semantic=", "help", "verbose", "test"])
+    except getopt.GetoptError:
+        # print help information and exit:
+        usage()
+        sys.exit(2)
+    file    = None
+    options = None
+    verbose = False
+    test    = False
+    display = -1
+    semantic = None
+    for o, a in opts:
+        if o == "-v":
+            verbose = True
+        if o in ("-h", "--help"):
+            usage()
+            sys.exit()
+        if o in ("-f", "--file"):
+            file = a
+        if o in ("-o", "--options"):
+            options = a
+        if o in ('-t', '--test'):
+            test = True
+        if o in ('-d', '--display'):            
+            display = to_int(a, range(0, 3))
+        if o in ('-s', '--semantic'):
+            semantic = a
+    # default option file name if no options are provided
+    if options == None:
+        options = 'csv2rdf.ini'
+    if file == None:
+        usage();
+        sys.exit(1)
+    opt = Options(options)
+    conf = Config(file, opt, verbose)
+    if test:
+        conf.print()
+        test_pred()
+    if semantic != None:
+        soptions = Semantic(file, opt, verbose)
+        # TODO pass soptions to parse_file
+        conf.parse_file()
+    else:
+        conf.parse_file()
+    conf.dump_store()
+    if display != -1:
+        rdf_to_graphviz(conf.get_store(),file.split('.')[0], display)
+
 
 if __name__ == '__main__':
-    conf = Config('csv2rdf.ini','test.csv')
-    conf.print()
-    test_pred()
-    conf.parse_file()
-    conf.dump_store()
-    rdf_to_graphviz(conf.get_store(),'xyz', 1)
+    main()
