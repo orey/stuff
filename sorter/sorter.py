@@ -108,16 +108,22 @@ def createFolder(mypath):
         os.makedirs(mypath)
 
 
-def createRoot(mypath):
+def createRoot(mypath, verbose=VERBOSE):
     if not os.path.isdir(mypath):
         print("== Error: " + mypath + " is not a valid folder. Exiting...")
         sys.exit(0)
     myroot = join(mypath, SORTED + "_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
     createFolder(myroot)
+    if verbose:
+        print('Root path created: ' + myroot)
     sorted = join(myroot, SORTED)
     createFolder(sorted)
+    if verbose:
+        print('Sorted path created: ' + sorted)
     dup = join(myroot, DUP)
     createFolder(dup)
+    if verbose:
+        print('Duplicates path created: ' + dup)    
     return sorted, dup
     
 def testCreateRoot():
@@ -246,7 +252,7 @@ def getHash(myfile, algo=0):
 
 
 
-def createDict(dup, dict, folder, algo=0):
+def createDict(dup, dict, folder, algo=0, verbose=VERBOSE):
     """
     Creates a dict with a hash and the file in order to spot the duplicate files
     even if they don't have the same names
@@ -259,8 +265,8 @@ def createDict(dup, dict, folder, algo=0):
     files, folders = getFilesInFolder(folder)
     if files == None:
         return dict;
-    if VERBOSE:
-        print("== Folder: " + folder)
+    if verbose:
+        print("\n== Folder: " + folder)
         print("== " + str(len(files)) + " files found with matching filter")
     dupes = 0
     keys = 0
@@ -340,11 +346,11 @@ def printStats():
     print("== Number of dupes: " + str(nb_dupes))
     print("=====================================")
     
-def main():
+def main(mydir, verbose=VERBOSE):
     time1 = time.time()
-    sorted, dup = createRoot(ROOT)
+    sorted, dup = createRoot(ROOT,verbose)
     dict = {}
-    createDict(dup, dict, '/home/olivier', 1)
+    createDict(dup, dict, mydir, 1, True)
     time2 = time.time()
     print("=====================================")
     print("== Spent: " + str(time2-time1))
@@ -355,7 +361,11 @@ def main():
     
     
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 1:
+        print('Usage:\n$ python3 sorter PATH_to_analyze')
+        sys.exit(1)
+    else:
+        main(sys.argv[1], verbose=True)
     #testGetFilesInFolder()
     #compareHash()
     #testGetExif()
