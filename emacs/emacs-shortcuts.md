@@ -1,96 +1,98 @@
 ## Introduction
 
-These are the most basic commands I need to work with emacs.
+These are the most basic commands I need to work with emacs. See further for the configuration notes.
 
 ## Basic commands
 
-  * C-x C-r: recent files
+  * `C-x C-r`: recent files
 	* To activate this option, an option must be set in the .emacs file (located at the root of the home directory in Debian 9.x)
-  * C-x C-f: open file/create file
-  * C-x k: close file (kill)
-  * C-x C-s: save file
-  * C-x C-w: save as
+  * `C-x C-f`: open file/create file
+  * `C-x k`: close file (kill)
+  * `C-x C-s`: save file
+  * `C-x C-w`: save as
 
-  * Aborting a command: esc esc esc
-  * Listing all buffers: C-x C-b
-  * Change size of font in Emacs: C-x C-+ / C-x C--
+  * Aborting a command: `esc esc esc`
+  * Listing all buffers: `C-x C-b`
+  * Change size of font in Emacs: `C-x C-+` / `C-x C--`
   
-  * Visual line mode, to wrap lines not cutting words: M-x visual-line-mode
-  * To remove wrapping: M-x toggle-truncate-lines
+  * Visual line mode, to wrap lines not cutting words: `M-x visual-line-mode`
+  * To remove wrapping: `M-x toggle-truncate-lines`
   
-  * Changing the encoding of the file: C-x C-m f
+  * Changing the encoding of the file: `C-x C-m f`
   
-  * Undo: C-/ or C-x u
-  * Redo: C-_
+  * Undo: `C-/` or `C-x u`
+  * Redo: `C-_`
 
-  * Quit: C-x C-c
+  * Quit: `C-x C-c`
 
 ## Window management
 
 Split windows
 
-  * In 2 horizontally: C-x 2
-  * In 2 vertically: C-x 3
+  * In 2 horizontally: `C-x 2`
+  * In 2 vertically: `C-x 3`
 
-  * Delete window: C-x 0
-  * Delete all other windows: C-x 1
+  * Delete window: `C-x 0`
+  * Delete all other windows: `C-x 1`
 
-  * Go to another window: C-x o
+  * Go to another window: `C-x o`
 
 ## Copy-paste
 
-  * Start of selection: C-space
-  * Copy: M-w
-  * Cut: C-w
-  * Paste: C-y
+  * Start of selection: `C-space`
+  * Copy: `M-w`
+  * Cut: `C-w`
+  * Paste: `C-y`
 
 ## Modes
 
 Major modes
 
-  * Javascript: M-x js-mode
-  * Line numbers: M-x linum-mode (can be automated, see <.emacs>)
+  * Javascript: `M-x js-mode`
+  * Line numbers: `M-x linum-mode` (can be automated, see <.emacs>)
 
 ### Latex mode
 
+```
 M-x latex-mode
+```
 
 Two commands to know when editing:
 
-  * C-c C-o env-name: creates the `begin` and `end` of the environments
-  * C-o C-e: ends the current not ended environment
-  * C-c {: creates {}
-  * C-c }: matches with the recent open {
+  * `C-c C-o env-name`: creates the `begin` and `end` of the environments
+  * `C-o C-e`: ends the current not ended environment
+  * `C-c` {: creates {}
+  * `C-c` }: matches with the recent open {
 
 To activate spellcheck under Linux:
 
-  * Enter into flyspell-mode: M-X flyspell-mode
-  * M-$: to enter into the dictionary recommendations
+  * Enter into flyspell-mode: `M-X flyspell-mode`
+  * `M-$`: to enter into the dictionary recommendations
 
 ### Markdown mode
 
 To enter the mode (is automatic when correctly installed)
 
-  * Markdown: M-x markdown-mode
+  * Markdown: `M-x markdown-mode`
   
 Insert
 
-  * C-c C-l: Insert link
-  * C-c C-i: Insert image
-  * C-c C-s -: horizontal rule
-  * C-c C-s f: footnote
+  * `C-c C-l`: Insert link
+  * `C-c C-i`: Insert image
+  * `C-c C-s -`: horizontal rule
+  * `C-c C-s f`: footnote
 
 Formatting:
 
-  * C-c C-s i: italic
-  * C-c C-s b: bold
-  * C-c C-s c: online code
-  * C-c C-s q: block quote
+  * `C-c C-s i`: italic
+  * `C-c C-s b`: bold
+  * `C-c C-s c`: online code
+  * `C-c C-s q`: block quote
   
 Headings:
 
-  * C-c C-s h: automatic
-  * C-c C-s 1 to 6: header level
+  * `C-c C-s h`: automatic
+  * `C-c C-s 1 to 6`: header level
 
 -------------------------------------------------------------------------------
 
@@ -125,6 +127,28 @@ To be retested with Gygwin installation.
 
 Please see the .emacs file sample attached.
 
+## Under Windows
 
+  * Find the location of the .emacs file: `C-x C-f ~/.emacs`.
+    * For portable Emacs 26.1 under Windows 7: `C:\Users\TOTO\AppData\Roaming\`
 
+## Setting a proxy
+
+The best thing to do is to set a global proxy for the workstation, like: [cntlm](http://cntlm.sourceforge.net/).
+
+Then, write in the .emacs file:
+
+```
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+     ("http" . "proxy.com:8080")
+     ("https" . "proxy.com:8080")))
+
+(setq url-http-proxy-basic-auth-storage
+    (list (list "proxy.com:8080"
+                (cons "Input your LDAP UID !"
+                      (base64-encode-string "LOGIN:PASSWORD")))))
+```
+
+In case of external proxy, the first variable is sufficient.
 
