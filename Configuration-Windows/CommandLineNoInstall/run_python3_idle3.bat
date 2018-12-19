@@ -1,0 +1,5 @@
+set PYTHON3PATH=C:\Path\To\Python3
+set PYTHONPATH=%PYTHON3PATH%:%PYTHON3PATH%\lib
+set PATH=%PYTHONPATH%:%PATH%
+
+%PYTHON3PATH%\Lib\idlelib\idle.bat

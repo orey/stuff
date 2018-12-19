@@ -1,0 +1,6 @@
+[http]
+	proxy = 127.0.0.1:3128
+	sslVerify = false
+[user]
+	name = Olivier Rey
+	email = rey.olivier@gmail.com
