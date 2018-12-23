@@ -92,7 +92,7 @@ We could think about removing `s1 p o .` after `s2` is created but as the semant
 Let's consider the pattern:
 
 ```
-q = p<sub>1</sub> o p<sub>2</sub> o ... o p<sub>n</sub>
+q = p(1) o p(2) o ... o p(n)
 ```
 
 with `p<sub>i</sub>` a set of predicates.
@@ -100,10 +100,10 @@ with `p<sub>i</sub>` a set of predicates.
 ```
 s q a .
 if
-x<sub>n</sub> p<sub>n</sub> a .
-and x<sub>n-1</sub> p<sub>-1</sub> x<sub>n</sub> .
+x(n) p(n) a .
+and x(n-1) p(n-1) x(n) .
 and ..
-and s p<sub>1</sub> x<sub>2</sub> . 
+and s p(1) x(2) . 
 ```
 
 `q` id just a new "predicate name".
@@ -156,33 +156,14 @@ Some predicates can have special transitivity features.
 
 ## Special predicates
 
-  * Transitive predicates
-  * 
+  * Transitive predicates: `a r b .` and `b r c .` => `a r c .` 
+  * Commutative predicates: `a r b .` => `b r a .`
+  * Semantic inversion (very used in Owl): `p` is the inverse of `r`, so if `a r b .` => `b p a .`
 
+## To do
 
-Ou a2 previous a1 . et a3 previous a2 . => a3 previous a1 .
-On pourrait tagguer les relations associatives :
-previous type associative .
-imply type associative .
-In pourrait tagguer les relations commutatives
-synonyme type commutative .
-
-Revoir la notion de liste
-
-L’inversion des triples q = inverse(p)
-s p o . implique o q s .
-Et on peut avoir une chaîne sémantique avec des inverses.
-
-
-Action : regarder le temporel de gruf
-
-Il y a 2 sujets :
-La création du graph sémantique depuis la grammaire
-Les transfos de graphe
-
-
-En chantier :
-Premier sujet :
-Pour un sujet s : trouver tous les x p : 
-s p? x? et x? p? s
+  * Re-analyze the list notion in the RDF standard
+  * Re-analyze the Gruf temporal display
+  * Formalization of grammar in table parsing => grammar being a semantic graph
+  * List graph transformations in Sparql-like
 
