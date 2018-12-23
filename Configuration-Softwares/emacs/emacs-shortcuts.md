@@ -94,11 +94,15 @@ Headings:
   * `C-c C-s h`: automatic
   * `C-c C-s 1 to 6`: header level
 
+## UTF-8
+
+  * `M-x recode-region` and then provide `utf-8`
+
 -------------------------------------------------------------------------------
 
 ## Installation comments
 
-### Markdown nstallation
+### Markdown installation
 
 Note: Markdown must be installed
 https://jblevins.org/projects/markdown-mode/ for installation instructions
