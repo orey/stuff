@@ -95,7 +95,7 @@ Let's consider the pattern:
 q = p(1) o p(2) o ... o p(n)
 ```
 
-with `p<sub>i</sub>` a set of predicates.
+with `p(i)` a set of predicates.
 
 ```
 s q a .
@@ -117,7 +117,7 @@ If we have: `s p o ; q a .`
 We can define a subgraph by "removing" the  `q`  predicate:
 
 ```
-graph(s , 1) \ {q} => s p o .
+graph(s , depth=1) \ {q} => s p o .
 ```
 
 ## Classical inferences
