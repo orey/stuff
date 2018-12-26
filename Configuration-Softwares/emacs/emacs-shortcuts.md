@@ -50,6 +50,7 @@ Major modes
 
   * Javascript: `M-x js-mode`
   * Line numbers: `M-x linum-mode` (can be automated, see <.emacs>)
+  * RDF n3 major mode: https://github.com/kurtjx/n3-mode-for-emacs
 
 ### Latex mode
 
