@@ -8,6 +8,8 @@ Prefer portable versions. Use ```.bat``` scripts to include the various binaries
 set PATH="C:\Tools\MyPath":%PATH
 ```
 
+Command lines: Many tools can be run provided there is a JRE in the path. Some may have a untrivial launching commands. See [here](https://github.com/orey/stuff/tree/master/Configuration-Windows/CommandLineNoInstall) for sample of portable tools.
+
 ## Important tools
 
 Here is a list of important tools and tricks to install the portable versions:
@@ -27,6 +29,8 @@ git config --global http.sslVerify false
 ```
 
 Good page to browse: https://confluence.atlassian.com/bitbucketserverkb/ssl-certificate-problem-unable-to-get-local-issuer-certificate-816521128.html
+
+See also the [recipe](https://github.com/orey/stuff/tree/master/Configuration-Windows/Recipes) page.
 
 ### Miktex
 
