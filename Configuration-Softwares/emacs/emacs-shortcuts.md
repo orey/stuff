@@ -11,7 +11,7 @@ These are the most basic commands I need to work with emacs. See further for the
   * `C-x C-s`: save file
   * `C-x C-w`: save as
 
-  * Aborting a command: `esc esc esc`
+  * To quit partially typed command: `C-g` or `esc esc esc`
   * Listing all buffers: `C-x C-b`
   * Change size of font in Emacs: `C-x C-+` / `C-x C--`
   
@@ -105,7 +105,8 @@ Headings:
 
 ### Markdown installation
 
-Note: Markdown must be installed
+Note: Markdown must be installed by typing `M-x package-install RET markdown-mode RET`
+
 https://jblevins.org/projects/markdown-mode/ for installation instructions
 
 ### Portable version of Emacs on Windows 10
