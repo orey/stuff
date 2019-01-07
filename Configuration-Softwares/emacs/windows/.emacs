@@ -33,3 +33,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;=== Enabling aspell under windows from a Cygwin install
+(add-to-list 'exec-path "C:/Tools/DEV/Software/cygwin64/bin/")
+(setq ispell-program-name "aspell")
+; Does not work
+; (setq ispell-personal-dictionary "~/.ispell")
+; but with a cygwin installed, stores the personal dict in /home/USER/.aspell.en.pws
+(require 'ispell)
+(global-set-key (kbd "<f8>") 'ispell-word)
+(global-set-key (kbd "C-<f8>") 'flyspell-mode)
