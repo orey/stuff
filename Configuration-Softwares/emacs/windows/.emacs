@@ -43,3 +43,6 @@
 (require 'ispell)
 (global-set-key (kbd "<f8>") 'ispell-word)
 (global-set-key (kbd "C-<f8>") 'flyspell-mode)
+
+(require 'package)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
