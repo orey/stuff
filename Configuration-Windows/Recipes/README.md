@@ -22,6 +22,7 @@ Cygwin can be hard to fully operate in an hostile environment.
 Useful commands to integrate into the `.bashrc`:
 
 ```
+# Usefull alias
 alias dev='cd c:/Path/to/DEV'
 alias ll='ls -al'
 
@@ -40,6 +41,36 @@ REQUESTS_CA_BUNDLE=c:/Path/To/DEV/cert/cacert.pem
 export REQUESTS_CA_BUNDLE
 
 export PYTHONPATH=C:/Path/To/DEV/Software/cygwin64/lib/python3.6
+```
+
+Usefull Cygwin programs
+
+  * python3
+  * nano
+  * curl
+  * wget
+  * git
+  * bash-completion
+
+Some installations of Cygwin are not consistent:
+
+  * `pip3 install module` installs the module in `/cygdrive/c/path/to/cygwin64/lib/python3.6/site-packages`
+  * The default configuration sets the `sys.path` variable to `/usr/lib/python3.6/*`
+
+Creating a link to `/cygdrive/c/path/to/cygwin64/lib` can solve the problem.
+
+```
+$ cd /usr
+$ ln -s /cygdrive/c/path/to/cygwin64/lib lib
+```
+
+Alternatively, all important folders can be added to the `sys.path` by adding them to the `PYTHONPATH`:
+
+```
+export PYTHONHOME=/cygdrive/c/path/to/cygwin64/lib/python3.6
+export PYTHONPATH=$PYTHONHOME:$PYTHONHOME/site-packages:$PYTHONHOME/lib-dynload
+export PATH=$PYTHONPATH:$PATH
+
 ```
 
 ## Git
