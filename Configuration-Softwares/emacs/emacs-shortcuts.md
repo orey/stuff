@@ -158,3 +158,10 @@ Then, write in the .emacs file:
 
 In case of external proxy, the first variable is sufficient.
 
+## Replacing tabs by spaces
+
+```
+(setq-default indent-tabs-mode nil)
+```
+
+

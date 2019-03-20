@@ -49,3 +49,9 @@
 ;; If you want to make it load just a little faster;
 ;; C-x f n3-mode.el
 ;; M-x byte-compile-file n3-mode.el
+
+; Remove tabs and replace by spaces
+(setq-default indent-tabs-mode nil)
+
+
+
