@@ -19,7 +19,7 @@ with open(fname, 'w') as fil:
     for f in onlyfiles:
         if f.endswith('.PNG') or f.endswith('.png'):
             count += 1
-            fil.write("[Image" + str(count) + "](" + f + ")\n\n")
+            fil.write("![Image" + str(count) + "](" + f + ")\n\n")
             print(f)
 fil.close()
 
