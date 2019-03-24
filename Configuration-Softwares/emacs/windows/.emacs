@@ -46,3 +46,7 @@
 
 (require 'package)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
+; Remove tabs and replace by spaces
+(setq-default indent-tabs-mode nil)
+

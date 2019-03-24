@@ -64,3 +64,5 @@
 
 (setq backup-directory-alist `(("." . "/home/olivier/.emacs-saves")))
 
+; Remove tabs and replace by spaces
+(setq-default indent-tabs-mode nil)
