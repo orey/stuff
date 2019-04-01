@@ -1,9 +1,10 @@
-#================================
-# Personal md to html converter
-# Author: O. Rey
-# Date: March 22 2019
-# License: GPL V3
-#================================
+#------------------------------------------
+# Custom converter md to html
+#------------------------------------------
+# Author : O. Rey
+# License : GPL V3
+# Date : March 2019
+#------------------------------------------
 #!/bin/python3
 import os, sys
 

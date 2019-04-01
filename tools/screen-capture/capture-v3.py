@@ -45,7 +45,7 @@ if __name__ == "__main__":
         newfilename = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + ".png"
         os.rename(os.path.join(os.getcwd(),image), os.path.join(targetdir, newfilename))
         print("Generated file: " + newfilename)
-        pyperclip.copy("![](" + newfilename + ")")
+        pyperclip.copy("![screenshot](" + newfilename + ")")
         print("Filename copied to clipboard (MD link format)")
         
     
