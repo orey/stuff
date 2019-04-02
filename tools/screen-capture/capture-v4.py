@@ -1,7 +1,7 @@
 #---------------------------------------
 # Screen capture Rafale
 # Author: O. Rey
-# Date: January 2019
+# Date: April 2019
 # Licence: GPL V3
 #---------------------------------------
 # Usage: Change the TARGET directory right
@@ -22,8 +22,14 @@ from pathlib import Path
 TARGET = 'C:/Path/To/__Screens'
 NAME   = "default.png"
 
+def format_link_md(completefilename):
+    return "![screenshot](" + completefilename + ")"
+
+def format_link_zim(completefilename):
+    return "{{file:///" + completefilename.replace('\\', '/') + "}}"
+
 if __name__ == "__main__":
-    folder = input ("== Screen capture ==\nProvide a folder: ")
+    folder = input ("== Screen capture Rafale ==\nProvide a folder: ")
     if folder == "":
         folder = "default"
     targetdir = os.path.join(TARGET, folder)
@@ -32,9 +38,13 @@ if __name__ == "__main__":
     image = ""
     shotnumber = 0
     devicenumber = 1
+    outputformat = 0 # zim
     q = input("Device? [1] ")
     if q == "2":
         devicenumber = 2
+    form = input("Format (zim or md)? [zim] ")
+    if form == "md":
+        outputformat = 1
     while True:
         q = input("Shot? [no] ")
         if q == "no":
@@ -50,9 +60,18 @@ if __name__ == "__main__":
             print("Capture failed. Exiting.")
             exit(0)
         newfilename = datetime.now().strftime("%Y%m%d_%H%M%S_%f") + ".png"
-        os.rename(os.path.join(os.getcwd(),image), os.path.join(targetdir, newfilename))
-        print("Generated file: " + newfilename)
-        pyperclip.copy(newfilename)
-        print("Filename copied to clipboard")
+
+        # Strange behavior on Windows: backslash is introduced
+        # completefilename = os.path.join(targetdir, newfilename)
+
+        completefilename = targetdir + '/' + newfilename
+        os.rename(os.path.join(os.getcwd(),image), completefilename)
+        print("Generated file: " + completefilename)
+        if outputformat == 1:
+            pyperclip.copy(format_link_md(completefilename))
+            print("Filename copied to clipboard (md format)")
+        else: 
+            pyperclip.copy(format_link_zim(completefilename))
+            print("Filename copied to clipboard (zim format)")
         
     
