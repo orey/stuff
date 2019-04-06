@@ -130,5 +130,50 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
   * See the batch into the Archi folder to include a certificate inside the embedded Archi JRE.
   * Archi may use the `.gitconfig` file option, especially the `SSLVerify=False` that can be useful for the collaboration plugin of Archi.
 
+## Extended list of useful softwares that can be installed without admin rights
 
+### General tools
+
+  * cygwin
+  * cntlm => proxy
+  * DoubleCommander
+  * Emacs
+  * FreeFileSync
+  * Git
+  * innoump => to unpack installations
+  * Zim
+
+### Latex
+
+  * MikTek
+  * Texstudio
+
+### Dev
+
+  * eclipse
+  * node
+  * WinMerge
+
+### Java
+
+  * jdk
+  * netbeans
+  
+### Architecture tools
+  
+  * Archi
+  * Yed
+  
+### Systems engineering tools
+
+  * Capella
+  
+### Specific software
+  
+  * Apache Jena
+  * Fuseki
+
+### Puzzles
+
+  * Simon Tatham's puzzle collection
 
