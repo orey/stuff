@@ -26,10 +26,10 @@ def format_link_md(completefilename):
     return "![screenshot](" + completefilename + ")"
 
 def format_link_zim(completefilename):
-    return "{{file:///" + completefilename.replace('\\', '/') + "}}"
+    return "{{file:///" + completefilename.replace('\\', '/') + "?width=800}}"
 
 if __name__ == "__main__":
-    folder = input ("== Screen capture Rafale ==\nProvide a folder: ")
+    folder = input ("== Screen capture Rafale ==\nProvide a folder (current month): ")
     if folder == "":
         folder = "default"
     targetdir = os.path.join(TARGET, folder)
