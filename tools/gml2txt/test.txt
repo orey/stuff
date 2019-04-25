@@ -1,0 +1,83 @@
+
+EB
+SEL-02 To establish the Commercial Policy
+SEL-01 To Monitor, Anticipate and Influence the Market
+SEL-05 To Forecast Bookings
+SEL-04 To Manage the Business Partners
+SEL-03 To Manage Offers and Sell
+SEL-06 To Capture the Market
+ET
+DEV-01 To Perform Requirements Engineering
+DEV-02 To perform concept and design
+DEV-03 To industrialize
+DEV-04 To test
+DEV-06 To perform Certification / Qualification
+DEV-08 To Perform Configuration Management
+DEV-09 To manage technical activities
+DEV-10 To develop airplane doors
+ED
+PRD-02 To Manage Transfer of Work
+PRD-03 To prepare and decide Make or Buy
+PRD-04 To Perform Sales and Operations Planning (S&amp;OP)
+PRD-05 To perform MPS Master Production Schedule
+PRD-06 - To manage non program CAPEX
+PRD-10 To distribute and store products
+PRD-14 To assemble helicopters
+PRD-15 To manufacture single parts &amp; components
+ES
+G-SUP-01-513 Manage Key Performance Indicator (KPI)
+G-SUP-01-514 Monitor the AOG wall
+G-SUP-01-516 Glossary
+SUP-01 To Supply Spares Support and Logistics Services Worldwide
+SUP-02 To perform Helicopter maintenance, repair, overhaul &amp; upgrade
+SUP-03 To manage and deliver Components MRO Services
+SUP-04 To deliver Training and Flight Ops to customers
+SUP-05 To provide Technical Support to Customers
+SUP-06 To realize and issue Technical Data and Service Bulletins
+SUP-07 To manage ILS Readiness
+SUP-11 To Develop &amp; Deliver Connected Services
+SUP-12 To manage support profitability
+EY
+PRG-02 To manage programme profitability
+PRG-01 To Manage the Product Life Cycle
+PRG-04 To Manage Serial Contracts
+PRG-03 To manage new developments and upgrades
+EP
+SRC-01 To manage Procurement Strategy
+SRC-02 To collect Needs and prepare Tendering
+SRC-03 To manage Tendering and contract supplier
+SRC-04 To manage Contract and Claims
+SRC-05 To develop and monitor suppliers
+SRC-06 To order and receive products and services
+SRC-07 To Manage Program Procurement
+SRC-08 To manage Non Aero activities
+Configuration management information flow from CES (simplified)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
