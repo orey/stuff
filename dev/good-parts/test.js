@@ -83,7 +83,11 @@ console.log(bbb.getPriv());
 console.log(bbb);
 console.log('---------------------')
 
-
+var y = {a: 12, b: "string"};
+y.prototype = Object;
+var z = y.create();
+z.c = 45
+console.log(z);
 
 
 
