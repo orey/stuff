@@ -50,3 +50,4 @@
 ; Remove tabs and replace by spaces
 (setq-default indent-tabs-mode nil)
 
+(delete-selection-mode 1)
