@@ -153,6 +153,8 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
   * eclipse
   * node
   * WinMerge
+  * Apache Jena/Fuseki
+  * Puzzles
 
 ### Java
 
