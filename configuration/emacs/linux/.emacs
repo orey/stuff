@@ -1,11 +1,13 @@
-; .Emacs file for Debian 9
+; .Emacs file for Debian 10
 
 ;==== For markdown support
 ; If it does not work: apt install elpa-markdown-mode markdown
 (require 'package)
 (add-to-list 'package-archives
-    '("melpa-stable" . "https://stable.melpa.org/packages/"))
+    '("melpa" . "https://stable.melpa.org/packages/"))
 (package-initialize)
+; This instruction contacts melpa at startup
+(package-refresh-contents)
 
 ;=== Enabling line numbers globally to emacs
 (when (version<= "26.0.50" emacs-version )
@@ -17,13 +19,13 @@
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;=== Default fonts
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9"))
-(set-face-attribute 'default t :font "DejaVu Sans Mono-9")
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-8"))
+(set-face-attribute 'default t :font "DejaVu Sans Mono-8")
 
-(set-face-attribute 'default nil :font "DejaVu Sans Mono-9")
-(set-frame-font "DejaVu Sans Mono-9" nil t)
+(set-face-attribute 'default nil :font "DejaVu Sans Mono-8")
+(set-frame-font "DejaVu Sans Mono-8" nil t)
 
-(set-default-font "DejaVu Sans Mono-9")
+(set-default-font "DejaVu Sans Mono-8")
 
 ;;;
 ;; n3 mode
@@ -41,6 +43,9 @@
       (append
        (list
         '("\\.n3" . n3-mode)
+        '("\\.rdf" . n3-mode)
+        '("\\.rdfs" . n3-mode)
+        '("\\.ttl" . n3-mode)
         '("\\.owl" . n3-mode))
        auto-mode-alist))
 
@@ -54,7 +59,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (markdown-mode))))
+ '(package-selected-packages (quote (rust-mode markdown-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -67,4 +72,10 @@
 ; Remove tabs and replace by spaces
 (setq-default indent-tabs-mode nil)
 
+; Selection replaced by typing
 (delete-selection-mode 1)
+
+; Enable rust-mode by default
+; Install it before : M-x package install rust-mode
+(require 'rust-mode)
+
