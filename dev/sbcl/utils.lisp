@@ -6,3 +6,6 @@
 
 (defun symb (&rest args)
   (values (intern (apply #'mkstr args))))
+
+(defun consify (arg)
+  (cons arg nil))
