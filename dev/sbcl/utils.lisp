@@ -9,3 +9,18 @@
 
 (defun consify (arg)
   (cons arg nil))
+
+(defun increment ()
+  (let ((i 0))
+    ((lambda () (incf i)))))
+
+(let ((counter 0))
+  (defun my-inc ()
+    (incf counter))
+  (defun my-reset ()
+    (setf counter 0)))
+
+    
+
+
+
