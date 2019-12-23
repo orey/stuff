@@ -20,7 +20,7 @@
   (defun my-reset ()
     (setf counter 0)))
 
-    
-
+(defmacro avg (&rest args)
+  `(/ (+ ,@args) ,(length args)))
 
 
