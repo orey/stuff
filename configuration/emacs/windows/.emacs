@@ -5,12 +5,13 @@
      ("http" . "127.0.0.1:3128")
      ("https" . "127.0.0.1:3128")))
 
-(setq backup-directory-alist `(("." . "C:/Tools/DEV/.emacs-saves")))
+(setq backup-directory-alist `(("." . "C:/ProgramData/orey/.emacs-saves")))
 
 ;==== For markdown support
 (require 'package)
 (add-to-list 'package-archives
-    '("melpa-stable" . "https://stable.melpa.org/packages/"))
+             '("melpa-stable" . "https://stable.melpa.org/packages/")
+             '("org" . "https://orgmode.org/elpa/"))
 (package-initialize)
 
 ;=== Enabling line numbers globally to emacs
@@ -35,7 +36,7 @@
  )
 
 ;=== Enabling aspell under windows from a Cygwin install
-(add-to-list 'exec-path "C:/Tools/DEV/Software/cygwin64/bin/")
+(add-to-list 'exec-path "C:/ProgramData/orey/Software/cygwin64/bin/")
 (setq ispell-program-name "aspell")
 ; Does not work
 ; (setq ispell-personal-dictionary "~/.ispell")
@@ -51,3 +52,11 @@
 (setq-default indent-tabs-mode nil)
 
 (delete-selection-mode 1)
+
+;=== Default fonts : Courier New Regular-10
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-8"))
+(set-face-attribute 'default t   :font "DejaVu Sans Mono-8")
+(set-face-attribute 'default nil :font "DejaVu Sans Mono-8")
+(set-frame-font     "DejaVu Sans Mono-8" nil t)
+(set-default-font   "DejaVu Sans Mono-8")
+
