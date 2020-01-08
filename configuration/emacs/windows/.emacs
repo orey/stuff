@@ -54,9 +54,11 @@
 (delete-selection-mode 1)
 
 ;=== Default fonts : Courier New Regular-10
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-8"))
-(set-face-attribute 'default t   :font "DejaVu Sans Mono-8")
-(set-face-attribute 'default nil :font "DejaVu Sans Mono-8")
-(set-frame-font     "DejaVu Sans Mono-8" nil t)
-(set-default-font   "DejaVu Sans Mono-8")
+(add-to-list 'default-frame-alist '(font . "Courier New-9"))
+(set-face-attribute 'default t   :font "Courier New-9")
+(set-face-attribute 'default nil :font "Courier New-9")
+(set-frame-font     "Courier New-9" nil t)
+(set-default-font   "Courier New-9")
 
+;=== UTF-8 as default encoding
+(set-language-environment "UTF-8")
