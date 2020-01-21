@@ -15,6 +15,7 @@ Command lines: Many tools can be run provided there is a JRE in the path. Some m
 Here is a list of important tools and tricks to install the portable versions:
 
   * Cntlm
+    * In case of "Couldn't compute FAST_CWD pointer", please check your ini file is in ISO format (and not UTF-8)
   * DoubleCommander
 
 ### Git
