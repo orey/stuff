@@ -28,7 +28,7 @@ RULE_LINE = {"_":"",
 
 #--- unsymetrical rule
 RULE_LINK = {"[[|]]":"!(|)",
-             "file:|":()}
+             "file:| ":"(|)"}
 
 
 def convert_line(stri):
@@ -96,6 +96,7 @@ def test():
     print(convert_line("[[ /un/lien/vers/le/paradis.png]]"))
     print(convert_line("[[/un/lien/vers/le/paradis.png ]]"))
     print(convert_line("du texte [[/un/lien/vers/le/paradis.png]] encore du texte"))
+    print(convert_line("du texte avec un lien fichier
 
     
     
