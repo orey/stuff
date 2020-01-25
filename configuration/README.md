@@ -161,6 +161,10 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
 
   * jdk
   * netbeans
+
+### Python
+
+  * PyScripter for Windows only
   
 ### Architecture tools
   

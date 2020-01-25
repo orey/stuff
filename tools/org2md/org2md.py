@@ -1,8 +1,6 @@
 #!/bin/python3
 
-#import sys, os, markdown, codecs
-
-import sys, codecs
+import sys, os, codecs, glob
 
 from pathlib import Path
 
@@ -27,8 +25,7 @@ RULE_LINE = {"_":"",
              "/":"_"}
 
 #--- unsymetrical rule
-RULE_LINK = {"[[|]]":"!(|)",
-             "file:| ":"(|)"}
+RULE_LINK = {"[[|]]":"!(|)"}
 
 
 def convert_line(stri):
@@ -68,17 +65,18 @@ def convert_line(stri):
     return newstr
 
 
-def convert(f):
+def convert(sourcefile, targetfile):
     """ Convert """
-    print(f.name)
-    test()
-    with f.open(encoding="utf-8") as ff:
-        content = ff.readlines()
-        for line in content:
-            print(convert_line(line))
-            
+    input = codecs.open(sourcefile, mode="r", encoding="utf-8", errors='ignore')
+    output = codecs.open(targetfile, mode="w", encoding="utf-8")
+    content = input.readlines()
+    for line in content:
+        output.write(convert_line(line))
+    input.close()
+    output.close()
 
-    
+
+
 def test():
     print(convert_line("** Titre2"))
     print(convert_line("* Titre 1"))
@@ -96,47 +94,67 @@ def test():
     print(convert_line("[[ /un/lien/vers/le/paradis.png]]"))
     print(convert_line("[[/un/lien/vers/le/paradis.png ]]"))
     print(convert_line("du texte [[/un/lien/vers/le/paradis.png]] encore du texte"))
-    print(convert_line("du texte avec un lien fichier
+    print(convert_line("du texte avec un lien fichier file:../toto/titi.txt "))
+    print(convert_line("du texte avec un lien fichier file:../toto/titi.txt"))
+    
 
-    
-    
 
-    
-if __name__ ==  "__main__":
-    folder = None
-    consopath = ""
-    myfile = None
-    if len(sys.argv) != 0:
-        print("=== Debug mode")
-        myfile = Path(MYPATH + "org/2020/202001.org")
-        if myfile.is_file():
-            convert(myfile)
-            sys.exit(0)
-        else:
-            print("error")
-            sys.exit(1)
-    print("=== org2md converter")
-    print("=== Configured path: " + MYPATH)
+def ask_for_input_dir(rootdir, msg):
+    dirname = input(msg)
+    fulldirname = os.path.join(rootdir, dirname)
     while True:
-        consopath = MYPATH + input("=== Provide a relative folder [folder/subfolder/.../subfolder]: ")
-        folder = Path(consopath)
-        if folder.is_dir():
-            break;
+        if os.path.isdir(fulldirname):
+            return fulldirname
         else:
-            print(consopath + ": Not a valid directory")
-    while True:
-        temp = consopath + "/" + input("=== Provide the filename to convert: ")
-        myfile = Path(temp)
-        if myfile.is_file():
-            break;
-        else:
-            print(temp + ": Not a valid file")
-    convert(myfile)
-    
-    
-
+            print(fulldirname + " is not a valid directory. Try again...")
 
             
-    print("Success: " + consopath + " is a folder")
-    print("Success: " + myfile.name + " is a file")
+def ask_for_input_file(rootdir, msg):
+    while True:
+        filename = input(msg)
+        fullfilename = os.path.join(rootdir, filename)
+        if os.path.isfile(fullfilename):
+            return filename, fullfilename
+        else:
+            print(filename + " is not a valid file. Try again...")
+
+            
+def ask_for_output_dir(rootdir, msg):
+    dirname = input(msg)
+    fulldirname = os.path.join(rootdir, dirname)
+    if os.path.exists(fulldirname) and os.path.isdir(fulldirname):
+        return fulldirname
+    else:
+        os.makedirs(fulldirname)
+        return fulldirname
+
     
+def change_extension(filename, old_ext, new_ext):
+    if filename.split('.')[-1] != old_ext:
+        print("Not an " + old_ext + " file. Exiting...")
+        sys.exit(1)
+    return filename.split('.')[-2] + '.' + new_ext
+    
+
+if __name__ ==  "__main__":
+    print("=== org2md converter")
+    print("=== Configured path: " + MYPATH)
+    fulldirname = ask_for_input_dir(MYPATH,
+                                    "=== Provide a relative folder [folder/subfolder/.../subfolder]: ")
+    targetdir = ask_for_output_dir(MYPATH,
+                                   "=== Provide a relative output dir: ")
+    convertall = input("=== Convert all files in folder? [n/y] ")
+    if not convertall == "y":
+        filename, fullfilename = ask_for_input_file(fulldirname,
+                                                    "=== Provide the filename to convert: ")
+        newfilename = change_extension(filename, "org", "md")
+        targetfile = os.path.join(targetdir, newfilename)
+        convert(fullfilename, targetfile)
+    else:
+        flist = glob.glob(fulldirname + "/*.org")
+        for f in flist:
+            newfilename = os.path.join(targetdir, change_extension(os.path.split(f)[1], "org", "md"))
+            convert(f, newfilename)
+            print(f + " file converted")
+            
+
