@@ -14,5 +14,20 @@ List the devices to address the proper one.
 
 Warning: To create a bootable USB key, you have to target /dev/**sdb** and not /dev/**sdb1**
 
+## Partition configuration Debian
+
+Disks:
+
+  * /dev/sda: 1 Tb
+  * /dev/sdb: 32 Gb Flash
+
+This configuration seems to be nice:
+
+  * /dev/sda
+    * Boot partition UEFI 5 Gb
+    * Data ext4: 995 Gb
+  * /dev/sdb
+    * swap: 32 Gb
+
 
     
