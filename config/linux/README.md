@@ -29,5 +29,8 @@ This configuration seems to be nice:
   * /dev/sdb
     * swap: 32 Gb
 
+## Backlight
 
-    
+To set backlight(in administrative mode)
+
+    $ echo 4882 > /sys/class/backlight/intel_backlight/brightness
