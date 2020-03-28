@@ -164,4 +164,13 @@ In case of external proxy, the first variable is sufficient.
 (setq-default indent-tabs-mode nil)
 ```
 
+## Changing themes
+
+In interactive:
+
+  * M-X customize-themes
+  
+Tango dark is nice.
+
+
 
