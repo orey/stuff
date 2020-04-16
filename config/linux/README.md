@@ -34,3 +34,31 @@ This configuration seems to be nice:
 To set backlight(in administrative mode)
 
     $ echo 4882 > /sys/class/backlight/intel_backlight/brightness
+
+## DNS issue with Debian
+
+In some installations, the ```/etc/resolv.conf``` file can use the "domain" provided in the installation like that:
+
+```
+mydomain
+search:mydomain
+```
+
+This file can be overriden and so any direct modification is useless.
+
+First, install the ```resolvconf``` package. Then, edit the ```/etc/resolvconf/resolv.conf.d/head``` with the following names:
+
+```
+# Address of the box
+192.168.1.1
+# Google DNS names
+8.8.8.8
+8.8.8.4
+```
+
+Then run ```resolvconf -u``` to update the resolv.conf file.
+
+
+
+
+
