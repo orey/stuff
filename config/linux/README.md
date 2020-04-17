@@ -37,6 +37,21 @@ To set backlight(in administrative mode)
 
 ## DNS issue with Debian
 
+### Check the hostname
+
+In a console, type:
+```
+$ hostname
+```
+
+to determine your hostname.
+
+```
+debian
+```
+
+### DNS resolv.conf
+
 In some installations, the ```/etc/resolv.conf``` file can use the "domain" provided in the installation like that:
 
 ```
@@ -58,7 +73,16 @@ First, install the ```resolvconf``` package. Then, edit the ```/etc/resolvconf/r
 
 Then run ```resolvconf -u``` to update the resolv.conf file.
 
+### Check also your "hosts" file
 
+Located in ```/etc/hosts```, your file may contain:
+
+```
+192.168.1.1  box
+127.0.0.1    localhost
+127.0.0.1    debian.home debian
+
+```
 
 
 
