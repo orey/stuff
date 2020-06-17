@@ -1,4 +1,6 @@
-set PYTHON3PATH=C:\MyFolder\MyStuff\Software\Python-3.7.2
+rem This script does not work
+
+set PYTHON3PATH=C:\ProgramData\orey\Python-3.7.4
 rem set PYTHONHOME=%PYTHON3PATH%
 set PYTHONPATH=%PYTHON3PATH%;%PYTHON3PATH%\Lib;%PYTHON3PATH%\Scripts
 set PATH=%PYTHONPATH%;%PATH%
@@ -10,5 +12,4 @@ set HTTP_PROXY=%proxy%
 set https_proxy=%proxy%
 set HTTPS_PROXY=%proxy%
 
-set REQUESTS_CA_BUNDLE=C:\MyFolder\MyStuff\cert\cacert.pem
-
+set REQUESTS_CA_BUNDLE=C:\ProgramData\orey\cert\cacert.pem

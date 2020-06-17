@@ -8,33 +8,28 @@ Prefer portable versions. Use ```.bat``` scripts to include the various binaries
 set PATH="C:\Tools\MyPath":%PATH
 ```
 
-Command lines: Many tools can be run provided there is a JRE in the path. Some may have a untrivial launching commands. See [here](https://github.com/orey/stuff/tree/master/Configuration-Windows/CommandLineNoInstall) for sample of portable tools.
+## Java software
 
-## Important tools
+If your administrator already installed a default JRE in your system, you can use several tools from any folder, provided you know how to launch them in command line.
+
+To know the default version of your JRE type: `java -version`
+
+See the `CommandLineNoInstall` folder for a potential list of tools that you can run easily.
+
+## Basic tools: proxy and explorer
 
 Here is a list of important tools and tricks to install the portable versions:
 
-  * Cntlm
+  * Cntlm local proxy
     * In case of "Couldn't compute FAST_CWD pointer", please check your ini file is in ISO format (and not UTF-8)
-  * DoubleCommander
+    * A good alternative to Cntlm is Px proxy: https://github.com/genotrance/pxhttps://github.com/genotrance/px
+  * DoubleCommander is running on evey environment ans is quite powerful
 
-### Git
+## Git
 
-Use the portable version. Declare the firewall option:
+See the dedicated README page in the `Git` folder.
 
-```
-git config --global http.proxy http://user:password@firewal.com:8080
-```
-
-If your firewall is using a certificate that is internally signed, Git may complain like ```SSL Certificate problem: unable to get local issuer```. Try this.
-
-```
-git config --global http.sslVerify false
-```
-
-Good page to browse: https://confluence.atlassian.com/bitbucketserverkb/ssl-certificate-problem-unable-to-get-local-issuer-certificate-816521128.html
-
-See also the [recipe](https://github.com/orey/stuff/tree/master/Configuration-Windows/Recipes) page.
+## Latex on Windows with no installation rights
 
 ### Miktex
 
@@ -48,25 +43,19 @@ set ALL_PROXY="http://user:pasword@firewall.com:8080"
 
 Could be useful add the path to Miktex in the PATH (generally in install/miktex/bin).
 
-### Python (native Windows)
+## Python (native Windows)
 
-1. You can download the zip version and put it in a directory.
+Look at the `Python` subfolder in this folder.
 
-2. Then, set the environment variables as shown in the `Python\setenv.bat` file.
+## Cygwin
 
-3. Download `get-pip.py` on the Pypy site and run `python get-pip.py`. This will install pip.
-
-4. Then, modify the `python37._pth` path accordingly to the `Python\python37._pth` file to enable pip to work.
-
-5. Install modules with `pip install module`.
-
-## Home folder
+### Home folder
 
 Most portable or Linux-like tools require a home directory.
 
 Under Windows, the home directory is: `C:\Users\Toto\`. In a Cygwin configuration, the home directory is: `C:\Path\To\cygwin64\home\Toto\`.
 
-## Cygwin
+### Cygwin
 
 Cygwin can be hard to fully operate in an hostile environment.
 
@@ -77,7 +66,7 @@ Useful commands to integrate into the `.bashrc`:
 alias dev='cd c:/Path/to/DEV'
 alias ll='ls -al'
 
-# Cntlm proxy
+# Cntlm or Px proxy
 proxy=127.0.0.1:3128
 
 # Classical proxy environment variables
@@ -128,59 +117,25 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
 
 ## Archi
 
-  * See the batch into the Archi folder to include a certificate inside the embedded Archi JRE.
+  * See the batch files into the Archi folder to include a certificate inside the embedded Archi JRE. This is generally the best way to get through firewalls.
   * Archi may use the `.gitconfig` file option, especially the `SSLVerify=False` that can be useful for the collaboration plugin of Archi.
 
-## Extended list of useful softwares that can be installed without admin rights
+## Other usefull tools
 
-### General tools
-
-  * cygwin
-  * cntlm => proxy
-  * DoubleCommander
   * Emacs
   * FreeFileSync
-  * Git
   * innoump => to unpack installations
-  * Zim
-
-### Latex
-
-  * MikTek
-  * Texstudio
-
-### Dev
-
+  * Zim: a great Python personal Wiki (wee also the `scree-capture` compatible python script in the `tools` folder of this repo).
   * eclipse
   * node
   * WinMerge
   * Apache Jena/Fuseki
   * Puzzles
-
-### Java
-
   * jdk
   * netbeans
-
-### Python
-
   * PyScripter for Windows only
-  
-### Architecture tools
-  
-  * Archi
-  * Yed
-  
-### Systems engineering tools
-
-  * Capella
-  
-### Specific software
-  
-  * Apache Jena
-  * Fuseki
-
-### Puzzles
-
+  * Yed (can be run with any JRE with `java -jar yed.jar`)
+  * Capella for systems engineering tool
   * Simon Tatham's puzzle collection
 
+*(Last update: June 2020)*
