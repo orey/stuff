@@ -20,7 +20,7 @@ https://github.com/genotrance/px
 
 You may need to add certificates for certain manipulations.
 
-## pip installtion
+## pip installation
 
 Download `get-pip.py` on the Pypy site and run `python get-pip.py`. This will install pip.
 
@@ -37,6 +37,16 @@ https://packaging.python.org/tutorials/installing-packages/#creating-and-using-v
 ## Module installation
 
 Install modules with `pip install module`.
+
+## Strange problems with sme python modules
+
+### Installtion error with the future module
+
+It seems that the `future` module cannot be installed through `pip` on Windows.
+
+Type: `easy_install future` instead, despite the warning of deprecation (tested with Python 3.7.4 and 3.8.3).
+
+Then, it will be possible to install more complex packages, such as `mkdocs` via the standard `pip install mkdocs`.
 
 ## Warning about installations on Windows
 
