@@ -99,6 +99,14 @@ Headings:
 
   * `M-x recode-region` and then provide `utf-8`
 
+## Web
+
+  * `M-x eww` to launch the browser
+  * `M-ENTER` to create a new "tab"
+  * `l` "left" to go back
+  * `r` "right" to go forward
+  * `R` to enter in "read" mode
+
 -------------------------------------------------------------------------------
 
 ## Installation comments
