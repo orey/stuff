@@ -106,6 +106,7 @@ Headings:
   * `l` "left" to go back
   * `r` "right" to go forward
   * `R` to enter in "read" mode
+  * `q` to quit
 
 -------------------------------------------------------------------------------
 
