@@ -18,4 +18,7 @@ First of all, see the README file in the `stuff/config/java` folder.
   * Think about the firewall by adding the ``gradle.properties` file with proxy information ([px](https://github.com/genotrance/px) would be a good choice).
   * In case of a problem downloading, there may be a certificate to add to the `cacerts` of the JRE you are using, at least the one related to the URL of the repo that fails
 
+## Installer
+
+The installer is pointing to the right JDK (`install-compendium.bat`).
 
