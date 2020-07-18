@@ -7,3 +7,8 @@ capital(italy,rome).
 capital(ireland,dublin).
 capital(germany,berlin).
 capital(poland,warsaw).
+capital(chile,lima).
+capital(argentina,buenos-aires).
+capital(algeria,alger).
+capital(tunisia,tunis).
+capital(lybia,tripoli).
