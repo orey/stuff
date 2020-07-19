@@ -12,3 +12,5 @@ capital(argentina,buenos-aires).
 capital(algeria,alger).
 capital(tunisia,tunis).
 capital(lybia,tripoli).
+capital(austria,vienna).
+capital(luxembourg,luxembourg).
