@@ -1,11 +1,11 @@
-# Tips for running development tools in professional environment
+# Tips for running development tools in professional Win64 environment
 
 ## Portable versions
 
 Prefer portable versions. Use ```.bat``` scripts to include the various binaries.
 
 ```
-set PATH="C:\Tools\MyPath":%PATH
+set PATH=C:\Tools\MyPath:%PATH%
 ```
 
 ## Java software
@@ -138,4 +138,4 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
   * Capella for systems engineering tool
   * Simon Tatham's puzzle collection
 
-*(Last update: June 2020)*
+*(Last update: July 2020)*
