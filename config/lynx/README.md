@@ -24,6 +24,8 @@ $ lynx -lss lynx.lss
 
 Or use the basic shell script attached.
 
+Note: `lynx2.lss` and `lynx3.lss` are alternate style sheets.
+
 ### Bookmarks
 
 The file `lynx_bookmarks.html` is located in the ~ folder and seems to be found automatically by lynx (which is not the case for `lynx.lss`).
