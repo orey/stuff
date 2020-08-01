@@ -72,7 +72,11 @@ signature-file=
 # e.g. feature-list= select-without-confirm, signature-at-bottom
 # Default condition for all of the features is no-.
 feature-list=enable-incoming-folders,
-	enable-incoming-folders-checking
+	enable-incoming-folders-checking,
+	enable-msg-view-web-hostnames,
+	enable-msg-view-attachments,
+	enable-msg-view-addresses,
+	enable-msg-view-urls
 
 # Alpine executes these keys upon startup (e.g. to view msg 13: i,j,1,3,CR,v)
 initial-keystroke-list=
@@ -173,7 +177,7 @@ unknown-character-set=
 
 # Specifies the program invoked by ^_ in the Composer,
 # or the "enable-alternate-editor-implicitly" feature.
-editor=emacs
+editor=""
 
 # Specifies the program invoked by ^T in the Composer.
 speller=
@@ -308,7 +312,7 @@ mailcap-search-path=
 mimetype-search-path=
 
 # List of programs to open Internet URLs (e.g. http or ftp references).
-url-viewers=
+url-viewers="/usr/bin/lynx _URL_"
 
 # List of directories that are preferred locations to save or export attachments.
 default-directories=
