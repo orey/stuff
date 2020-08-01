@@ -312,7 +312,8 @@ mailcap-search-path=
 mimetype-search-path=
 
 # List of programs to open Internet URLs (e.g. http or ftp references).
-url-viewers="/usr/bin/lynx _URL_"
+# url-viewers="/usr/bin/lynx -lss /home/olivier/lynx.lss _URL_"
+url-viewers="/usr/bin/lynx -lss /home/olivier/lynx3.lss _URL_"
 
 # List of directories that are preferred locations to save or export attachments.
 default-directories=
