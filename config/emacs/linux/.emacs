@@ -79,3 +79,14 @@
 ; Install it before : M-x package install rust-mode
 (require 'rust-mode)
 
+; play with musltiple dicts in flyspell-mode
+(global-set-key
+ [f3]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "francais")))
+(global-set-key
+ [f4]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "english")))
