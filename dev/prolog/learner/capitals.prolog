@@ -14,3 +14,4 @@ capital(tunisia,tunis).
 capital(lybia,tripoli).
 capital(austria,vienna).
 capital(luxembourg,luxembourg).
+capital(china,beijin).

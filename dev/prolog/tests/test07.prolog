@@ -1,2 +1,3 @@
-consult('capitals.prolog).
+larger(A,B,A) :- A>B, !.
+larger(A,B,B).
 

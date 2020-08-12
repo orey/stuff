@@ -65,10 +65,33 @@ Two commands to know when editing:
   * `C-c` {: creates {}
   * `C-c` }: matches with the recent open {
 
-To activate spellcheck under Linux:
+### To activate spellcheck under Linux
 
   * Enter into flyspell-mode: `M-X flyspell-mode`
   * `M-$`: to enter into the dictionary recommendations
+
+If you want to chose between dictionaries, add the following to your `.emacs`:
+
+```
+(global-set-key
+ [f3]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "francais")))
+(global-set-key
+ [f4]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "english")))
+```
+
+Then, ensure that you have the proper `aspell` dictionary installed, otherwise:
+
+```
+root: $ apt install aspell-fr
+```
+
+Then activate `flyspell-mode` minor mode and play with the function keys.
 
 ### Markdown mode
 
