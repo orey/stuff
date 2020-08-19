@@ -90,3 +90,7 @@
  (lambda ()
    (interactive)
    (ispell-change-dictionary "english")))
+
+; Change the selection color
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+
