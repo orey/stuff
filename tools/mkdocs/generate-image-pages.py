@@ -10,22 +10,24 @@ from os import listdir
 from os.path import isfile, join
 from string import Template
 
-IMAGES_EXT = ["png", "jpg", "jpeg"]
+IMAGES_EXT = [".png", ".jpg", ".jpeg"]
 
 def get_valid_folder(mystr):
-    ok = false
+    ok = False
     while (not ok):
         indir = input(mystr)
         if os.path.isdir(indir):
+            print(indir)
             return indir
         else:
             print("Folder is not valid.")
 
 def get_valid_file(mystr):
-    ok = false
+    ok = False
     while (not ok):
         infile = input(mystr)
         if os.path.isfile(infile):
+            print(indir)
             return infile
         else:
             print("File is not valid.")
@@ -36,68 +38,103 @@ def parsefilename(fname):
     Returns year month day
     '''
     filename, file_extension = os.path.splitext(fname)
-    return filename[0:4],filename[4:6],filename[6:8], filename + "." + file_extension
+    return filename[0:4],filename[4:6],filename[6:8]
 
-YEAR_HEADER = Template("# Année $year\n\n")
-YEAR_MONTH  = Template("## Month $month\n\n")
+
+YEAR_HEADER = Template("# YEAR $year\n\n")
+YEAR_MONTH  = Template("## MONTH $month\n\n")
 
 IMAGE = Template("![image]($image)\n\n")
 
-MONTH_HEADER = Template("# Mois $month $year\n\n")
-MONTH_DAY    = Template("## Day $day\n\n")
+MONTH_HEADER = Template("# MONTH $month $year\n\n")
+MONTH_DAY    = Template("## DAY $day\n\n")
 
-DAY_HEADER = Template("# Jour $day $month $year\n\n")
+DAY_HEADER = Template("# DAY $day $month $year\n\n")
 
-def generate_summary_page(indir, outdir):
+
+def generate_pages(indir, outdir, relpath):
     onlyimages = []
     for f in listdir(indir):
         filename, file_extension = os.path.splitext(f)
-        if (isfile(f) and file_extension in IMAGES_EXT):
+        print(filename + " | " + file_extension)
+        if (file_extension in IMAGES_EXT):
             onlyimages.append(f)
+            print(f)
     onlyimages.sort()
     currentyear  = ""
     currentmonth = ""
     currentday   = ""
+    yearfile = None
+    monthfile = None
+    dayfile = None
     for f in onlyimages:
-        theyear, themonth, theday, theimage = parsefilename(f)
-        yearfile = monthfile = dayfile = None
+        theyear, themonth, theday = parsefilename(f)
+        print(f)
         if (currentyear == ""):
+            # First image will provide the year for the other lines
             currentyear = theyear
             yearfile = open(os.path.join(outdir, theyear + ".md"), "w")
-            yearfile.writeln(YEAR_HEADER.substitute(year=theyear))
-        if (currentmont == ""):
-            monthfile = themonth
-            monthfile = open(os.path.join(outdir, theyear + themonth + ".md"), "w")
-            monthfile.writeln(MONTH_HEADER.substitute(month=themonth,year=theyear))
-            yearfile.writeln(MONTH_HEADER.substitute(month=themonth,year=theyear))
-        if ((currentmonth != "") and (themonth != currentmonth)):
+
+            print(">>> file " + os.path.join(outdir, theyear + ".md") + "opened")
+            a = input("pause")
+            
+            print(os.path.join(outdir, theyear + ".md"))
+            yearfile.write(YEAR_HEADER.substitute(year=theyear))
+        if (currentmonth == ""):
+            # First time we create the month both in the year file and in the month file
             currentmonth = themonth
+            monthfile = open(os.path.join(outdir, theyear + themonth + ".md"), "w")
+
+            print(">>> file " + os.path.join(outdir, theyear + themonth + ".md") + "opened")
+            a = input("pause")
             
+            monthfile.write(MONTH_HEADER.substitute(month=themonth,year=theyear))
+            yearfile.write(YEAR_MONTH.substitute(month=themonth,year=theyear))
+        if ((currentmonth != "") and (themonth != currentmonth)):
+            # Change on month
+            currentmonth = themonth
+            monthfile.close()
+            monthfile = open(os.path.join(outdir, theyear + themonth + ".md"), "w")
+
+            print(">>> file " + os.path.join(outdir, theyear + themonth + ".md") + "opened")
+            a = input("pause")
+
+            monthfile.write(MONTH_HEADER.substitute(month=themonth,year=theyear))
+            yearfile.write(YEAR_MONTH.substitute(month=themonth,year=theyear))
         if (currentday == ""):
-            dayfile = theday
+            # first day
+            currentday = theday
             dayfile = open(os.path.join(outdir, theyear + themonth + theday + ".md"), "w")
-            dayfile.writeln(DAY_HEADER.substitute(day=theday,month=themonth,year=theyear))
-        yearfile.writeline(IMAGE.substitute(image=theimage))
+
+            print(">>> file " + os.path.join(outdir, theyear + themonth + theday+ ".md") + "opened")
+            a = input("pause")
+
+            dayfile.write(DAY_HEADER.substitute(day=theday,month=themonth,year=theyear))
+            monthfile.write(MONTH_DAY.substitute(day=theday))
+        if ((currentday != "") and (theday != currentday)):
+            currentday = theday
+            if dayfile != None:
+                dayfile.close()
+            dayfile = open(os.path.join(outdir, theyear + themonth + theday + ".md"), "w")
+
+            print(">>> file " + os.path.join(outdir, theyear + themonth + theday+ ".md") + "opened")
+            a = input("pause")
+
+            dayfile.write(DAY_HEADER.substitute(day=theday,month=themonth,year=theyear))
+            if monthfile != None:
+                monthfile.write(MONTH_DAY.substitute(day=theday))
+            else:
+                print("Strange case: month file not opened => " + themonth)
+        yearfile.write(IMAGE.substitute(image=relpath+f))
+        monthfile.write(IMAGE.substitute(image=relpath+f))
+        dayfile.write(IMAGE.substitute(image=relpath+f))
         
-            
-            
         
-
-
-
-
-
-
-
-    
-def generate_day_pages(infile, indir, outdir):
-            
 if __name__ == "__main__":
     indir = get_valid_folder("Input the folder where the images are located: ")
     outdir = get_valid_folder("Input an output folder for the generated files: ")
-
-    generate_summary_page(indir, outdir)
-    generate_day_pages(indir, outdir)
+    relpath = input("Provide the relative path of images with / at the end: ")
+    generate_pages(indir, outdir, relpath)
 
 
 
