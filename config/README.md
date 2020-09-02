@@ -1,5 +1,12 @@
 # Tips for running development tools in professional Win64 environment
 
+## Environment variables in Windows
+
+* From Start menu open Control Panel.
+* In Control panel Go to "User Accounts".
+* In the user Accounts, Click on "Change my environment variables"
+* A Environment Variables dialog will get opened. You can add/edit/delete your environment variables and Path in the highlighted section.
+
 ## Portable versions
 
 Prefer portable versions. Use ```.bat``` scripts to include the various binaries.
@@ -28,20 +35,6 @@ Here is a list of important tools and tricks to install the portable versions:
 ## Git
 
 See the dedicated README page in the `Git` folder.
-
-## Latex on Windows with no installation rights
-
-### Miktex
-
-Use the portable version. To set the firewall, set the following variable:
-
-```
-set ALL_PROXY="http://user:pasword@firewall.com:8080"
-```
-
-### TexStudio
-
-Could be useful add the path to Miktex in the PATH (generally in install/miktex/bin).
 
 ## Python (native Windows)
 

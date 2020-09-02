@@ -93,6 +93,14 @@ root: $ apt install aspell-fr
 
 Then activate `flyspell-mode` minor mode and play with the function keys.
 
+**Configuring the build**
+
+```
+(global-set-key (kbd "<f5>") 'compile)
+```
+
+Call the compile command that can be a batch.
+
 ### Markdown mode
 
 To enter the mode (is automatic when correctly installed)
