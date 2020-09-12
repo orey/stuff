@@ -19,7 +19,7 @@ import os, sys, pyperclip
 
 from pathlib import Path
 
-TARGET = 'C:/Users/a876246/Documents/oreyboulot-Airbus/Airbus Helicopters/__minutes/2020/'
+TARGET = 'C:/Users/a876246/Documents/oreyboulot-Airbus/Airbus Helicopters/__minutes/airbus/docs/images/2020/'
 NAME   = "default.png"
 
 def format_link_md(completefilename):
@@ -41,16 +41,16 @@ if __name__ == "__main__":
     image = ""
     shotnumber = 0
     devicenumber = 1
-    outputformat = 2 # org
+    outputformat = 1 # org
     q = input("Device? [1] ")
     if q == "2":
         devicenumber = 2
     meeting_name = input("Meeting name [meeting]:")
     if meeting_name == "":
         meeting_name = "meeting"
-    form = input("Format (zim, md, org)? [org] ")
-    if form == "md":
-        outputformat = 1
+    form = input("Format (zim, md, org)? [md] ")
+    if form == "org":
+        outputformat = 2
     elif form == "zim":
         outputformat = 0
     all_links = []
