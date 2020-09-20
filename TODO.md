@@ -16,3 +16,7 @@
 
 * Translate the core scenarios ideas from the creator of Risus
 * Maybe create a site with mkdocs
+
+## oreditions
+
+* Adding old materials
