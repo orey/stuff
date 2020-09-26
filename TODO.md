@@ -1,6 +1,6 @@
 # Global to do list
 
-## srd-3.5 repo
+## srd-3.5
 
 * Keep on copying images ftom html to complete the md version
 * Publish a mkdocs version
@@ -16,6 +16,10 @@
 
 * Translate the core scenarios ideas from the creator of Risus
 * Maybe create a site with mkdocs
+
+## D6-dimensions
+
+* Finish to write the scenario
 
 ## oreditions
 
