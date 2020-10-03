@@ -4,6 +4,90 @@
 
 Going from a language to another is quite painful. This page gathers some correspondance between languages.
 
+## Load a file in REPL and exiting REPL
+
+Js
+
+```
+$ node
+> .load my_file.js
+>
+> .exit
+```
+
+## Tokenizing a string
+
+Js
+
+```
+let str = "This is a test";
+// splits at the spaces and returns an array
+let res = str.split(" ");
+```
+
+## String to int
+
+Js
+
+```
+let myvar = parseInt("10");
+```
+
+## String to int
+
+Js
+
+```
+let num = 15;
+let myvar = num.toString();
+```
+
+## Add element to list
+
+Js array
+
+```
+let myvar = [12, 15, 20];
+myvar.push(56);
+```
+
+
+## Objects
+
+JS
+
+```
+class MyClass {
+    constructor(param1, param2) {
+        this.member = 12;
+        blah();
+    }
+    
+    set member(x) {
+        this.member = x;
+    }
+    
+    get member() {
+        return this.member;
+    }
+
+}
+```
+
+None existing objects are ```undefined```.
+
+
+## True and False
+
+JS
+
+```
+let a = true;
+let b = false;
+```
+
+
+
 ## Functions and procedures
 
 Python
