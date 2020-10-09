@@ -20,6 +20,7 @@
 ## oracles
 
 * Include the generator of situations linked with the list of situation of the Risus creator.
+* Include cache in the web page.
 
 ## D6-dimensions
 
