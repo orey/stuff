@@ -17,6 +17,10 @@
 * Translate the core scenarios ideas from the creator of Risus
 * Maybe create a site with mkdocs
 
+## oracles
+
+* Include the generator of situations linked with the list of situation of the Risus creator.
+
 ## D6-dimensions
 
 * Finish to write the scenario
