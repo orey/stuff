@@ -212,5 +212,7 @@ In interactive:
   
 Tango dark is nice.
 
+## Simple code folding in emacs
 
+Version of ```.emacs``` tagged ```10OCT20``` is proposing a binding on ```F9```.
 
