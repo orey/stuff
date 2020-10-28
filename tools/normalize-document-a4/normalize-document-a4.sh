@@ -12,7 +12,7 @@ fi
 pdfinfo $1
 
 echo "Processing $1"
-pdfjam --outfile $2 --paper a4paper $1
+pdfjam --outfile $2 --paper a4paper --scale 0.9 $1
 
 pdfinfo $2
 
