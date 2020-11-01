@@ -36,3 +36,12 @@ This will create an image name `prefix-000` that you will be able to edit with G
 
 Upload your work on lulu and you're done.
 
+## Classic series of actions for PDF with scans
+
+* Use `pdfimages source.pdf` to extract bmp images from source.
+* Find the proper geometry to resize all images at the same size, using `resize-images-fit.sh`.
+* When all images are at the same format, create images with the proper ratio: `width / height = 0.707` in A4/A5. Compare with the artio of your images and add blank or black margins using `resize-images-blank.sh` or `resize-images-black.sh`.
+* When you have the proper ratio, convert the bmp images into a compressed version with `convert-images.sh`. PNG is a good format.
+* Generate a first version of your PDF by typing `convert *.pdf output1.pdf`. This can be very long if your book is big.
+* Normalize your PDF with internal margins in A4 or A5 format with `normalize-document-a4.sh` or `normalize-document-a5.sh`.
+* You can upload on Lulu.com.
