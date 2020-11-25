@@ -162,7 +162,7 @@ Perception of time<y:LabelModel>
           <y:BorderStyle color="#993300" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="node_width" configuration="CroppingLabel" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="51.28125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#993300" verticalTextPosition="bottom" visible="true" width="218.0" x="0.0" y="19.859375">Affective
 ---
-Proble resolution<y:LabelModel>
+Problem resolution<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
