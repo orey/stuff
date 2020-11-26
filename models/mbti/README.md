@@ -31,7 +31,7 @@ Dans le monde Myers-Briggs, il y aura donc 16 types de personnalités. Myers et 
 
 Des questionnaires MBTI (Myers-Briggs Type Indicator) existent gratuitement en ligne.
 
-## Utilisation du MBTI en entreprise
+## Les types psychologiques en entreprise
 
 ### Structurellement, tout le monde ne se comprend pas
 
