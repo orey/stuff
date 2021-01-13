@@ -16,28 +16,56 @@ from mss import mss
 from datetime import datetime
 import os, sys, pyperclip
 # import clipboard
+import cv2
 
 from pathlib import Path
 
-TARGET = 'C:/path/to/files/'
+TARGET = 'C:/target/to/dir/'
 NAME   = "default.png"
 
 FORMAT_ZIM = 0
 FORMAT_ORG = 1
 FORMAT_MD  = 2
 
+THUMBNAIL_PERCENT = 10
+
+#------------------------------------------------
+# Resize image
+#------------------------------------------------
+def resize_image(path, imagename):
+    image = cv2.imread(path + '/' + imagename)
+    width = int(image.shape[1] * THUMBNAIL_PERCENT / 100)
+    height = int(image.shape[0] * THUMBNAIL_PERCENT / 100)
+    dim = (width, height)
+    # resize image
+    #resized = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+    resize = cv2.resize(image, dim)
+    resizename = path + '/thumbnails/thumb_' + imagename
+    cv2.imwrite(resizename, resize)
+    return resizename
+
+
+#------------------------------------------------
+# Format links
+#------------------------------------------------
 def format_link_md(completefilename):
     return "![screenshot](" + completefilename + ")"
 
 def format_link_zim(completefilename):
     return "{{file:///" + completefilename.replace('\\', '/') + "?width=600}}"
 
-def format_link_org(completefilename):
-    return "[[file:" + completefilename.replace('\\', '/')+ "]]"
+def format_link_org(completefilename, link=False):
+    if link:
+        return "[[file: " + completefilename.replace('\\', '/')+ ']]'
+    else:
+        return "[[file:" + completefilename.replace('\\', '/')+ "]]"
 
 def get_month():
     return str(datetime.today().month).zfill(2)
 
+#------------------------------------------------
+# Format links
+#------------------------------------------------
 if __name__ == "__main__":
     folder = input ("== Screen capture Rafale ==\nProvide a folder [current month]: ")
     if folder == "":
@@ -48,16 +76,16 @@ if __name__ == "__main__":
     image = ""
     shotnumber = 0
     devicenumber = 1
-    outputformat = FORMAT_ZIM
+    outputformat = FORMAT_ORG
     q = input("Device? [1] ")
     if q == "2":
         devicenumber = 2
     meeting_name = input("Meeting name [meeting]:")
     if meeting_name == "":
         meeting_name = "meeting"
-    form = input("Format (zim, md, org)? [zim] ")
-    if form == "org":
-        outputformat = FORMAT_ORG
+    form = input("Format (zim, md, org)? [org] ")
+    if form == "zim":
+        outputformat = FORMAT_ZIM
     elif form == "md":
         outputformat = FORMAT_MD
     all_links = []
@@ -94,7 +122,12 @@ if __name__ == "__main__":
             pyperclip.copy(temp)
             print("Filename copied to clipboard (md format)")
         elif outputformat == FORMAT_ORG:
-            temp = format_link_org(completefilename)
+            # The treatment is slightly different because it must appear in emacs
+            # as a thumbnail
+            resizename = resize_image(targetdir, newfilename)
+            # temp = format_link_org(completefilename)
+            temp = format_link_org(resizename)
+            temp += '\n' + format_link_org(completefilename, True)
             all_links.append(temp)
             pyperclip.copy(temp)
             print("Filename copied to clipboard (org format)")
