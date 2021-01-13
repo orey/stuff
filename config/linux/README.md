@@ -84,5 +84,12 @@ Located in ```/etc/hosts```, your file may contain:
 
 ```
 
+## Global zoom for LXDE
 
+Create a `.Xresources` file in the home diretory and type:
 
+```
+Xft.dpi: 80
+```
+
+100 is the standard value. 200 will zoom all graphical controls, and 80 will reduce everything.
