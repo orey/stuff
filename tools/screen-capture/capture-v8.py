@@ -20,7 +20,7 @@ import cv2
 
 from pathlib import Path
 
-TARGET = 'C:/Users/a876246/Documents/oreyboulot-Airbus/Airbus Helicopters/__minutes/2021/'
+TARGET = 'C:/path/to/images/'
 NAME   = "default.png"
 
 FORMAT_ZIM = 0
