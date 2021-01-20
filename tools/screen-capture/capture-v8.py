@@ -55,7 +55,7 @@ def format_link_zim(completefilename):
     return "{{file:///" + completefilename.replace('\\', '/') + "?width=600}}"
 
 def format_link_org(completefilename, resizename):
-    return "[[file:" + resizename + "]]\n" + '@@html:<a href="' + completefilename +'"></a>@@'
+    return "[[file:" + resizename + "]]\n" + '@@html:<a href="' + completefilename +'">image</a>@@'
 
 def get_month():
     return str(datetime.today().month).zfill(2)
