@@ -14,8 +14,9 @@ fi
 for f in *.$1
 do 
     echo "Converting $f"
-    new="${f%.*}.txt"
-    cuneiform -f text -l fra -o $new $f  || tesseract $f $new -l fra
+    newcun="${f%.*}.txt"
+    newtess="${f%.*}"
+    cuneiform -f text -l fra -o $newcun $f  || tesseract $f $newtess -l fra
 done
 
 echo "Concatenating all text files in 'all.txt'"
