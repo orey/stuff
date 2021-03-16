@@ -7,6 +7,7 @@ if (Get-Process -Name "px" -ErrorAction SilentlyContinue)
 else
 {
     Start-Process -FilePath C:\ProgramData\orey\Software\px-v0.4.0\px.exe
+    Write-Output -Message "px started"
 }
 exit
 
