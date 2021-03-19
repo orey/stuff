@@ -12,6 +12,7 @@ set ALL_PROXY="http://user:pasword@firewall.com:8080"
 
 ### TexStudio
 
-Could be useful add the path to Miktex in the PATH (generally in install/miktex/bin).
+Could be useful to add the path to Miktex in the PATH (generally in install/miktex/bin).
+
 
 
