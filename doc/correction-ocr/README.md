@@ -1,6 +1,5 @@
 # Correction d'un OCR
 
-## Erreur classiques de l'OCR
 
 | Symbole | Commentaire |
 | --- | --- |
@@ -17,4 +16,7 @@
 | `1.` | Remplacer par des L |
 |  | Intégrité des paragraphes |
 | `"` | Attention aux citations de citations commençant par des ". Il faut le gérer à la main. |
-
+| `O` et `0`  | Ne pas confondre O et 0 |
+| `ÀÉÈÔ` | Majuscules accentuées |
+| | Cohérence dans les notes de bas de page. Par exemple `Saint`: `S.` |
+| `faîte`| Certains mots peuvent s'écrire sans accents mais n'ont pas le même sens |
