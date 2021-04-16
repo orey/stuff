@@ -26,6 +26,8 @@ Download `get-pip.py` on the Pypy site and run `python get-pip.py`. This will in
 
 https://pip.pypa.io/en/stable/installing/
 
+## Modify the python path
+
 Modify the `python37._pth` or `python38._pth` path accordingly to the `python37._pth` file in this folder to enable pip to work. Essentially, you will reference the `Lib` and `Script` folders and uncomment a line.
 
 ## Vitual environments
