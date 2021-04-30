@@ -1,15 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 clear
 
-if [ $# != 1 ]
+if [ $# -eq 0 ]
 then
     echo "Git publish script version 1"
-    echo "Usage : publish.sh [comment_between_quotes]"
+    echo "Usage : publish.sh [comments without quotes]"
     exit 0
 fi
 
 git add *
-git commit -a -m "$1"
+message=$@
+git commit -a -m "$message"
 git push origin master
 
 echo "Done"
