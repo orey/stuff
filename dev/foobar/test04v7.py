@@ -35,6 +35,7 @@ def baseline(s, count, alternates):
 def manageAlternates(alternates, count):
     mini = count
     log("Alternates: " + str(alternates))
+    print "Alternates: " + str(alternates)
     if (alternates == None) or (len(alternates) == 0):
         return mini
     for a in alternates:
@@ -63,8 +64,7 @@ def solution(s):
         log("Min = " + str(countbis))
         return countbis
 
-LEVEL = 0
-    
+
 if __name__ ==  "__main__":
     while True:
         print "----------------------------------"
