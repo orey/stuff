@@ -1,3 +1,5 @@
+VERBOSE = True
+
 def log(s):
     print s
     return
@@ -26,7 +28,8 @@ def long2BinString(lo):
 
 
 def reduce(s, count):
-    log("reduce : " + s + " - " + str(count))
+    if VERBOSE:
+        log("reduce : " + s + " - " + str(count))
     siz = len(s)
     # End of the loop
     if siz == 1:
@@ -38,13 +41,13 @@ def reduce(s, count):
         return count + 2
     # Particular case 2^n - 1
     if s.count('0') == 0:
-        return siz + 1 # +1 then siz steps
+        return count + siz + 1 # +1 then siz steps
     # Particular case 2^n + 1
     if (s.count('1') == 2) and (s[-1] == '1'):
-        return siz # -1 then siz -1 steps : siz -1 +1 = siz
+        return count + siz # -1 then siz -1 steps : siz -1 +1 = siz
     # Particular case 2^n + 3 (0b11)
-    if (s.count('1') == 3) and (s[-2:] == '11'):
-        return siz + 1 # size -2 + 3 (from 3 to 0)
+    if (siz > 3) and (s.count('1') == 3) and (s[-2:] == '11'):
+        return count + siz + 1 # size -2 + 3 (from 3 to 0)
     # Even
     if s[-1] == '0':
         # divide by 2
@@ -78,18 +81,43 @@ def solutionbaseline(str):
     return baseline(long2BinString(n), count)
 
 
+def analysis_a():
+    for i in range(1,1000):
+        b = solutionbaseline(str(i))
+        s = solution(str(i))
+        if (b != s):
+            log("For " + str(i) + " - " + str(bin(i)) + " : [B:" + str(b) + "][Min:" + str(s) + "]")
+        else:
+            log("For " + str(i) + " - " + str(bin(i)) + " : [B:" + str(b) + "]")
+
+def analysis_b():
+    for i in range(1,1000000):
+        b = solutionbaseline(str(i))
+        s = solution(str(i))
+        if (b < s):
+            log("For " + str(i) + " - " + str(bin(i)) + " : [B:" + str(b) + "][Min:" + str(s) + "]")        
+
+
+
 if __name__ ==  "__main__":
     while True:
-        log("----------------------------------")
-        log("Type 'exit' to exit, '0' to launch many tests ")
+        print "----------------------------------"
+        print "Type 'exit' to exit, 'a' to launch analysis "
         n = raw_input("Number to reduce > ")
-        if n == 'exit':
-            exit()
-        elif n == '0':
-            for i in range(1,1000):
-                if (solutionbaseline(str(i)) != solution(str(i))):
-                    log("Different for: " + str(i) + " - " + str(bin(i)))
-        else:
-            log("Baseline = " + str(solutionbaseline(str(n))))
-            log("Min operations = " + str(solution(str(n))))
+        try:
+            if n == 'exit':
+                exit()
+            elif n == 'a':
+                VERBOSE = False
+                analysis_a()
+            elif n == 'b':
+                VERBOSE = False
+                analysis_b()
+            else:
+                VERBOSE = True
+                print "Baseline = " + str(solutionbaseline(str(n)))
+                print "Min operations = " + str(solution(str(n)))
+        except Exception:
+            print "Unrecognized command"
+            continue
 
