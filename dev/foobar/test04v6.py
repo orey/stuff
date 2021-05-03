@@ -1,3 +1,19 @@
+def log(s):
+    print s
+
+def baseline(s, count):
+    siz = len(s)
+    if siz == 1:
+        return count
+    if s[-1] == '0':
+        # divide by 2
+        count += 1
+        return baseline(s[0:siz-1], count)
+    else:
+        # -1
+        count +=1
+        return baseline(s[0:siz-1] + '0', count)
+
 def binString2Long(s):
     return long('0b' + s, 2)
 
@@ -5,7 +21,7 @@ def long2BinString(lo):
     return str(bin(lo))[2:]
 
 def reduce(s, count):
-    print "reduce : " + s + " - " + str(count)
+    log("reduce : " + s + " - " + str(count))
     siz = len(s)
     # End of the loop
     if siz == 1:
@@ -43,12 +59,22 @@ def solution(str):
     count = 0
     return reduce(long2BinString(n), count)
 
+
+def solutionbaseline(str):
+    n = long(str)
+    if n == 1:
+        return 0
+    count = 0
+    return baseline(long2BinString(n), count)
+
 if __name__ ==  "__main__":
     while True:
-        print "Type 0 to exit"
+        log("----------------------------------")
+        log("Type 0 to exit")
         n = input("Number to reduce: ")
         if n == 0:
             exit()
         # n is already a string
-        print "Min operations = " + str(solution(n))
+        log("Baseline = " + str(solutionbaseline(n)))
+        log("Min operations = " + str(solution(n)))
 
