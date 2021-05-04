@@ -15,8 +15,6 @@ def downtopowerinf(s):
     powerinf = '1' + ('0' * (siz - 1))
     p = binString2Long(s) - binString2Long(powerinf)
     return p + siz
-
-
     
 def baseline(s, count):
     siz = len(s)
@@ -49,12 +47,16 @@ def reduce(s, count):
         return count
     if s == '10':
         return count + 1
-    # 3 (0b11) is irregular
     if s == '11':
         return count + 2
+    if s == '100':
+        return count + 2
+    if s == '101':
+        return count + 3
     # Particular case 2^n - 1
     if s.count('0') == 0:
         return count + siz + 1 # +1 then siz steps
+    # ----- From here siz > 3
     # Particular case 2^n + 1
     if (s.count('1') == 2) and (s[-1] == '1'):
         return count + siz # -1 then siz -1 steps : siz -1 +1 = siz
@@ -64,8 +66,18 @@ def reduce(s, count):
     # Even
     if s[-1] == '0':
         # divide by 2
-        count += 1
-        return reduce(s[0:siz-1], count)
+        # try the standard path
+        temp1 = reduce(s[0:siz-1], count+1)
+        # try alternate paths
+        count2 = count
+        s2 = long2BinString(binString2Long(s) + 2)
+        temp2 = reduce(s2[0:len(s2)-1], count2 + 2)
+        count3 = count
+        s3 = long2BinString(binString2Long(s) - 2)
+        temp3 = reduce(s3[0:len(s3)-1], count3 + 2)
+        log("Even - [" + str(temp1) + "][" + str(temp2) + "][" + str(temp3) + "]")
+        return min(temp1, temp2, temp3)
+        #return temp1
     else:
         temp1 = uptopowersup(s) + count
         temp2 = downtopowerinf(s) + count
@@ -74,10 +86,11 @@ def reduce(s, count):
         twofig = s[-2:]
         if twofig == '11':
             # best is to increment because we can divide twice by 2
-            temp3 = reduce(long2BinString(binString2Long(s) + 1), count+1)
+            temp3 = reduce(long2BinString(binString2Long(s) + 1), count + 1)
         else: # '01'
             # best is to decrement to divide twice per 2
-            temp3 = reduce(long2BinString(binString2Long(s) - 1), count+1)
+            temp3 = reduce(long2BinString(binString2Long(s) - 1), count + 1)
+        log("Odd - ["+ str(temp1) + "][" + str(temp2) + "][" + str(temp3) + "]")
         return min(temp1, temp2, temp3)
 
         
@@ -120,20 +133,20 @@ if __name__ ==  "__main__":
         print "----------------------------------"
         print "Type 'exit' to exit, 'a' to launch analysis "
         n = raw_input("Number to reduce > ")
-        try:
-            if n == 'exit':
-                exit()
-            elif n == 'a':
-                VERBOSE = False
-                analysis_a()
-            elif n == 'b':
-                VERBOSE = False
-                analysis_b()
-            else:
-                VERBOSE = True
-                print "Baseline = " + str(solutionbaseline(str(n)))
-                print "Min operations = " + str(solution(str(n)))
-        except Exception:
-            print "Unrecognized command"
-            continue
+        #try:
+        if n == 'exit':
+            exit()
+        elif n == 'a':
+            VERBOSE = False
+            analysis_a()
+        elif n == 'b':
+            VERBOSE = False
+            analysis_b()
+        else:
+            VERBOSE = True
+            print "Baseline = " + str(solutionbaseline(str(n)))
+            print "Min operations = " + str(solution(str(n)))
+        #except Exception:
+        #    print "Unrecognized command"
+        #    continue
 
