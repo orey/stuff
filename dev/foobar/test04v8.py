@@ -50,7 +50,7 @@ def baseline(s, count):
         # Odd R2c
         r2c = ruleR2c(s)
         log("[R2a:" + str(r2a) + "][R2b:" + str(r2b) + "][R2c:" + str(r2c) + "]")
-        return count + min(r2a, r2b, r2c)
+        return min(r2a, count + r2b, count + r2c)
 
 def solution(s):
     # s is a string
