@@ -10,36 +10,47 @@ def binString2Long(s):
 def long2BinString(lo):
     return str(bin(lo))[2:]
 
-def reduce(level, levels, alln):
+def reduce(verySup, level, levels, alln):
     temp = []
     listlevel = levels[level -1]
     for n in listlevel:
         siz = len(n)
         if n == '1':
-            return level # end of recursive loop
-        if n[-1] == 0: # even
+            return level-1 # end of recursive loop
+        # even
+        if n[-1] == '0':
             c = n[0:siz-1]
             if c not in alln:
                 alln.append(c)
                 temp.append(c)
+        # odd and even
+        d = n[0:siz-1] + '0' # -1
+        if d not in alln:
+            alln.append(d)
+            temp.append(d)
+        next = binString2Long(n) + 1
+        if next > verySup:
+            continue
         else:
-            d = n[0:siz-1] + '0' # -1
-            e = long2BinString(binString2Long(n) + 1)
-            if d not in alln:
-                alln.append(d)
-                temp.append(d)
+            e = long2BinString(next)
             if e not in alln:
                 alln.append(e)
                 temp.append(e)
     levels[level] = temp
-    #return reduce(level+1, levels, alln)
-    log(levels)
-    log(alln)
-                
-            
-            
-            
+    for key in levels.keys():
+        log("=== Level " + str(key) + "===")
+        log(levels[key])
+    #log(alln)
+    return reduce(verySup, level+1, levels, alln)
 
+def verySup(n):
+    '''
+    Return a long !
+    '''
+    if n.count('1') == 1:
+        # already a power of 2
+        return [True, len(n) -1]
+    return [False, binString2Long('1' + ('0' * len(n)))]
 
 def solution(s):
     n = long2BinString(long(s))
@@ -47,11 +58,12 @@ def solution(s):
     levels = {0:[n]}
     alln = [n]
     level = 1
-    reduce(level, levels, alln)
-    
-    
-    
-    
+    result = verySup(n)
+    log('VerySup = ' + str(result[1]))
+    if result[0]:
+        return result[1]
+    else:
+        return reduce(result[1], level, levels, alln)
 
 ### BASELINE
 def solutionbaseline(str):
