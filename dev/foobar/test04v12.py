@@ -37,9 +37,8 @@ def reduce(verySup, level, levels, alln):
                 alln.append(e)
                 temp.append(e)
     levels[level] = temp
-    for key in levels.keys():
-        log("=== Level " + str(key) + "===")
-        log(levels[key])
+    log("=== Level " + str(level) + "===")
+    log(levels[level])
     #log(alln)
     return reduce(verySup, level+1, levels, alln)
 
