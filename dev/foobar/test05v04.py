@@ -1,8 +1,10 @@
+from datetime import datetime
+
 def log(s):
-#    print s
+    print s
     return
 
-def calc(n, rank, sup):
+def calc(n, rank, sup, soluces):
     log(("    " * rank) + "rank=" + str(rank) + " n=" + str(n) + " sup=" +str(sup))
     result = 0
     if (n == 1) or (n == 2):
@@ -16,7 +18,6 @@ def calc(n, rank, sup):
             continue
         # 2 cols
         if rank == 1:
-            print i
             if rest < i:
                 result += 1
                 log(("    " * rank) + "SOLUTION : rank= "+str(rank)+" i=" + str(i) + " rest=" + str(rest))
@@ -25,11 +26,28 @@ def calc(n, rank, sup):
                 result += 1
                 log(("    " * rank) + "SOLUTION : rank= "+str(rank)+" i=" + str(i) + " rest=" + str(rest))
         # More colums
-        result += calc(rest,rank+1, i)
+        usesoluces = False
+        #log(soluces)
+        for s in soluces:
+            if s[0] == rest and s[1] == rank+1:
+                log(("    " * rank) + "Reused from soluces")
+                result += s[2]
+                usesoluces = True
+                break;
+        if not usesoluces:
+            result += calc(rest, rank+1, i, soluces)
+    if [n, sup, result] not in soluces:
+        soluces.append([n, sup, result])
     return result
 
 def solution(n):
-    return calc(n, 1, 0)
+    # [[n, sup, value], ... ]
+    soluces = [[1,0,0],[2,0,0]]
+    start = datetime.now()
+    a = calc(n, 1, 0, soluces)
+    log("Elapse time=" +str(datetime.now() -start))
+    print soluces
+    return a
 
 
 

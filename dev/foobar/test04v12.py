@@ -37,7 +37,7 @@ def reduce(verySup, level, levels, alln):
                 alln.append(e)
                 temp.append(e)
     levels[level] = temp
-    log("=== Level " + str(level) + "===")
+    log("=== Level " + str(level) + " ===")
     log(levels[level])
     #log(alln)
     return reduce(verySup, level+1, levels, alln)
@@ -94,6 +94,9 @@ if __name__ ==  "__main__":
         #try:
         if n == 'exit':
             exit()
+        elif n == 'big':
+            a = '9' * 309
+            print solution(a)
         else:
             VERBOSE = True
             print "Baseline = " + str(solutionbaseline(str(n)))
