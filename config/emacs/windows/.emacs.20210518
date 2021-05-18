@@ -1,0 +1,115 @@
+; .Emacs file for Windows
+
+;=== Support for UTF-8
+(set-language-environment "UTF-8")
+
+; By default be in visual line mode & truncate lines
+(global-visual-line-mode t) ; interactive: M-X visual-line-mode
+(set-default 'truncate-lines t) ; interactive: M-X toggle-truncate-lines
+
+;=== Local proxy
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+     ("http" . "127.0.0.1:3128")
+     ("https" . "127.0.0.1:3128")))
+
+;=== Redirect backup
+(setq backup-directory-alist `(("." . "C:/ProgramData/orey/.emacs-saves")))
+
+;==== For markdown support
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/")
+             '("org" . "https://orgmode.org/elpa/"))
+(package-initialize)
+; This instruction contacts melpa at startup
+;(package-refresh-contents)
+
+;=== Enabling line numbers globally to emacs
+(when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
+
+;=== Enabling recent files
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;=== Enabling aspell under windows from a Cygwin install
+(add-to-list 'exec-path "C:/ProgramData/orey/cygwin64/bin/")
+(setq ispell-program-name "aspell")
+
+;=== Enabling F3 and F4 keys for dictionaries
+(global-set-key
+ [f3]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "francais")))
+(global-set-key
+ [f4]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "english")))
+
+;=== Adding shortcut for flyspell-mode
+(require 'ispell)
+;(global-set-key (kbd "C-<f8>") 'ispell-word)
+(global-set-key (kbd "<f8>") 'flyspell-mode)
+
+;=== Remove tabs and replace by spaces
+(setq-default indent-tabs-mode nil)
+
+;=== Mode overwrite on selection
+(delete-selection-mode 1)
+
+;=== org management of images
+;(load "C:/Users/a876246/AppData/Roaming/.emacs.d/eimp/eimp.el")
+;(setq org-image-actual-width 400)
+;(setq org-startup-with-inline-images t)
+
+;=== Adding shortcut for compilation
+(global-set-key (kbd "<f5>") 'compile)
+
+;=== Default fonts : Courier New Regular-10
+; Does not seem to work on Windows
+;(add-to-list 'default-frame-alist '(font . "Courier New-9"))
+;(set-face-attribute 'default t   :font "Courier New-9")
+;(set-face-attribute 'default nil :font "Courier New-9")
+;(set-frame-font     "Courier New-9" nil t)
+;(set-default-font   "Courier New-9")
+
+;=== Color of editor
+;(set-foreground-color "white")
+(set-background-color "white smoke")
+(set-face-attribute 'region nil :background "gold" :foreground "black")
+
+; color of comments
+(set-face-foreground 'font-lock-string-face "black")
+(set-face-background 'font-lock-string-face "aquamarine")
+
+(set-face-foreground 'font-lock-comment-face "black")
+(set-face-background 'font-lock-comment-face "pale green")
+
+; Org mode coloring
+;(defun my/org-mode-hook ()
+;  "My `org-mode' hook"
+;  (set-face-attribute org-level-1 nil :background "yellow")
+;  (set-face-attribute org-level-2 nil :background "pale green")
+;  (set-face-attribute org-level-3 nil :background "acquamarine"))  ; just add to the list
+
+;(add-hook 'org-mode-hook 'my/org-mode-hook)
+
+(custom-theme-set-faces 'user
+                        `(org-level-1 ((t (:background "yellow"    ))))
+                        `(org-level-2 ((t (:foreground "yellow" :background "black"))))
+                        `(org-level-3 ((t (:background "aquamarine" ))))
+                        `(org-level-4 ((t (:background "pale green" ))))
+                        )
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(markdown-mode)))
+
