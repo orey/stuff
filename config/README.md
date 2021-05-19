@@ -116,7 +116,7 @@ Some packages don't work with Cygwin, for instance the `mss` package. Choose to 
 ## Other usefull tools
 
   * Emacs
-  * FreeFileSync
+  * FreeFileSync or [DirSyncPro](https://www.dirsyncpro.org) (Runs well with JRE and portable version available)
   * innoump => to unpack installations
   * Zim: a great Python personal Wiki (wee also the `scree-capture` compatible python script in the `tools` folder of this repo).
   * eclipse
