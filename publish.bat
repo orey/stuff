@@ -1,4 +1,4 @@
-cls
+rem cls
 @echo off
 
 if "%1" == "" ( 
