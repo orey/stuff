@@ -9,6 +9,7 @@ if "%1" == "" (
 
 for /f %%a IN ('dir /b /ad') do (
     cd %%a
+    echo -----------------------------
     echo Repo: %%a
     git add *
     git commit -a -m "%*"
