@@ -1,0 +1,14 @@
+* Publish to git
+
+** Functionality
+
+This script is cumulating several git instructions: add, commit and push.
+
+** More information
+
+| Status               | Working |
+| Customization needed | Yes     |
+
+
+
+   

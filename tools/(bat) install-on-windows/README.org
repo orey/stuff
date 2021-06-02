@@ -1,0 +1,5 @@
+* Install under Windows
+
+Sometimes, you are on a Windows machine without being an administrator. For some software, you don't have a portable installation.
+
+This script may work for you but may not (depends on the installer).

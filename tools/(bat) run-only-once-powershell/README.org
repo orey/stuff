@@ -1,0 +1,12 @@
+* Run only once in Windows
+
+** Functionality
+
+This set of script ensures that some program is running once only on Windows 10.
+
+** More information
+
+| Status               | Working |
+| Customization needed | Yes     |
+
+

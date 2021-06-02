@@ -1,0 +1,6 @@
+* Publish all
+
+  This script considers that all your github local repos are in a single folder. It runs a "git add" + "git commit" + "git push".
+
+  Please adapt it to your case.
+  

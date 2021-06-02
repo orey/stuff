@@ -1,0 +1,15 @@
+* Copy many files
+
+** Functionality
+
+This Python script is copying a list of files that are inside a file to a destination folder.
+
+** More information
+
+| Status                            | Working |
+| Customization needed              | No      |
+| Usage when run without parameters | Yes     |
+
+
+
+

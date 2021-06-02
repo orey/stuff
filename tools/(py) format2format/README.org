@@ -1,0 +1,12 @@
+* Format to format
+
+Due to the use of many text formats (org, md, zim), this file is an attempt to have a general converter with an external grammar.
+
+Still in development.
+
+** More information
+
+| Status                            | Not working |
+| Customization needed              | N/A     |
+| Usage when run without parameters | N/A     |
+

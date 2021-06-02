@@ -1,0 +1,7 @@
+* Github clone with PAC
+
+PAC is a "personal access token" that is required to connect to *github*. This script reads your PAC from a file with one line that contains your PAC.
+
+You can change the name of the github account inside the script.
+
+

@@ -1,0 +1,14 @@
+* Gnuplot-radar
+
+** Functionality
+
+This gnuplot sample builds a radar.
+
+This is an historical code that is superseded by the following repo: https://github.com/orey/gnuplot-radarchart
+
+** More information
+
+| Status               | Old     |
+| Customization needed | Yes     |
+
+

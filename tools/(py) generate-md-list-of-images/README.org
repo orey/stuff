@@ -1,0 +1,14 @@
+* Generate MD list of images
+
+** Functionality
+
+This script must be put in a folder full of images. When run, it creates a file with MD links.
+
+This script is very basic.
+
+** More information
+
+| Status                            | Working              |
+| Customization needed              | No                   |
+| Usage when run without parameters | No, it runs directly |
+
