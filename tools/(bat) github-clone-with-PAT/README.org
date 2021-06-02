@@ -1,0 +1,15 @@
+* Github clone with PAT
+
+** Functionality
+
+PAC is a "personal access token" that is required to connect to *github*. This script reads your PAT from a file with one line that contains your PAT.
+
+You can change the name of the github account inside the script.
+
+** More information
+
+| Status               | Working |
+| Customization needed | Yes, customize your name and create the PAT.txt file |
+
+
+
