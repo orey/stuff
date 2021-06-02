@@ -4,9 +4,12 @@
 
 This set of script ensures that some program is running once only on Windows 10.
 
+Sample provided: proxy px.
+
 ** More information
 
 | Status               | Working |
-| Customization needed | Yes     |
+| Customization needed | Yes, you need to adapt the files to the program you want to launch only once |
+
 
 
