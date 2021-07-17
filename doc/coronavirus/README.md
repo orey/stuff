@@ -208,7 +208,6 @@ L'humanité entre dans un monde inconnu.
 
 * (L1) [Structure des virus, cycle viral, physiopathologie des infections virales](http://www.chups.jussieu.fr/polys/viro/oldpoly/POLY.Chp.1.html "Structure des virus")
 * (L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
-
 * (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
 
 *(Mise à jour : 17 juillet 2021)*
