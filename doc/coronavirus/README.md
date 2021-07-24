@@ -2,6 +2,8 @@
 
 Cet article est un ensemble de liens et de notes personnelles sur le Covid.
 
+Dernière mise à jour : 24 juillet 2021
+
 ## A propos des coronavirus
 
 ### Structure
@@ -54,6 +56,25 @@ L'autre virus peut être :
 Ces recombinaisons donnent des variants pouvant être plus ou moins robustes que le virus d'origine. Généralement, les propriétés du virus sont affectées par ces recombinaisons.
 
 L'émergence de variants est structurelle pour les coronavirus et le cas de la grippe est significatif.
+
+### Polémique sur la nature des variants
+
+De nombreuses discussions établissent une polémique sur la nature des variants avec le raisonnement suivant :
+
+* Si les variants sont causés principalement par des mutations normales, fruit des erreurs de recopie, alors il faut que tout le monde soit vacciné pour éradiquer le virus pour que ce dernier ne se duplique plus et ne génère plus de variants ;
+* Si les variants sont causés principalement par des recombinaisons avec d'autres souches, alors le vaccin lui-même est un potentiel catalyseur de variants, auquel cas il est sans doute raisonnable de ne vacciner que la partie la plus faible de la population et laisser l'autre partie porter la souche originale de sorte que la souche originale entre en concurrence avec les variants et reste présente.
+
+Si l'on en croit Wikipedia en langue anglaise, site que l'on ne peut pas taxer de "complotisme" :
+
+```
+RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
+```
+
+Un article chinois est cité (A4) pour appuyer ce constat. La conclusion partage le constat : 
+
+```
+The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
+```
 
 ## Les vaccins contre le Covid
 ### Différents types de vaccins
@@ -203,6 +224,7 @@ L'humanité entre dans un monde inconnu.
 * (A1) [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
 * (A2) [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
 * (A3) [The S1 protein of SARS-CoV-2 crosses the blood–brain barrier in mice](https://www.nature.com/articles/s41593-020-00771-8)
+* (A4) [Epidemiology,Genetic Recombination, and Pathogenesis of Coronaviruses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7125511/pdf/main.pdf) - [cache](main.pdf)
 
 ## Liens
 
