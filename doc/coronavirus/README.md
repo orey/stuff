@@ -66,15 +66,11 @@ De nombreuses discussions établissent une polémique sur la nature des variants
 
 Si l'on en croit Wikipedia en langue anglaise, site que l'on ne peut pas taxer de "complotisme" :
 
-```
-RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
-```
+> RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
 
-Un article chinois est cité (A4) pour appuyer ce constat. La conclusion partage le constat : 
+Un article chinois (2016) est cité (A4) pour appuyer ce constat. La conclusion est intéressante : 
 
-```
-The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
-```
+> The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
 
 ## Les vaccins contre le Covid
 ### Différents types de vaccins
