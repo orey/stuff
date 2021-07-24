@@ -230,6 +230,16 @@ L'humanité entre dans un monde inconnu.
 
 ![pourcentage](covid-vaccine-willingness-and-people-vaccinated-by-country.png)
 
+Ce diagramme est très intéressant. Il montre une défiance des français envers la vaccination de l'ordre de une personne sur trois. Il sera intéressant de suivre les chiffres sur le moyen terme, surtout avec les restrictions mises en place en France dans le cadre du passe sanitaire.
+
+### Décès depuis juin 2021
+
+![deces](20210722-deces.png)
+
+### Cas confirmés depuis juin 2021 (données glissantes sur 7 jours)
+
+![cas](20210722-cas.png)
+
 ## Articles
 
 * (A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
@@ -245,5 +255,11 @@ L'humanité entre dans un monde inconnu.
 * (L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
 * (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
 * (L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
+
+## Source des données
+
+* https://ourworldindata.org
+* https://github.com/owid/covid-19-data
+
 
 
