@@ -62,15 +62,21 @@ L'émergence de variants est structurelle pour les coronavirus et le cas de la g
 De nombreuses discussions établissent une polémique sur la nature des variants avec le raisonnement suivant :
 
 * Si les variants sont causés principalement par des mutations normales, fruit des erreurs de recopie, alors il faut que tout le monde soit vacciné pour éradiquer le virus pour que ce dernier ne se duplique plus et ne génère plus de variants ;
-* Si les variants sont causés principalement par des recombinaisons avec d'autres souches, alors le vaccin lui-même est un potentiel catalyseur de variants, auquel cas il est sans doute raisonnable de ne vacciner que la partie la plus faible de la population et laisser l'autre partie porter la souche originale de sorte que la souche originale entre en concurrence avec les variants et reste présente.
+* Si les variants sont causés principalement par des recombinaisons avec d'autres souches, alors le vaccin lui-même est un potentiel catalyseur de variants, auquel cas il est sans doute raisonnable de ne vacciner que la partie la plus faible de la population et laisser l'autre partie porter la souche originale de sorte que la souche originale entre en concurrence avec les variants et reste présente, ce qui permet aux vaccinés d'être protégés.
 
-Si l'on en croit Wikipedia en langue anglaise, site que l'on ne peut pas taxer de "complotisme" :
+On voit bien l'enjeu de raisonnement derrière cet argumentaire. La première solution pousse à une politique vaccinale extrême, dans la mesure où le vaccin est compris comme une solution contre les variants. La seconde solution est plus mesurée. Elle s'appuie sur une vue plus globale de la compétition entre les souches malignes. Sa conclusion naturelle est de suivre la même politique vaccinale que celle de la grippe, soit de vacciner les personnes à risque (celles qui peuvent développer des formes graves de la maladie) et de laisser les autres tranquilles.
+
+Si l'on en croit Wikipedia en langue anglaise (L4), site que l'on ne peut pas taxer de "complotisme" :
 
 > RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
 
-Un article chinois (2016) est cité (A4) pour appuyer ce constat. La conclusion est intéressante : 
+C'est donc la recombinaison qui semble le phénomène le plus important dans l'apparition de nouveaux variants, notamment les recombinaisons en présence de virus de différentes provenance (par exemple de provenance animale). Cela fait penser au variant de fin 2020, début 2021 dont l'origine était tracée dans les élevages de visons (A5)(A6).
+
+Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclusion est intéressante : 
 
 > The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
+
+L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
 
 ## Les vaccins contre le Covid
 ### Différents types de vaccins
@@ -79,7 +85,7 @@ Un article chinois (2016) est cité (A4) pour appuyer ce constat. La conclusion 
 
 *Figure 2 : les différents types de vaccins*
 
-Essentiellement, aujourd'hui, on compte quatre types de vaccins dont deux par thérapie génique. La figure 2 ci-dessus tente de synthétiser leur mode de fonctionnement.
+Essentiellement, aujourd'hui, on compte quatre types de vaccins dont deux par thérapie génétique. La figure 2 ci-dessus tente de synthétiser leur mode de fonctionnement.
 
 ### Les vaccins historiques
 
@@ -215,17 +221,24 @@ Après avoir alerté sur les OGMs, les hommes deviennent massivement des OGM, da
 
 L'humanité entre dans un monde inconnu.
 
+## Quelques chiffres
+### Pourcentage de la population vaccinée au 22 juillet 2021
+![pourcentage](20210722-pourcentage-vaccination.png)
 ## Articles
 
-* (A1) [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
-* (A2) [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
-* (A3) [The S1 protein of SARS-CoV-2 crosses the blood–brain barrier in mice](https://www.nature.com/articles/s41593-020-00771-8)
-* (A4) [Epidemiology,Genetic Recombination, and Pathogenesis of Coronaviruses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7125511/pdf/main.pdf) - [cache](main.pdf)
+* (A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
+* (A2) Juillet 2021 - [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
+* (A3) Décembre 2020 - [The S1 protein of SARS-CoV-2 crosses the blood–brain barrier in mice](https://www.nature.com/articles/s41593-020-00771-8)
+* (A4) Juin 2016 - [Epidemiology,Genetic Recombination, and Pathogenesis of Coronaviruses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7125511/pdf/main.pdf) - [cache](main.pdf)
+* (A5) Juin 2020 - [SARS-CoV-2 infection in farmed minks, the Netherlands, April and May 2020](https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.23.2001005)
+* (A6) Février 2021 - [SARS-CoV-2 Transmission between Mink (Neovison vison) and Humans, Denmark ](https://wwwnc.cdc.gov/eid/article/27/2/20-3794_article)
 
 ## Liens
 
 * (L1) [Structure des virus, cycle viral, physiopathologie des infections virales](http://www.chups.jussieu.fr/polys/viro/oldpoly/POLY.Chp.1.html "Structure des virus")
 * (L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
 * (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
+* (L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
 
 *(Mise à jour : 17 juillet 2021)*
+    
