@@ -2,7 +2,7 @@
 
 Cet article est un ensemble de liens et de notes personnelles sur le Covid.
 
-Dernière mise à jour : 24 juillet 2021
+*(Mise à jour : 17 juillet 2021)*
 
 ## A propos des coronavirus
 
@@ -223,7 +223,13 @@ L'humanité entre dans un monde inconnu.
 
 ## Quelques chiffres
 ### Pourcentage de la population vaccinée au 22 juillet 2021
+
 ![pourcentage](20210722-pourcentage-vaccination.png)
+
+### Pourcentage de la population ne voulant pas se faire vacciner au 30 juin 2021
+
+![pourcentage](covid-vaccine-willingness-and-people-vaccinated-by-country.png)
+
 ## Articles
 
 * (A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
@@ -240,5 +246,4 @@ L'humanité entre dans un monde inconnu.
 * (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
 * (L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
 
-*(Mise à jour : 17 juillet 2021)*
-    
+
