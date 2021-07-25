@@ -2,11 +2,13 @@
 
 Cet article est un ensemble de liens et de notes personnelles sur le Covid.
 
+Etant donné l'évolution de certains discours, il semble important de tracer un certain nombre de choses.
+
 *(Mise à jour : 17 juillet 2021)*
 
-## A propos des coronavirus
+## 1. A propos des coronavirus
 
-### Structure
+### 1.1. Structure
 
 Les coronavirus sont des virus ARN de grande taille (de 26 000 à 32 000 bases), cause de maladies respiratoires comme le rhume. Le brin d'ARN des coronavirus est enveloppé d'une capsule appelée capside et d'une envelope nommée péplos.
 
@@ -29,14 +31,14 @@ Légende :
 * M : protéines de la membrane,
 * N : protéines de la capsule.
 
-### Variants
+### 1.2. Variants
 
 Les coronavirus sont des virus créant des variants. Les variants peuvent être obtenus de deux façons :
 
 * Les mutations,
 * Les recombinaisons avec d'autres virus, soit de la même souche, de la même espèce voir d'une autre espèce (toujours à ARN).
 
-### Mutations
+### 1.3. Mutations
 
 Les coronavirus sont des virus qui mutent peu.
 
@@ -44,7 +46,7 @@ La mutation d'un virus est un phénomène dû aux erreurs de "recopie" des virus
 
 Les coronavirus mutent peu car l'enzyme permettant leur recopie est mùunioe d'un dispositif pour "corriger les erreurs". En revanche, cette enzyme permet la recombinaison du virus recopîé avec un autre virus déjà présent dans la cellule.
 
-### Des virus recombinant
+### 1.4. Des virus recombinant
 
 Les coronavirus se recombinent facilement voire très facilement durant leur duplication dans la cellule, lorsqu'il y a présence d'un autre virus.
 
@@ -57,7 +59,7 @@ Ces recombinaisons donnent des variants pouvant être plus ou moins robustes que
 
 L'émergence de variants est structurelle pour les coronavirus et le cas de la grippe est significatif.
 
-### Polémique sur la nature des variants
+### 1.5. Polémique sur la nature des variants
 
 De nombreuses discussions établissent une polémique sur la nature des variants avec le raisonnement suivant :
 
@@ -78,7 +80,7 @@ Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclus
 
 L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
 
-## Les équilibres fragiles du corps humain
+## 2. Les équilibres fragiles du corps humain
 
 Le corps humain est le lieu des équilibres fragiles. Parmi ces derniers, il en est de particulièrement sensibles :
 
@@ -88,8 +90,8 @@ Le corps humain est le lieu des équilibres fragiles. Parmi ces derniers, il en 
 
 La prise de médicaments expérimentaux peut avoir des effets à long terme sur un de ces équilibres, notamment chez les enfants ou les personnes jeunes encore en âge de procréer. C'est pourquoi il paraît très imprudent d'exposer les moins de 40 ans à des traitements lorsque ces derniers ne sont pas concernés par une maladie.
 
-## Les vaccins contre le Covid
-### Différents types de vaccins
+## 3. Les vaccins contre le Covid
+### 3.1. Différents types de vaccins
 
 ![Vaccins contre le Covid](VaccinsCovid.png "Vaccins contre le Covid")
 
@@ -97,7 +99,7 @@ La prise de médicaments expérimentaux peut avoir des effets à long terme sur 
 
 Essentiellement, aujourd'hui, on compte quatre types de vaccins dont deux par thérapie génétique. La figure 2 ci-dessus tente de synthétiser leur mode de fonctionnement.
 
-### Les vaccins historiques
+### 3.2. Les vaccins historiques
 
 Les vaccins classiques (par exemple celui contre la grippe) sont basés sur l'injection de virus dits désactivés. Ces virus infectent des cellules et provoquent une réponse immunitaire qui permettra au corps de produire des anticorps protégeant contre le vrai virus quand il se présentera.
 
@@ -105,7 +107,7 @@ Etant donné que les virus mutent, chaque année, de nouvelles souches désactiv
 
 Le vaccin doit donc être renouvelé tous les ans et il est considéré comme ayant une bonne efficacité.
 
-### Les nouveaux vaccins
+### 3.3. Les nouveaux vaccins
 
 Les nouveaux vaccins utilisent un processus plus complexe pour stimuler l'immunité : ils font produire à nos cellules la protéine "spike" qui se trouve sur l'enveloppe du coronavirus dans le but que cette protéine se fixe sur les parois de nos cellules infectées (par le vaccin) et déclenche une réponse immunitaire.
 
@@ -118,7 +120,7 @@ Ces vaccins sont souvent appelés thérapie génique un peu à tort car ils ne m
 
 Historiquement, les thérapies géniques consistent en un prélèvement des cellules défaillantes d'une personne, en leur correction en modifiant le gène défaillant et en réinjectant des cellules "corrigées". Le traitement est donc personnalisé.
 
-### Les risques avec les nouveaux vaccins
+### 3.4. Les risques avec les nouveaux vaccins
 
 Il est très compliqué de se faire une idée objective des risques causés par ces nouveaux vaccins, qui doivent, sans doute, être considérés comme des vaccins "d'urgence".
 
@@ -136,7 +138,7 @@ Dans tous les cas, *avec des vaccins expérimentaux*, il nous paraît déraisonn
 
 La suite de cet article recense les risques répertoriés analysés par un scientifique n'appartenant pas au domaine médical mais ayant des bases.
 
-### Sur la toxicité de la protéine spike
+### 3.5. Sur la toxicité de la protéine spike
 
 De nombreuses études ont montré que les formes graves de la maladie du Covid étaient dues à la protéine spike (notamment les coagulations et saignements). Ces formes sont liées à une circulation de la protéine spike dans le sang. Cette dernière se fixe sur des récepteurs ACE2, et donc sur les plaquettes sanguines (ce qui cause caillots ou saignements), mais aussi sur le coeur ou dans le cerveau.
 
@@ -152,7 +154,7 @@ Cet article est cité dans un article de mai 2021 paru dans [lifesitenews.com](h
 
 Une étude japonaise démontre en effet que durant plusieurs jours après la vaccination, la protéine spike circule dans le sang et s'accumule dans des organes la moelle épinière, le foie, les testicules ou les ovaires.
 
-### Les risques inhérents au vaccin à ARN de synthèse
+### 3.6. Les risques inhérents au vaccin à ARN de synthèse
 
 Dans les vaccins à ARN, un ARN de synthèse est injecté dans notre organisme. Ce dernier contient l'information génétique de codage de la protéine spike.
 
@@ -169,7 +171,7 @@ Le problème de fond est dual :
 
 En injectant de l'ARN, nous favorisons un comportement connu de ce brin d'ARN mais sans pouvoir affirmer qu'un comportement inconnu ne prendra pas le dessus dans le contexte cellulaire dans lequel il est mis en place.
 
-### Les risques inhérents au vaccin à ADN (adenovirus)
+### 3.7. Les risques inhérents au vaccin à ADN (adenovirus)
 
 De nouveaux risques se rajoutent :
 
@@ -182,7 +184,7 @@ Ces risques sont inhérents à deux facteurs :
 * La capacité d'ingénierie génétique et sa fiabilité,
 * Les circonstances particulières de certains patients pouvant déclencher des "effets de bord" par rapport aux comportements attendus de ces adenovirus.
 
-### Le risque inhérent à l'augmentation de la complexité du processus de stimulation de l'immunité
+### 3.8. Le risque inhérent à l'augmentation de la complexité du processus de stimulation de l'immunité
 
 Les vaccins à virus désactivés sont relativement simple : ils contaminent des cellules mais peu et avec peu de virulence. Ils agissent donc comme une stimulation du système immunitaire.
 
@@ -192,7 +194,7 @@ Vu de loin, c'est ce que fait le virus réel : il faut produire à nos cellule d
 
 Le phénomène est plus complexe encore pour les vaccins à ADN, ce qui laisse une incertitude importante sur les parties non réellement contrôlables du processus entier.
 
-### Le risque de création de variants résistants suite à une vaccination massive
+### 3.9. Le risque de création de variants résistants suite à une vaccination massive
 
 Ce risque est le fruit d'une superposition de deux facteurs :
 
@@ -207,7 +209,7 @@ Certains immunologues pensent donc que la vaccination de masse sur un variant du
 
 Ils alertent aussi sur le besoin de ne pas vacciner des gens ayant la maladie au risque de générer chez eux des nouveaux variants, fruits de la capacité recombinante du coronavirus. Cela voudrait dire rendre les tests obligatoires avant la vaccination.
 
-### Les risques d'émergence de prions
+### 3.10. Les risques d'émergence de prions
 
 Ce risque est levé par très peu de gens, au point qu'il n'est pas pris au sérieux. L'article (A1) traite de ce risque et son auteur est fortement contesté.
 
@@ -223,9 +225,9 @@ Il est donc possible théoriquement que notre niveau d'ingénierie génétique n
 
 A suivre.
 
-## Aspects philosophiques
+## 4. Aspects philosophiques et psychologiques
 
-### L'homme devient un OGM
+### 4.1. L'homme devient un OGM
 
 Après avoir alerté sur les OGMs, après les avoir refusé en France, les hommes deviennent massivement des OGM, dans la mesure où, à l'instar des plantes auxquelles on fait produire des antibiotiques pour les protéger de parasites qui deviennent de plus en plus résistants, les vaccins génétiques font produire aux cellules de l'homme des toxines pour qu'il s'immunise lui-même.
 
@@ -233,7 +235,7 @@ L'humanité entre dans un monde inconnu.
 
 Notons qu'aujourd'hui, de nombreuses semences OGM sont stériles.
 
-### Modification génétique fréquente des humains et incident génétique à grande échelle
+### 4.2. Modification génétique fréquente des humains et incident génétique à grande échelle
 
 L'acceptation des traitements génétiques de la forme du vaccin risque d'entraîner une dérive vers une vaccination généralisée et très fréquente. Pourquoi, en effet, ne pas tenter d'éradiquer *toutes* les maladies de type coronavirus, et *tous* les variants en vaccinant une voire plusieurs fois par an toute la population ?
 
@@ -241,7 +243,7 @@ Il en résultera une modification de plus en plus importante du fonctionnement d
 
 Une fois des mécanismes d'apartheid comme le passe sanitaire mis en place, plus rien n'empêche des dérives vaccinales ou médicamenteuses encore plus extrêmes d'être mises en place. Quand l'Etat prend possession des corps, nous entrons dans une logique d'esclavage.
 
-### Pourquoi si peu de gens sont méfiants sur les effets long terme ?
+### 4.3. Pourquoi si peu de gens sont méfiants sur les effets long terme ?
 
 Les effets à long terme des médicaments sont toujours complexes à estimer.
 
@@ -257,27 +259,31 @@ Nous avons ici un élément de réponse psychologique : le vaccin est vu par cet
 
 D'une certaine façon, il doit sans doute être reposant d'être un `S` dans notre société.
 
-## Quelques chiffres
-### Pourcentage de la population vaccinée au 22 juillet 2021
+## 5. Quelques chiffres
+### 5.1. Pourcentage de la population vaccinée au 22 juillet 2021
 
 ![pourcentage](20210722-pourcentage-vaccination.png)
 
-### Pourcentage de la population ne voulant pas se faire vacciner au 30 juin 2021
+### 5.2. Pourcentage de la population ne voulant pas se faire vacciner au 30 juin 2021
 <a name="contre"></a>
 
 ![pourcentage](covid-vaccine-willingness-and-people-vaccinated-by-country.png)
 
 Ce diagramme est très intéressant. Il montre une défiance des français envers la vaccination de l'ordre de une personne sur trois. Il sera intéressant de suivre les chiffres sur le moyen terme, surtout avec les restrictions mises en place en France dans le cadre du passe sanitaire.
     
-### Décès depuis juin 2021
+### 5.3. Décès depuis juin 2021
 
 ![deces](20210722-deces.png)
 
-### Cas confirmés depuis juin 2021 (données glissantes sur 7 jours)
+### 5.4. Cas confirmés depuis juin 2021 (données glissantes sur 7 jours)
 
 ![cas](20210722-cas.png)
 
-## Articles
+### 5.5. Chiffres sur le variant delta
+
+Il n'est pas facile de trouver des chiffres sur le variant delta. Statista en propose [ici](https://www.statista.com/statistics/1245971/number-delta-variant-worldwide-by-country/) mais sans beaucoup d'explication sur la provenance de ces chiffres.
+
+## 6. Articles
 
 * (A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
 * (A2) Juillet 2021 - [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
@@ -286,17 +292,23 @@ Ce diagramme est très intéressant. Il montre une défiance des français enver
 * (A5) Juin 2020 - [SARS-CoV-2 infection in farmed minks, the Netherlands, April and May 2020](https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.23.2001005)
 * (A6) Février 2021 - [SARS-CoV-2 Transmission between Mink (Neovison vison) and Humans, Denmark ](https://wwwnc.cdc.gov/eid/article/27/2/20-3794_article)
 
-## Liens
+## 7. Liens
 
 * (L1) [Structure des virus, cycle viral, physiopathologie des infections virales](http://www.chups.jussieu.fr/polys/viro/oldpoly/POLY.Chp.1.html "Structure des virus")
 * (L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
 * (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
 * (L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
 
-## Source des données
+## 8. Source des données
+
+OurWorldInData semble un des sites les plus fiables en termes de données.
 
 * https://ourworldindata.org
 * https://github.com/owid/covid-19-data
 
+Statista est un autre site mais fournissant des données plus difficiles à analyser.
 
+* https://www.statista.com
+
+J'ai voulu comparer les chiffres du Covid avec les chiffres de la grippe en France. J'avoue avoir été surpris de l'inexploitabilité de la plupart des chiffres français. En effet, ces derniers sont souvent donnés par semaine sur des périodes de temps non définies, en nombre mais mal définis, etc.
 
