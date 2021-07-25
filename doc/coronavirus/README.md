@@ -78,6 +78,16 @@ Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclus
 
 L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
 
+## Les équilibres fragiles du corps humain
+
+Le corps humain est le lieu des équilibres fragiles. Parmi ces derniers, il en est de particulièrement sensibles :
+
+* La croissance,
+* La fertilité,
+* L'immunité.
+
+La prise de médicaments expérimentaux peut avoir des effets à long terme sur un de ces équilibres, notamment chez les enfants ou les personnes jeunes encore en âge de procréer. C'est pourquoi il paraît très imprudent d'exposer les moins de 40 ans à des traitements lorsque ces derniers ne sont pas concernés par une maladie.
+
 ## Les vaccins contre le Covid
 ### Différents types de vaccins
 
@@ -217,9 +227,35 @@ A suivre.
 
 ### L'homme devient un OGM
 
-Après avoir alerté sur les OGMs, les hommes deviennent massivement des OGM, dans la mesure où, à l'instar des plantes auxquelles on fait produire des antibiotiques pour les protéger de parasites qui deviennent de plus en plus résistants, les vaccins génétiques font produire à l'homme des toxines pour qu'il s'immunise lui-même.
+Après avoir alerté sur les OGMs, après les avoir refusé en France, les hommes deviennent massivement des OGM, dans la mesure où, à l'instar des plantes auxquelles on fait produire des antibiotiques pour les protéger de parasites qui deviennent de plus en plus résistants, les vaccins génétiques font produire aux cellules de l'homme des toxines pour qu'il s'immunise lui-même.
 
 L'humanité entre dans un monde inconnu.
+
+Notons qu'aujourd'hui, de nombreuses semences OGM sont stériles.
+
+### Modification génétique fréquente des humains et incident génétique à grande échelle
+
+L'acceptation des traitements génétiques de la forme du vaccin risque d'entraîner une dérive vers une vaccination généralisée et très fréquente. Pourquoi, en effet, ne pas tenter d'éradiquer *toutes* les maladies de type coronavirus, et *tous* les variants en vaccinant une voire plusieurs fois par an toute la population ?
+
+Il en résultera une modification de plus en plus importante du fonctionnement de nos cellules, jusqu'au moment où un incident génétique de grande ampleur ne manquera pas d'arriver. Le risque est d'ailleurs déjà annoncé par plusieurs films.
+
+Une fois des mécanismes d'apartheid comme le passe sanitaire mis en place, plus rien n'empêche des dérives vaccinales ou médicamenteuses encore plus extrêmes d'être mises en place. Quand l'Etat prend possession des corps, nous entrons dans une logique d'esclavage.
+
+### Pourquoi si peu de gens sont méfiants sur les effets long terme ?
+
+Les effets à long terme des médicaments sont toujours complexes à estimer.
+
+Les effets long terme de la prise du [Distilbène](https://fr.wikipedia.org/wiki/Di%C3%A9thylstilbestrol) lors des grossesses pour prévenir les fausses couches se sont soldés par des dizaines de milliers de femmes et d'homme ayant des problèmes de fertilité (stérilité, déformation des organes génitaux, etc.). Bien entendu, ces effets n'ont été visibles qu'après une génération.
+
+Pour autant, on pourrait se poser la question du peu de méfiance de beaucoup de parents envers les effets à moyen terme de la vaccination génétique.
+
+![frequency](estimated_frequency_table.gif)
+
+La table ci-dessus donne la répartition des [types psychologiques](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator) au sein de la population. Les `S` (Sensing), ceux qui vivent dans le présent, sont environ les trois quarts de la population (73%), alors que les `N` (iNtuitive), ceux qui vivent dans le futur, sont un peu plus d'un quart.
+
+Nous avons ici un élément de réponse psychologique : le vaccin est vu par cette frange de la population comme une solution immédiate et présente. La psyché des `S` ne leur permet pas facilement d'envisager les futurs conséquences de cette acceptation. Voir aussi la partie sur la population ne voulant pas se faire vacciner [ici](#contre).
+
+D'une certaine façon, il doit sans doute être reposant d'être un `S` dans notre société.
 
 ## Quelques chiffres
 ### Pourcentage de la population vaccinée au 22 juillet 2021
@@ -227,11 +263,12 @@ L'humanité entre dans un monde inconnu.
 ![pourcentage](20210722-pourcentage-vaccination.png)
 
 ### Pourcentage de la population ne voulant pas se faire vacciner au 30 juin 2021
+<a name="contre"></a>
 
 ![pourcentage](covid-vaccine-willingness-and-people-vaccinated-by-country.png)
 
 Ce diagramme est très intéressant. Il montre une défiance des français envers la vaccination de l'ordre de une personne sur trois. Il sera intéressant de suivre les chiffres sur le moyen terme, surtout avec les restrictions mises en place en France dans le cadre du passe sanitaire.
-
+    
 ### Décès depuis juin 2021
 
 ![deces](20210722-deces.png)
