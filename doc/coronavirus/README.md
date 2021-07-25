@@ -4,7 +4,7 @@ Cet article est un ensemble de liens et de notes personnelles sur le Covid.
 
 Etant donné l'évolution de certains discours, il semble important de tracer un certain nombre de choses.
 
-*(Mise à jour : 17 juillet 2021)*
+*(Mise à jour : 25 juillet 2021)*
 
 ## 1. A propos des coronavirus
 
@@ -223,7 +223,7 @@ Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclus
 
 > The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
 
-L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
+L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus haut).
 
 ### 4.2. L'immunité collective
 
@@ -235,7 +235,11 @@ Reprenons les hypothèses une à une.
 
 **Hypothèse 1** : Les personnes infectées sont toutes infectieuses, elles peuvent transmettre la maladie.
 
-Cela nous renvoie à la notion d'asymptomatique qui pourrait transmettre le virus. Sur ce sujet, il est compliqué de se faire une raison. Certes, des personnes testées positives sont asymptomatiques, mais certains docteurs doutent de la contagiosité dans cet état de maladie non déclarée. 
+Le sujet est : qui est infecté ? Pour les personnes déclarant la maladie, tout est simple.
+
+Mais, cela nous renvoie à la notion d'asymptomatique qui pourrait transmettre le virus. Rappelons qu'un asymptomatique est une personne testée positive mais ne déclarant pas la maladie.
+
+Sur ce sujet, il est compliqué de se faire une raison. Certes, des personnes testées positives sont asymptomatiques, mais de nombreuses études et dires de docteurs mettent en cause cette tranmissibilité par les cas asymptomatiques.
 
 Un article chinois de mai 2020 ([A7](#A7)) explique :
 
@@ -245,17 +249,31 @@ Un article allemand d'avril 2021 ([A8](#A8)) explique aussi :
 
 > In conclusion, our study suggests that asymptomatic cases are unlikely to contribute substantially to the spread of SARS-CoV-2.
 
-Ce paramètre est très important dans les polémiques actuelles sur le virus, ainsi que dans la justification de la quarantaine. Dans le contexte du modèle de l'immunité collective, la question est de savoir si les asymptomatiques sont sains ou infectés.
+Ce paramètre est très important dans les polémiques actuelles sur le virus, ainsi que dans la justification de la quarantaine ou des messages inquiétants, par exemple d'enfants transmettant le virus à leurs grands-parents fragiles.
+
+Dans le contexte du modèle de l'immunité collective, la question de savoir si les asymptomatiques sont sains ou infectés devrait se traduire, selon les travaux cités, par le fait que les asymptomatiques ne sont pas infectés. La conséquence est de remetre en cause l'indicateur fondé sur le nombre de personnes testées positives.
 
 **Hypothèse 2** : Homogénéité de la susceptibilité à la maladie.
 
+Cette hypothèse est théorique mais cela semble une hypothèse de modélisation acceptable.
+
 **Hypothèse 3** : Homogénéité de la répartition spatiale des sujets.
+
+Les précédents pics de la maladie montrent que cette hypothèse est trop simpliste. La notion de foyer ou de "custer" en est une illustration.
 
 **Hypothèse 4** : Chaque personne guérie de cette maladie est immunisée pour toujours contre cette maladie.
 
+Nous savons que cette hypothèse n'est pas applicable au Covid.
+
 **Hypothèse 5** : Faire fi de la possibilité d'une transmission manuportée et objets inertes.
 
+Nous savons que cette hypothèse n'est pas non plus applicable au Covid.
+
 **Hypothèse 6** : Faire fi de la transmission zoonotique.
+
+Nous savons que cette hypothèse n'est pas applicable en raison de la recombinaison des coronavirus avec les virus portés par des animaux (vison, pangolin, etc.).
+
+Nous utilisons donc un concept, l'immunité collective, fondée sur 6 hypothèses dont 4 hypothèses sont non applicables, une est une hypothèse de modélisation et une est sujette à débat. Le modèle paraît effectivement difficilement applicable.
 
 ## 5. Aspects philosophiques et psychologiques
 
