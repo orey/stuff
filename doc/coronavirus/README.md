@@ -59,27 +59,6 @@ Ces recombinaisons donnent des variants pouvant être plus ou moins robustes que
 
 L'émergence de variants est structurelle pour les coronavirus et le cas de la grippe est significatif.
 
-### 1.5. Polémique sur la nature des variants
-
-De nombreuses discussions établissent une polémique sur la nature des variants avec le raisonnement suivant :
-
-* Si les variants sont causés principalement par des mutations normales, fruit des erreurs de recopie, alors il faut que tout le monde soit vacciné pour éradiquer le virus pour que ce dernier ne se duplique plus et ne génère plus de variants ;
-* Si les variants sont causés principalement par des recombinaisons avec d'autres souches, alors le vaccin lui-même est un potentiel catalyseur de variants, auquel cas il est sans doute raisonnable de ne vacciner que la partie la plus faible de la population et laisser l'autre partie porter la souche originale de sorte que la souche originale entre en concurrence avec les variants et reste présente, ce qui permet aux vaccinés d'être protégés.
-
-On voit bien l'enjeu de raisonnement derrière cet argumentaire. La première solution pousse à une politique vaccinale extrême, dans la mesure où le vaccin est compris comme une solution contre les variants. La seconde solution est plus mesurée. Elle s'appuie sur une vue plus globale de la compétition entre les souches malignes. Sa conclusion naturelle est de suivre la même politique vaccinale que celle de la grippe, soit de vacciner les personnes à risque (celles qui peuvent développer des formes graves de la maladie) et de laisser les autres tranquilles.
-
-Si l'on en croit Wikipedia en langue anglaise (L4), site que l'on ne peut pas taxer de "complotisme" :
-
-> RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
-
-C'est donc la recombinaison qui semble le phénomène le plus important dans l'apparition de nouveaux variants, notamment les recombinaisons en présence de virus de différentes provenance (par exemple de provenance animale). Cela fait penser au variant de fin 2020, début 2021 dont l'origine était tracée dans les élevages de visons (A5)(A6).
-
-Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclusion est intéressante : 
-
-> The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
-
-L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
-
 ## 2. Les équilibres fragiles du corps humain
 
 Le corps humain est le lieu des équilibres fragiles. Parmi ces derniers, il en est de particulièrement sensibles :
@@ -223,11 +202,64 @@ Ce risque ne semble pas avéré mais il est théoriquement possible. S'il était
 
 Il est donc possible théoriquement que notre niveau d'ingénierie génétique ne soit pas suffisant pour générer des protéines "bien pliées" mais pour générer aussi des protéines "mal pliées".
 
-A suivre.
+## 4. Débats et polémiques
 
-## 4. Aspects philosophiques et psychologiques
+### 4.1. Polémique sur la nature des variants
 
-### 4.1. L'homme devient un OGM
+De nombreuses discussions établissent une polémique sur la nature des variants avec le raisonnement suivant :
+
+* Si les variants sont causés principalement par des mutations normales, fruit des erreurs de recopie, alors il faut que tout le monde soit vacciné pour éradiquer le virus pour que ce dernier ne se duplique plus et ne génère plus de variants ;
+* Si les variants sont causés principalement par des recombinaisons avec d'autres souches, alors le vaccin lui-même est un potentiel catalyseur de variants, auquel cas il est sans doute raisonnable de ne vacciner que la partie la plus faible de la population et laisser l'autre partie porter la souche originale de sorte que la souche originale entre en concurrence avec les variants et reste présente, ce qui permet aux vaccinés d'être protégés.
+
+On voit bien l'enjeu de raisonnement derrière cet argumentaire. La première solution pousse à une politique vaccinale extrême, dans la mesure où le vaccin est compris comme une solution contre les variants. La seconde solution est plus mesurée. Elle s'appuie sur une vue plus globale de la compétition entre les souches malignes. Sa conclusion naturelle est de suivre la même politique vaccinale que celle de la grippe, soit de vacciner les personnes à risque (celles qui peuvent développer des formes graves de la maladie) et de laisser les autres tranquilles.
+
+Si l'on en croit Wikipedia en langue anglaise (L4), site que l'on ne peut pas taxer de "complotisme" :
+
+> RNA recombination appears to be a major driving force in determining genetic variability within a coronavirus species, the capability of a coronavirus species to jump from one host to another and, infrequently, in determining the emergence of novel coronaviruses.
+
+C'est donc la recombinaison qui semble le phénomène le plus important dans l'apparition de nouveaux variants, notamment les recombinaisons en présence de virus de différentes provenance (par exemple de provenance animale). Cela fait penser au variant de fin 2020, début 2021 dont l'origine était tracée dans les élevages de visons (A5)(A6).
+
+Wikipedia cite un article chinois (2016)(A4) pour appuyer ce constat. La conclusion est intéressante : 
+
+> The result from a high frequency of recombination events in CoVs is the generation of novel viruses with a high genetic diversity, with unpredictable changes in virulence during human infections. With multiple species of CoVs circulating in the wild amongst different animal species that may constantly interact with one another, it is likely not a matter of if, but when, the next recombinant CoV will emerge and cause another outbreak in the human population.
+
+L'hypothèse de l'émergence des variants par recombinaison semble donc, aujourd'hui, la plus partagée. Elle implique un certain risque lié aux vaccins (voir plus bas).
+
+### 4.2. L'immunité collective
+
+Dans sa vidéo ([L5](#L5)), le docteur Cassagne nous rappelle la définition de l'immunité collective.
+
+![Immunité collective](ic.png)
+
+Reprenons les hypothèses une à une.
+
+**Hypothèse 1** : Les personnes infectées sont toutes infectieuses, elles peuvent transmettre la maladie.
+
+Cela nous renvoie à la notion d'asymptomatique qui pourrait transmettre le virus. Sur ce sujet, il est compliqué de se faire une raison. Certes, des personnes testées positives sont asymptomatiques, mais certains docteurs doutent de la contagiosité dans cet état de maladie non déclarée. 
+
+Un article chinois de mai 2020 ([A7](#A7)) explique :
+
+>  In summary, all the 455 contacts were excluded from SARS-CoV-2 infection and we conclude that the infectivity of some asymptomatic SARS-CoV-2 carriers might be weak.
+
+Un article allemand d'avril 2021 ([A8](#A8)) explique aussi :
+
+> In conclusion, our study suggests that asymptomatic cases are unlikely to contribute substantially to the spread of SARS-CoV-2.
+
+Ce paramètre est très important dans les polémiques actuelles sur le virus, ainsi que dans la justification de la quarantaine. Dans le contexte du modèle de l'immunité collective, la question est de savoir si les asymptomatiques sont sains ou infectés.
+
+**Hypothèse 2** : Homogénéité de la susceptibilité à la maladie.
+
+**Hypothèse 3** : Homogénéité de la répartition spatiale des sujets.
+
+**Hypothèse 4** : Chaque personne guérie de cette maladie est immunisée pour toujours contre cette maladie.
+
+**Hypothèse 5** : Faire fi de la possibilité d'une transmission manuportée et objets inertes.
+
+**Hypothèse 6** : Faire fi de la transmission zoonotique.
+
+## 5. Aspects philosophiques et psychologiques
+
+### 5.1. L'homme devient un OGM
 
 Après avoir alerté sur les OGMs, après les avoir refusé en France, les hommes deviennent massivement des OGM, dans la mesure où, à l'instar des plantes auxquelles on fait produire des antibiotiques pour les protéger de parasites qui deviennent de plus en plus résistants, les vaccins génétiques font produire aux cellules de l'homme des toxines pour qu'il s'immunise lui-même.
 
@@ -235,7 +267,7 @@ L'humanité entre dans un monde inconnu.
 
 Notons qu'aujourd'hui, de nombreuses semences OGM sont stériles.
 
-### 4.2. Modification génétique fréquente des humains et incident génétique à grande échelle
+### 5.2. Modification génétique fréquente des humains et incident génétique à grande échelle
 
 L'acceptation des traitements génétiques de la forme du vaccin risque d'entraîner une dérive vers une vaccination généralisée et très fréquente. Pourquoi, en effet, ne pas tenter d'éradiquer *toutes* les maladies de type coronavirus, et *tous* les variants en vaccinant une voire plusieurs fois par an toute la population ?
 
@@ -243,7 +275,7 @@ Il en résultera une modification de plus en plus importante du fonctionnement d
 
 Une fois des mécanismes d'apartheid comme le passe sanitaire mis en place, plus rien n'empêche des dérives vaccinales ou médicamenteuses encore plus extrêmes d'être mises en place. Quand l'Etat prend possession des corps, nous entrons dans une logique d'esclavage.
 
-### 4.3. Pourquoi si peu de gens sont méfiants sur les effets long terme ?
+### 5.3. Pourquoi si peu de gens sont méfiants sur les effets long terme ?
 
 Les effets à long terme des médicaments sont toujours complexes à estimer.
 
@@ -259,7 +291,7 @@ Nous avons ici un élément de réponse psychologique : le vaccin est vu par cet
 
 D'une certaine façon, il doit sans doute être reposant d'être un `S` dans notre société.
 
-## 5. Quelques chiffres
+## 6. Quelques chiffres
 ### 5.1. Pourcentage de la population vaccinée au 22 juillet 2021
 
 ![pourcentage](20210722-pourcentage-vaccination.png)
@@ -283,32 +315,37 @@ Ce diagramme est très intéressant. Il montre une défiance des français enver
 
 Il n'est pas facile de trouver des chiffres sur le variant delta. Statista en propose [ici](https://www.statista.com/statistics/1245971/number-delta-variant-worldwide-by-country/) mais sans beaucoup d'explication sur la provenance de ces chiffres.
 
-## 6. Articles
+## 7. Articles
 
-* (A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
-* (A2) Juillet 2021 - [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
-* (A3) Décembre 2020 - [The S1 protein of SARS-CoV-2 crosses the blood–brain barrier in mice](https://www.nature.com/articles/s41593-020-00771-8)
-* (A4) Juin 2016 - [Epidemiology,Genetic Recombination, and Pathogenesis of Coronaviruses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7125511/pdf/main.pdf) - [cache](main.pdf)
-* (A5) Juin 2020 - [SARS-CoV-2 infection in farmed minks, the Netherlands, April and May 2020](https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.23.2001005)
-* (A6) Février 2021 - [SARS-CoV-2 Transmission between Mink (Neovison vison) and Humans, Denmark ](https://wwwnc.cdc.gov/eid/article/27/2/20-3794_article)
+* <a name="A1"></a>(A1) Février 2021 - [Le risque du prion dans le vaccin Pfizzer](https://scivisionpub.com/pdfs/covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf) - [cache](covid19-rna-based-vaccines-and-the-risk-of-prion-disease-1503.pdf)
+* <a name="A2"></a>(A2) Juillet 2021 - [SARS-CoV-2 variants, spike mutations and immune escape](https://www.nature.com/articles/s41579-021-00573-0.pdf) - [cache](s41579-021-00573-0.pdf)
+* <a name="A3"></a>(A3) Décembre 2020 - [The S1 protein of SARS-CoV-2 crosses the blood–brain barrier in mice](https://www.nature.com/articles/s41593-020-00771-8)
+* <a name="A4"></a>(A4) Juin 2016 - [Epidemiology,Genetic Recombination, and Pathogenesis of Coronaviruses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7125511/pdf/main.pdf) - [cache](main.pdf)
+* <a name="A5"></a>(A5) Juin 2020 - [SARS-CoV-2 infection in farmed minks, the Netherlands, April and May 2020](https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.23.2001005)
+* <a name="A6"></a>(A6) Février 2021 - [SARS-CoV-2 Transmission between Mink (Neovison vison) and Humans, Denmark ](https://wwwnc.cdc.gov/eid/article/27/2/20-3794_article)
+* <a name="A7"></a>(A7) Mai 2020 - [A study on infectivity of asymptomatic SARS-CoV-2 carriers](https://pubmed.ncbi.nlm.nih.gov/32513410/)
+* <a name="A8"></a>(A8) Avril 2021 - [Analysis of Asymptomatic and Presymptomatic Transmission in SARS-CoV-2 Outbreak, Germany, 2020](https://wwwnc.cdc.gov/eid/article/27/4/20-4576_article)
 
-## 7. Liens
+## 8. Liens
 
-* (L1) [Structure des virus, cycle viral, physiopathologie des infections virales](http://www.chups.jussieu.fr/polys/viro/oldpoly/POLY.Chp.1.html "Structure des virus")
-* (L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
-* (L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
-* (L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
+* <a name="L1"></a>(L1) [Structure des virus, cycle viral, physiopathologie des infections virales](http://www.chups.jussieu.fr/polys/viro/oldpoly/POLY.Chp.1.html "Structure des virus")
+* <a name="L2"></a>(L2) [Spike protein on ScienceDirect](https://www.sciencedirect.com/topics/engineering/spike-protein)
+* <a name="L3"></a>(L3) [Vaccine researcher admits ‘big mistake,’ says spike protein is dangerous ‘toxin’](https://www.lifesitenews.com/news/vaccine-researcher-admits-big-mistake-says-spike-protein-is-dangerous-toxin)
+* <a name="L4"></a>(L4) [Wikipedia English](https://en.wikipedia.org/wiki/Coronavirus#Assembly_and_release)
+* <a name="L5"></a>(L5) [Bénéfices et risques de la vaccination COVID - Dr. Carole Cassagne, MCU-PH AP-HM](https://www.youtube.com/watch?v=IbIsH7N1KkU)
 
-## 8. Source des données
+## 9. Source des données
+
+### 9.1. OurWorldInData
 
 OurWorldInData semble un des sites les plus fiables en termes de données.
 
 * https://ourworldindata.org
 * https://github.com/owid/covid-19-data
 
-Statista est un autre site mais fournissant des données plus difficiles à analyser.
+### 9.2. Autres sites
 
-* https://www.statista.com
+[Statista](https://www.statista.com) est un autre site mais fournissant des données plus difficiles à analyser. De plus, le site est payant contrairement à OurWorldInData.
 
-J'ai voulu comparer les chiffres du Covid avec les chiffres de la grippe en France. J'avoue avoir été surpris de l'inexploitabilité de la plupart des chiffres français. En effet, ces derniers sont souvent donnés par semaine sur des périodes de temps non définies, en nombre mais mal définis, etc.
+J'ai voulu comparer les chiffres du Covid avec les chiffres de la grippe en France. J'avoue avoir été surpris de l'inexploitabilité de la plupart des chiffres français. En effet, ces derniers sont souvent donnés par semaine sur des périodes de temps non définies, en nombre mais mal définis, etc. Il faudrait sans doute poursuivre les investigations.
 
