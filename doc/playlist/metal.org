@@ -1,0 +1,17 @@
+* Metal playlist
+
+** 2009
+
+| Style                    | Band     | Album                    | Source | Spotify | Critic OR |
+|--------------------------+----------+--------------------------+--------+---------+-----------|
+| Experimental black metal | Krallice | Dimensional bleedthrough |        | [[https://open.spotify.com/album/078lGF7UsKNpjWlIexIIh3?si=LKPgZIwzQP2i8s6_e9MDEg&dl_branch=1][Link]]    |           |
+
+
+** 2011
+
+| Style                               | Band       | Album          | Source | Spotify | Critic OR |
+|-------------------------------------+------------+----------------+--------+---------+-----------|
+| Prog-metal                          | Cormorant  | Dwellings      | [[https://www.npr.org/sections/allsongs/2011/11/29/142890254/the-best-metal-albums-of-2011?t=1628541767380][NPR]]    | [[https://open.spotify.com/album/3raT2nPO0mBLLhacYCRPxQ?si=l1r68__CTv6BdQQGCnVqsA&dl_branch=1][Link]]    | 5/5       |
+| Post black metal, sludge blackmetal | Deafheaven | Roads to Judah | [[https://www.npr.org/sections/allsongs/2011/11/29/142890254/the-best-metal-albums-of-2011?t=1628541767380][NPR]]    | [[https://open.spotify.com/album/4OGPeQsT1vl9BsNG8kiDpQ?si=Trlz2074Sq28IGUINNu2Pw&dl_branch=1][Link]]    | 4/5       |
+| Experimental blacl metal            | Krallice   | Diotima        |        | [[https://open.spotify.com/album/1GU2CpDOETATm8mYizE6wO?si=i2Wx8lhVTK-bmBh2vYGBsg&dl_branch=1][Link]]    |           |
+
