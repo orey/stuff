@@ -26,7 +26,7 @@ fi
 # Screenshot a selected area
 if [ "$1" = "special" ];
 then
-    import -format png -window root -crop 990x880+630+138 "${NAME}";
+    import -format png -window root -crop "$4"x"$5"+"$2"+"$3" "${NAME}";
     echo "${NAME}" >> "${LOG}"
 fi
 
