@@ -59,7 +59,7 @@ do
     done
 
     # Make pixels grey or preserve existing grey
-    if [ greylevel != 0 ]
+    if [ $greylevel != 0 ]
     then
         while [ $count -lt $3 ]
         do
