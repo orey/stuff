@@ -120,4 +120,10 @@ Note that the same document is analyzed in both cases, but with a different targ
 * In the second case, the same of a US Letter document.
    * In that case, the width must be extended to reach a US Letter format.
    * That means that the fitting dimension that will support the margin is the height.
+   
+## resize-variable-images-blank3.sh
+
+This script only proposes the `test` option. The recommendation option moved to a secondary script (`resize-multiple-images-analyze-size-and-bleed.sh`) containing the [Lulu](https://lulu.com) recommendations.
+
+Please use the recommendation script, then resize your images using `resize-variable-images-blank3.sh`.
 

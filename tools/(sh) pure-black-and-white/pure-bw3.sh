@@ -7,7 +7,6 @@ OUTPUT_DIR=pureBandW
 KEY_LOG=pure-wb3-exec.log
 LOG=$(date +"%Y%m%d_%H%M%S_")
 LOG+=$KEY_LOG
-$LOG
 
 
 # Ensure directory function
@@ -15,9 +14,9 @@ ensure_directory () {
     if [ ! -d ./$1 ]
     then
         mkdir ./$1
-    else
-        rm -R ./$1
-        mkdir ./$1
+#    else
+#        rm -R ./$1
+#        mkdir ./$1
     fi
 }
 

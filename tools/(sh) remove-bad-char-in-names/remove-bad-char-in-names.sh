@@ -7,6 +7,7 @@ then
     echo "Usage:"
     echo "$ ./remove-bad-char-in-names.sh \"#\" "
     echo "Char must be between double quotes"
+    echo "It is probable that many characters also works like \"#;_\". To be tested."
     exit 0
 fi
 
