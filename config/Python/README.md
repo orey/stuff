@@ -20,13 +20,17 @@ You can use px proxy.
 
 https://github.com/genotrance/px
 
-You may need to add certificates for certain manipulations.
-
 ### pip installation
 
 Download `get-pip.py` on the Pypy site and run `python get-pip.py`. This will install pip.
 
 https://pip.pypa.io/en/stable/installing/
+
+To be able to run "python get-pip.py" with no certificate issues:
+
+* Gather your certificates in a folder (Bin64, x509)
+* Use the setenv provided
+* Create the pip env variable in setenv and add the pip.ini file in the target of this env variable
 
 ### Modify the python path
 
