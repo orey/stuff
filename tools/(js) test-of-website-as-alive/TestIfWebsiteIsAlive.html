@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function doFunction(i){
+          let el=document.getElementById("my_url"+i.toString());
+          let result=document.getElementById("result"+i.toString());
+          //alert(el.value)
+          fetch(el.value,{mode: 'no-cors',method: "get"})
+              .then(
+                  function(response) {
+                      return response.text();
+                  })
+              .then(
+                  function(str) {
+                      console.log(str);
+                      console.log("SITE OK");
+                      result.innerHTML="Result: SITE alive";
+                  })
+              .catch(
+                  function(error) {
+                      console.log(error);
+                      console.log("SITE KO");
+                      result.innerHTML="Result: SITE not available";}
+              );          
+      }
+    </script>
+  </head>
+  <body>
+    <label>URL: </label>
+    <input type="url"
+           id="my_url1"
+           value="http://nhi-xindoc-validation.partners.nhindustries.corp:8082/NAHEMA_TLS_V1_1_1"></input><br>
+    <input id="clickMe" type="button" value="clickme" onclick="doFunction(1);" />
+    <hr>
+    <label id="result1">Result:</label><br>
+    <hr>
+    <label>URL: </label>
+    <input type="url"
+           id="my_url2"
+           value="http://nhi-xindoc-validation.partners.nhindustries.corp:8084/NAHEMA_TLS_V1_2"></input><br>
+    <input id="clickMe" type="button" value="clickme" onclick="doFunction(2);" />
+    <hr>
+    <label id="result2">Result:</label>    
+  </body>
+</html>
