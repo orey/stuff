@@ -25,7 +25,7 @@ ensure_folder skipped
 
 
 # Remove log file if exists
-if [ -a $LOG]
+if [ -a $LOG ]
 then
     rm $LOG
 fi
