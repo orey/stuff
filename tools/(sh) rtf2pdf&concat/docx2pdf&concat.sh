@@ -1,9 +1,9 @@
 #/bin/bash
 
-for filename in ./*.rtf
+for filename in ./*.docx
 do
     libreoffice --headless --invisible --norestore --convert-to pdf "$filename"
 done;
 
-qpdf --empty --pages *.pdf -- SRD-3-5.pdf
+qpdf --empty --pages *.pdf -- allConcatenated.pdf
 
