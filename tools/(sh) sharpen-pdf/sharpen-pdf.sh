@@ -6,11 +6,11 @@ then
    mkdir ./converted
 fi
 
-if [ $# != 2 ]
+if [ $# != 3 ]
 then
     echo "sharpen-pdf.sh: Script version 1"
     echo "Requires: Imagemagick (identify, convert) to be installed"
-    echo "Usage : sharpen-pdf.sh [doc.pdf] [0x4]"
+    echo "Usage : sharpen-pdf.sh [input.pdf] [0x4] [output.pdf]"
     exit 0
 fi
 
@@ -23,8 +23,8 @@ do
     rm $f
 done
 
-convert ./converted/*.* ./all.pdf
+convert ./converted/*.* ./$3
 rm -R ./converted
-echo "Created all.pdf"
+echo "Created $3"
 
 
