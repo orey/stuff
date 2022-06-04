@@ -3,7 +3,7 @@ clear
 
 if [ $# -eq 0 ]
 then
-    echo Publish all script (to master branch)
+    echo Publish all script by calling the publish script in each folder
     echo Usage : publish-all.sh [comments without space]
     exit 0
 fi
@@ -19,9 +19,7 @@ do
     else
         echo $f
         cd $f
-        git add *
-        git commit -a -m "$message"
-        git push origin master
+        ./publish.sh "$message"
         cd ..
     fi
 done
