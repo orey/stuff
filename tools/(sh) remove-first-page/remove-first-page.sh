@@ -12,9 +12,9 @@ fi
 temp="$1"
 nbofpages=$(pdfinfo "$1" | grep -Po 'Pages:[[:space:]]+\K[[:digit:]]+')
 
-pdftk A="$1" cat 2-$nbofpages output temp.pdf
+pdftk A="$1" cat 2-$nbofpages output xsdfsdrfd.pdf
 
-mv temp.pdf $1
+mv xsdfsdrfd.pdf $1
 
 echo "Done"
 
