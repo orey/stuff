@@ -10,7 +10,9 @@ then
     exit 0
 fi
 
-pdf2ps "$1" - | ps2pdf - "flattened-$1"
+pdf2ps "$1" adfresfde.ps
+ps2pdf adfresfde.ps "flattened-$1"
+rm adfresfde.ps
 
 echo "Done"
 
