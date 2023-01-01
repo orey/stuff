@@ -12,3 +12,6 @@ else
   pdftk A=$2 B=blank.pdf cat A1-$(($1-1)) B1 A$1-end output $3
 fi
 
+rm blank.pdf
+
+
