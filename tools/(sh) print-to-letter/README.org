@@ -1,0 +1,1 @@
+Le script avec gs ne fonctionne pas. Pour le moment le meilleur rendu est avec pdfjam.

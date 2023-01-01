@@ -14,6 +14,9 @@ new=embed-$1
 
 pdffonts $1
 
+read "Pausing. Type any key to continue..."
+
+
 #gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -sDEVICE=pdfwrite -sOutputFile=$new $1
 
 # The list of fonts in teh system is here: /etc/fonts/fonts.conf

@@ -13,7 +13,7 @@ else
 fi
 
 mv temp_hfgdtsgjh.pdf $1
-rm blank.mdf
+rm blank.pdf
 
 
 
