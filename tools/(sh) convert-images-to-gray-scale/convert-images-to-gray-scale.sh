@@ -3,9 +3,9 @@ clear
 
 if [ $# -eq 0 ]
 then
-    echo "convert-image-to-gray-scale.sh: Script version 1"
+    echo "convert-images-to-gray-scale.sh: Script version 1"
     echo "Requires: Imagemagick (identify, convert) to be installed"
-    echo "Usage : convert-image-to-grey-scale.sh [pattern]"
+    echo "Usage : convert-images-to-grey-scale.sh [pattern]"
     echo "Pattern can be *.png between double quotes"
     exit 0
 fi
