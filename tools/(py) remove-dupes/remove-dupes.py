@@ -62,10 +62,10 @@ def move_duplicate(rootpath, key, filename):
         print(err)
 
 
-    
 # This function analyzes or moves the duplicates
 def analyze_folder(extension, path, thedict, move=False):
     count = 0
+    duplicates = 0
     mykey = str(int(time()))
     if not move:
         # create logfile - move = False
@@ -88,6 +88,7 @@ def analyze_folder(extension, path, thedict, move=False):
                 count +=1
                 if sha in thedict.keys():
                     print("\nFound duplicate: " + filename + " | " + thedict[sha])
+                    duplicates +=1
                     if move:
                         move_duplicate(rootpath, sha, filename)
                     else:
@@ -97,6 +98,8 @@ def analyze_folder(extension, path, thedict, move=False):
     if not move:
         logfile.write(format_trailer())
         logfile.close()
+    print("\nNumber of files analyzed: " + str(count))
+    print("Number of duplicates found: " + str(duplicates))
 
 
 def format_header():
@@ -112,6 +115,7 @@ def format_trailer():
     return "</body>\n</html>\n"
 
 
+# This function is old and must be reviewed before use
 def compare_folders():
     #Analyse reference folder
     todelete = open("todelete.html", "w")
@@ -141,33 +145,32 @@ def compare_folders():
 def usage():
     print("remove-dupes.py")
     print("Usage:")
-    print("> python(3) remove-dupes.py -d")
-    print("Analyses duplicates in a single folder")
-    print("> python(3) remove-dupes.py -a")
-    print("Analyses duplicates in two folders")
+    print("> python(3) remove-dupes.py [ext] [folder] [analyze|move]")
+    print("Analyses duplicates in a single folder or move them in a new folder created in the directory where the program is run.")
+    print("Note: one exemplary (the first found) of the file is kept in the source folder, which can alter previous classification, especially if the files were renamed.")
+    print("ext: extension, folder: surrounded by double quotes")
     sys.exit(2)
 
 def main():
-    if len(sys.argv) == 1:
-        usage()
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "ad:v", ["all", "dir"])
-    except getopt.GetoptError as err:
-        usage()
-    for o, a in opts:
-        if o == "-v":
-            VERBOSE = True
-        elif o in ("-h", "--help"):
-            usage()
-        elif o in ("-a", "--all"):
-            compare_folders()
-        elif o in ("-d", "--dir"):
-            analyze_folder(EXT,path_ref,DICT_REF)
-            #test = input("Enter a char: ")
-            #analyze_folder(EXT,path_temp,DICT_TEMP,True)
-        else:
-            assert False, "unhandled option"
-
+    if len(sys.argv) != 4:
+        usage() #exits the program
+    ext = sys.argv[1]
+    print("Extension: " + ext)
+    folder = sys.argv[2]
+    print("Folder to process: " + folder)
+    action = sys.argv[3]
+    print("Action: " + action)
+    actionbin = False
+    if action == "move":
+        sys.stdout.write("Are you sure you want to move duplicated files? [Y,y]")
+        sys.stdout.flush()
+        test = input()
+        if test in ["Y", "y"]:
+            actionbin = True
+    else:
+        actionbin = False #protects from rotten options
+    #processing
+    analyze_folder(ext,folder,DICT_REF, actionbin)
 
 
 if __name__ == "__main__":
