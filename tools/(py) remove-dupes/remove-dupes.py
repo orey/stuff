@@ -63,11 +63,14 @@ def move_duplicate(rootpath, key, filename):
 
 
 # This function analyzes or moves the duplicates
-def analyze_folder(extension, path, thedict, move=False):
+# move = 0 => analyze
+# move = 1 => interactive
+# move = 2 => automatic move
+def analyze_folder(extension, path, thedict, move=0):
     count = 0
     duplicates = 0
     mykey = str(int(time()))
-    if not move:
+    if move == 0:
         # create logfile - move = False
         logfilename = mykey + '.html'
         logfile = open(logfilename, "w")
@@ -78,9 +81,9 @@ def analyze_folder(extension, path, thedict, move=False):
         os.mkdir(rootpath)
     # main loop
     for root, dirs, files in os.walk(path):
-        for file in files:
-            if file.endswith(extension) or file.endswith(extension.upper()):
-                filename = os.path.join(root,file)
+        for thefile in files:
+            if thefile.endswith(extension) or thefile.endswith(extension.upper()):
+                filename = os.path.join(root,thefile)
                 sha = sha256sum(filename)
                 #print(sha + " - " + filename)
                 sys.stdout.write(str(count) + '|')
@@ -89,10 +92,32 @@ def analyze_folder(extension, path, thedict, move=False):
                 if sha in thedict.keys():
                     print("\nFound duplicate: " + filename + " | " + thedict[sha])
                     duplicates +=1
-                    if move:
+                    if move == 2:
+                        # automatic move
                         move_duplicate(rootpath, sha, filename)
-                    else:
-                        logfile.write(format_line(filename, thedict[sha]))
+                    elif move == 1:
+                        print("Dir  1: " + os.path.dirname(filename) + '    <===>    ' + thefile)
+                        print("Dir  2: " + os.path.dirname(thedict[sha]) + '    <===>    ' + os.path.basename(thedict[sha]))
+                        choice = 0
+                        while choice not in ["0","1","2"]:
+                            sys.stdout.write("Type the file you want to keep, the other will be moved [1,2] or keep both [0]: ")
+                            sys.stdout.flush()
+                            choice = input()
+                        if choice == "2":
+                            # we keep the one in the dictionary
+                            # we do as the automatic move
+                            move_duplicate(rootpath, sha, filename)
+                        elif choice == "1":
+                            # we have to erase the one in the dictionary
+                            # because other duplicates can come and we keep the one in the dict
+                            move_duplicate(rootpath, sha, thedict[sha])
+                            thedict[sha] = filename
+                        else:
+                            print("Both files kept")
+                    else: # case where move = 0, analysis
+                        logfile.write(format_line(thefile, os.path.dirname(filename), \
+                                                  os.path.basename(thedict[sha]), os.path.dirname(thedict[sha])))
+                        logfile.flush()
                 else:
                     thedict[sha] = filename
     if not move:
@@ -103,16 +128,19 @@ def analyze_folder(extension, path, thedict, move=False):
 
 
 def format_header():
-    return "<html>\n<body>\n"
+    return "<html>\n<body><table>\n"
 
 
-def format_line(temp, real):
-    return '<p><a href="file://' + temp + '">' + temp \
-        + '</a> - <a href="file://' + real + '">' + real + '</a></p>\n'
+def format_line(filename, tempfolder, bisname, realfolder):
+    return '<tr><td style="border: 1px solid black;">' + filename \
+        + '</td><td style="border: 1px solid black;">' + tempfolder \
+        + '</td><td style="border: 1px solid red;">' + bisname \
+        + '</td><td style="border: 1px solid red;">' + realfolder \
+        + '</td></tr>\n'
 
 
 def format_trailer():
-    return "</body>\n</html>\n"
+    return "</table></body>\n</html>\n"
 
 
 # This function is old and must be reviewed before use
@@ -145,7 +173,7 @@ def compare_folders():
 def usage():
     print("remove-dupes.py")
     print("Usage:")
-    print("> python(3) remove-dupes.py [ext] [folder] [analyze|move]")
+    print("> python(3) remove-dupes.py [ext] [folder] [analyze|interactive|move]")
     print("Analyses duplicates in a single folder or move them in a new folder created in the directory where the program is run.")
     print("Note: one exemplary (the first found) of the file is kept in the source folder, which can alter previous classification, especially if the files were renamed.")
     print("ext: extension, folder: surrounded by double quotes")
@@ -160,15 +188,20 @@ def main():
     print("Folder to process: " + folder)
     action = sys.argv[3]
     print("Action: " + action)
-    actionbin = False
+    # move = 0 => analyze
+    # move = 1 => interactive
+    # move = 2 => automatic move
+    actionbin = 0
     if action == "move":
-        sys.stdout.write("Are you sure you want to move duplicated files? [Y,y]")
+        sys.stdout.write("Are you sure you want to move all duplicated files? [Y,y]")
         sys.stdout.flush()
         test = input()
         if test in ["Y", "y"]:
-            actionbin = True
+            actionbin = 2
+    elif action == "interactive":
+        actionbin = 1
     else:
-        actionbin = False #protects from rotten options
+        actionbin = 0 #protects from rotten options
     #processing
     analyze_folder(ext,folder,DICT_REF, actionbin)
 
