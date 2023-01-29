@@ -20,7 +20,7 @@ ensure_directory () {
     fi
 }
 
-ensure pureBandW
+ensure_directory pureBandW
 
 
 # Usage function
@@ -66,55 +66,50 @@ change_pixel_in_image () {
 # Main loop
 for f in $1
 do
-    if [ -e $1 ]
+    #filename + extension
+    filename="${f%.*}"
+    extension="${f#*.}"
+    echo "File $f: [$filename,$extension]"
+    cp $f old.$extension
+
+    # Make pixels black
+    echo -n "Black: "
+    count=0
+    while [ $count -lt $2 ]
+    do
+        echo -n "$count|"
+        change_pixel_in_image old.$extension  "rgb($count,$count,$count)" "rgb(0,0,0)" temp.$extension
+        count=$( expr $count + 1 )
+    done
+
+    # Make pixels grey or preserve existing grey
+    if [ $greylevel != 0 ]
     then
-        #filename + extension
-        filename="${f%.*}"
-        extension="${f#*.}"
-        echo "File $f: [$filename,$extension]"
-        cp $f old.$extension
-
-        # Make pixels black
-        echo -n "Black: "
-        count=0
-        while [ $count -lt $2 ]
+        while [ $count -lt $3 ]
         do
             echo -n "$count|"
-            change_pixel_in_image old.$extension  "rgb($count,$count,$count)" "rgb(0,0,0)" temp.$extension
+            change_pixel_in_image old.$extension "rgb($count,$count,$count)" "rgb($greylevel,$greylevel,$greylevel)" temp.$extension
             count=$( expr $count + 1 )
         done
-
-        # Make pixels grey or preserve existing grey
-        if [ $greylevel != 0 ]
-        then
-            while [ $count -lt $3 ]
-            do
-                echo -n "$count|"
-                change_pixel_in_image old.$extension "rgb($count,$count,$count)" "rgb($greylevel,$greylevel,$greylevel)" temp.$extension
-                count=$( expr $count + 1 )
-            done
-        else
-            count=$3
-        fi
-
-        # Make pixels white
-        echo -n "White: "
-        while [ $count -lt 255 ]
-        do
-            echo -n "$count|"
-            change_pixel_in_image old.$extension  "rgb($count,$count,$count)" "rgb(255,255,255)" temp.$extension
-            count=$( expr $count + 1 )
-        done
-
-        # Write to log file
-        echo "$f: Black, grey and white pixels treated" >> $LOG
-
-        # move new file in output folder and clean temp file
-        mv old.$extension ./pureBandW/$f
-        rm temp.$extension
-        echo "$f: done"
     else
-        echo "$f file not existing. Probably a technical file. Skipping..."
+        count=$3
     fi
+    
+    # Make pixels white
+    echo -n "White: "
+    while [ $count -lt 255 ]
+    do
+        echo -n "$count|"
+        change_pixel_in_image old.$extension  "rgb($count,$count,$count)" "rgb(255,255,255)" temp.$extension
+        count=$( expr $count + 1 )
+    done
+    
+    # Write to log file
+    echo "$f: Black, grey and white pixels treated" >> $LOG
+    
+    # move new file in output folder and clean temp file
+    mv old.$extension ./pureBandW/$f
+    #rm temp.$extension
+    echo "$f: done"
 done
 
