@@ -10,9 +10,9 @@ You need to have a folder from where you have the right to execute any program (
 
 https://www.python.org/downloads/
 
-### Env variables
+### Env variables in setenv
 
-Then, set the environment variables as shown in the `setenv.bat` file in this folder.
+Then, set the environment variables as shown in the `setenv.bat` file in this folder, pointing to your folder
 
 ### Proxy and certificates
 
@@ -30,11 +30,13 @@ To be able to run "python get-pip.py" with no certificate issues:
 
 * Gather your certificates in a folder (Bin64, x509)
 * Use the setenv provided
-* Create the pip env variable in setenv and add the pip.ini file in the target of this env variable
+* Create the pip env variable in setenv and add the pip.ini file in the target of this env variable (generally the `python` folder)
 
 ### Modify the python path
 
 Modify the `python37._pth` or `python38._pth` path accordingly to the `python37._pth` file in this folder to enable pip to work. Essentially, you will reference the `Lib` and `Script` folders and uncomment a line.
+
+Note: Those folders are referenced in the `setenv.bat` file.
 
 ### Module installation
 
@@ -42,7 +44,7 @@ Install modules with `pip install module`.
 
 ### Warning about installations on Windows
 
-Even if you installed the portable version of Python, you will not be able to change the installation from directory. If you try to copy your `Python` folder in another place on your hard drive, that will not work. You have to redo the process.
+Even if you installed previously the portable version of Python, you will not be able to change the installation from the initial directory to another. If you try to copy your `Python` folder in another place on your hard drive, that will not work. You have to redo the process.
 
 ## Troubleshooting
 
@@ -73,5 +75,5 @@ You can use `venv` or `virtualenv` to creat virtual environments if you need to.
 
 https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments
 
-*(Updated June 2021)*
+*(Updated February 2023)*
 
