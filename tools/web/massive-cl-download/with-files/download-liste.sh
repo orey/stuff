@@ -35,17 +35,21 @@ while read line
 do
     # $line variable contains current line read from the file
     # display $line text on the screen or do something with it.
-
+    echo "-------------------------------------------------"
+    echo "Treating: $line"
+    
     if [ -f "$line" ]; then
-        echo "$line exists. Skipping..."
+        echo "File already downloaded: $line"
+        echo "Skipping..."
     else 
-        echo "$line does not exist."
+        echo "Downloading: $line"
         # ? must be translated into %3F
         line2=${line//"?"/%3F}
-        echo $line2
-        echo "$url$line2"
+        line3=${line2//" "/%20}
+        line4=${line3//"#"/%23}
+        echo "Transformed: $line4"
 
-        wget "$url$line2"
+        wget "$url$line4"
 
     fi
 done < $filename
