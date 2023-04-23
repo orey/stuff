@@ -1,0 +1,3 @@
+* Convert into 300dpi
+
+Well, this script does not work, but I keep it for archive. Maybe one day I'll have the time to fix it.
