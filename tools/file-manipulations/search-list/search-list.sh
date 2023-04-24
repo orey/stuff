@@ -21,10 +21,9 @@ report=report.txt
 
 while read line
 do
-    echo "-------------------------------------------------"
-    echo "-------------------------------------------------" >> $report
-    
     if [ $count -eq 0 ]; then
+        echo "-------------------------------------------------"
+        echo "-------------------------------------------------" >> $report
         # first line: description
         echo "$line"
         echo "$line" >> $report
