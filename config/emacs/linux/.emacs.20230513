@@ -1,0 +1,229 @@
+; .Emacs file for Debian 10
+
+(setq inhibit-startup-screen t)
+
+;==== For markdown support
+; If it does not work: apt install elpa-markdown-mode markdown
+;(require 'package)
+;(add-to-list 'package-archives
+;             '("melpa" . "https://melpa.org/packages/"))
+;(add-to-list 'package-archives
+;             '("elpa" . "https://elpa.gnu.org/packages/"))
+;(package-initialize)
+
+(setq package-archives
+   '(("marmalade" . "http://marmalade-repo.org/packages/")
+     ("melpa" . "http://melpa.org/packages/")
+     ("melpa-stable" . "https://stable.melpa.org/packages/")
+     ("elpa" . "https://elpa.gnu.org/packages/")
+     ))
+(package-initialize)
+
+
+
+; This instruction contacts melpa at startup
+;(package-refresh-contents)
+
+;=== Enabling line numbers globally to emacs
+(when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
+
+;=== Enabling recent files
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;=== Default fonts
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9"))
+(set-face-attribute 'default t :font "DejaVu Sans Mono-9")
+(set-face-attribute 'default nil :font "DejaVu Sans Mono-9")
+(set-frame-font "DejaVu Sans Mono-9" nil t)
+;(set-default-font "DejaVu Sans Mono-9")
+
+;(add-to-list 'default-frame-alist '(font . "Monospace-8"))
+;(set-face-attribute 'default t :font "Monospace-8")
+;(set-face-attribute 'default nil :font "Monospace-8")
+;(set-frame-font "Monospace-8" nil t)
+;(set-default-font "Monospace-8")
+
+;(add-to-list 'default-frame-alist '(font . "Monospace-8"))
+;(set-face-attribute 'default t :font "Monospace-8")
+;(set-face-attribute 'default nil :font "Monospace-8")
+;(set-frame-font "Monospace-8" nil t)
+;(set-default-font "Monospace-8")
+
+;(add-to-list 'default-frame-alist '(font . "Century Schoolbook L-9"))
+;(set-face-attribute 'default t :font "Century Schoolbook L-9")
+;(set-face-attribute 'default nil :font "Century Schoolbook L-9")
+;(set-frame-font "Century Schoolbook L-9" nil t)
+;(set-default-font "Century Schoolbook L-9")
+
+
+;;;
+;; n3 mode
+;;
+
+;(add-to-list 'load-path "~/.emacs.d/n3-mode.el")
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(autoload 'n3-mode "n3-mode" "Major mode for OWL or N3 files" t)
+
+;; Turn on font lock when in n3 mode
+(add-hook 'n3-mode-hook
+          'turn-on-font-lock)
+
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.n3" . n3-mode)
+        '("\\.rdf" . n3-mode)
+        '("\\.rdfs" . n3-mode)
+        '("\\.ttl" . n3-mode)
+        '("\\.owl" . n3-mode))
+       auto-mode-alist))
+
+;; Replace {path} with the full path to n3-mode.el on your system.
+
+;; If you want to make it load just a little faster;
+;; C-x f n3-mode.el
+;; M-x byte-compile-file n3-mode.el
+
+;(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+;'(package-selected-packages (quote (rust-mode markdown-mode))))
+;(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+; )
+
+(setq backup-directory-alist `(("." . "/home/olivier/.emacs-saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
+; Remove tabs and replace by spaces
+(setq-default indent-tabs-mode nil)
+
+; Selection replaced by typing
+(delete-selection-mode 1)
+
+; Enable rust-mode by default
+; Install it before : M-x package install rust-mode
+;(require 'rust-mode)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+ '(custom-enabled-themes (quote (leuven)))
+ '(font-use-system-font t)
+ '(package-selected-packages
+   (quote
+    (wc-goal-mode typescript-mode gnuplot-mode gnuplot yaml-mode slime markdown-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+ (global-set-key
+ [f3]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "francais")))
+(global-set-key
+ [f4]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "english")))
+
+
+(if (require 'folding nil 'noerror)
+        (folding-mode-add-find-file-hook)
+  (message "Library `folding' not found"))
+
+
+; CEDET
+;(global-ede-mode 1)
+;(require 'semantic/sb)
+;(semantic-mode 1)
+
+;folding code
+(global-set-key (kbd "<f9>") 'set-selective-display-dlw)
+
+(defun set-selective-display-dlw (&optional level)
+  "Fold text indented same of more than the cursor.
+   If level is set, set the indent level to LEVEL.
+   If 'selective-display' is already set to LEVEL, clicking
+   F5 again will unset 'selective-display' by setting it to 0."
+  (interactive "P")
+  (if (eq selective-display (1+ (current-column)))
+      (set-selective-display 0)
+    (set-selective-display (or level (1+ (current-column))))))
+
+(global-visual-line-mode 1)
+
+;=== Color of editor
+;(set-foreground-color "white")
+;(set-background-color "white smoke")
+;(set-face-attribute 'region nil :background "gold" :foreground "black")
+
+; color of comments
+;(set-face-foreground 'font-lock-string-face "black")
+;(set-face-background 'font-lock-string-face "aquamarine")
+
+(set-face-foreground 'font-lock-comment-face "black")
+(set-face-background 'font-lock-comment-face "pale green")
+
+;Remapping buffer list to ibuffer, enables to navigate!
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+; enabling standard selection in org-mode
+; OK for non CUA mode
+(setq org-support-shift-select 'always)
+
+; To take in charge multilingual orgmode to latex exports
+;(add-to-list 'org-latex-packages-alist
+;             '("AUTO" "babel" t ("pdflatex")))
+
+; flyspell-mode dictionary
+;=== Adding shortcut for flyspell-mode
+(require 'ispell)
+;(global-set-key (kbd "C-<f8>") 'ispell-word)
+(global-set-key (kbd "<f8>") 'flyspell-mode)
+
+;=== Enabling F3 and F4 keys for dictionaries
+(global-set-key
+ [f3]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "francais")))
+(global-set-key
+ [f4]
+ (lambda ()
+   (interactive)
+   (ispell-change-dictionary "english")))
+
+; a macro to be used to insert backquote
+(defun insert-backquote()
+  (interactive)
+  (insert "`"))
+(global-set-key (kbd "<f7>") 'insert-backquote)
+
+(global-set-key (kbd "<f6>") 'count-words)
+
+
+
+
