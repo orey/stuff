@@ -1,0 +1,20 @@
+\documentclass[]{article}
+
+\usepackage{pdfpages}
+
+\providecommand{\myfile}{myfile.pdf}
+\providecommand{\mylabel}{Default label}
+
+
+\usepackage{draftwatermark}
+\SetWatermarkText{\mylabel}
+\SetWatermarkScale{1}
+
+
+% pdflatex "\newcommand{\myfile}[1]{the file}
+
+\begin{document}
+\includepdf[pages=-]{myfile.pdf}
+
+
+\end{document}

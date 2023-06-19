@@ -1,0 +1,1288 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2023.1.19)  19 JUN 2023 18:10
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\newcommand{\myfile}{myfile.pdf} \newcommand{\mylabel}{ITAR ITAR} \input{docu
+ment.tex}
+ (document.tex
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count193
+\calc@Bcount=\count194
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count195
+\calc@Cskip=\skip52
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen143
+\ESO@tempdimb=\dimen144
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+))
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+)
+\AM@pagewidth=\dimen147
+\AM@pageheight=\dimen148
+\AM@fboxrule=\dimen149
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count196
+\AM@pagebox=\box51
+\AM@global@opts=\toks17
+\AM@pagecnt=\count197
+\AM@toc@title=\toks18
+\AM@lof@heading=\toks19
+\c@AM@survey=\count198
+\AM@templatesizebox=\box52
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/draftwatermark\draftwatermark.st
+y
+Package: draftwatermark 2020/12/08 3.0 Put a gray textual watermark on document
+ pages
+ (C:\ProgramData\orey\Software\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count199
+\l__pdf_internal_box=\box53
+)
+(document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count266
+\scratchdimen=\dimen150
+\scratchbox=\box54
+\nofMPsegments=\count267
+\nofMParguments=\count268
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count269
+\MPscratchDim=\dimen151
+\MPnumerator=\count270
+\makeMPintoPDFobject=\count271
+\everyMPtoPDFconversion=\toks21
+) (C:\ProgramData\orey\Software\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/pdflscape\pdflscape-nometadata.s
+ty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+ (C:\ProgramData\orey\Software\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+(C:\ProgramData\orey\Software\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=1, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf>
+Package pdftex.def Info: myfile.pdf  used on input line 17.
+(pdftex.def)             Requested size: 697.09059pt x 839.35373pt.
+
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf>
+Package pdftex.def Info: myfile.pdf  used on input line 17.
+(pdftex.def)             Requested size: 697.09059pt x 839.35373pt.
+
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=4, page=1, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 1>
+Package pdftex.def Info: myfile.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 697.09059pt x 839.35373pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 1>
+Package pdftex.def Info: myfile.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 1>
+Package pdftex.def Info: myfile.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 1>
+Package pdftex.def Info: myfile.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 1>
+Package pdftex.def Info: myfile.pdf , page1 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <153.57375> not available
+(Font)              size <24.88> substituted on input line 17.
+
+[1{C:/Users/a876246/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+ <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=43, page=2, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 2>
+Package pdftex.def Info: myfile.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 2>
+Package pdftex.def Info: myfile.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 2>
+Package pdftex.def Info: myfile.pdf , page2 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[2 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=47, page=3, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 3>
+Package pdftex.def Info: myfile.pdf , page3 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 3>
+Package pdftex.def Info: myfile.pdf , page3 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 3>
+Package pdftex.def Info: myfile.pdf , page3 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[3 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=67, page=4, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 4>
+Package pdftex.def Info: myfile.pdf , page4 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 4>
+Package pdftex.def Info: myfile.pdf , page4 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 4>
+Package pdftex.def Info: myfile.pdf , page4 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[4 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=81, page=5, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 5>
+Package pdftex.def Info: myfile.pdf , page5 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 5>
+Package pdftex.def Info: myfile.pdf , page5 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 5>
+Package pdftex.def Info: myfile.pdf , page5 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[5 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=85, page=6, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 6>
+Package pdftex.def Info: myfile.pdf , page6 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 6>
+Package pdftex.def Info: myfile.pdf , page6 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 6>
+Package pdftex.def Info: myfile.pdf , page6 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[6 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=89, page=7, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 7>
+Package pdftex.def Info: myfile.pdf , page7 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 7>
+Package pdftex.def Info: myfile.pdf , page7 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 7>
+Package pdftex.def Info: myfile.pdf , page7 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[7 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=117, page=8, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 8>
+Package pdftex.def Info: myfile.pdf , page8 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 8>
+Package pdftex.def Info: myfile.pdf , page8 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 8>
+Package pdftex.def Info: myfile.pdf , page8 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[8 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=121, page=9, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 9>
+Package pdftex.def Info: myfile.pdf , page9 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 9>
+Package pdftex.def Info: myfile.pdf , page9 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 9>
+Package pdftex.def Info: myfile.pdf , page9 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[9 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=126, page=10, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 10>
+Package pdftex.def Info: myfile.pdf , page10 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 10>
+Package pdftex.def Info: myfile.pdf , page10 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 10>
+Package pdftex.def Info: myfile.pdf , page10 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[10 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=130, page=11, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 11>
+Package pdftex.def Info: myfile.pdf , page11 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 11>
+Package pdftex.def Info: myfile.pdf , page11 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 11>
+Package pdftex.def Info: myfile.pdf , page11 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[11 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=134, page=12, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 12>
+Package pdftex.def Info: myfile.pdf , page12 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 12>
+Package pdftex.def Info: myfile.pdf , page12 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 12>
+Package pdftex.def Info: myfile.pdf , page12 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[12 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=139, page=13, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 13>
+Package pdftex.def Info: myfile.pdf , page13 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 13>
+Package pdftex.def Info: myfile.pdf , page13 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 13>
+Package pdftex.def Info: myfile.pdf , page13 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[13 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=166, page=14, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 14>
+Package pdftex.def Info: myfile.pdf , page14 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 14>
+Package pdftex.def Info: myfile.pdf , page14 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 14>
+Package pdftex.def Info: myfile.pdf , page14 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[14 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=171, page=15, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 15>
+Package pdftex.def Info: myfile.pdf , page15 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 15>
+Package pdftex.def Info: myfile.pdf , page15 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 15>
+Package pdftex.def Info: myfile.pdf , page15 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[15 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=176, page=16, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 16>
+Package pdftex.def Info: myfile.pdf , page16 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 16>
+Package pdftex.def Info: myfile.pdf , page16 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 16>
+Package pdftex.def Info: myfile.pdf , page16 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[16 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=181, page=17, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 17>
+Package pdftex.def Info: myfile.pdf , page17 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 17>
+Package pdftex.def Info: myfile.pdf , page17 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 17>
+Package pdftex.def Info: myfile.pdf , page17 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[17 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=186, page=18, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 18>
+Package pdftex.def Info: myfile.pdf , page18 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 18>
+Package pdftex.def Info: myfile.pdf , page18 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 18>
+Package pdftex.def Info: myfile.pdf , page18 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[18 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=193, page=19, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 19>
+Package pdftex.def Info: myfile.pdf , page19 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 19>
+Package pdftex.def Info: myfile.pdf , page19 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 19>
+Package pdftex.def Info: myfile.pdf , page19 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[19 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=201, page=20, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 20>
+Package pdftex.def Info: myfile.pdf , page20 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 20>
+Package pdftex.def Info: myfile.pdf , page20 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 20>
+Package pdftex.def Info: myfile.pdf , page20 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[20 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=206, page=21, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 21>
+Package pdftex.def Info: myfile.pdf , page21 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 21>
+Package pdftex.def Info: myfile.pdf , page21 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 21>
+Package pdftex.def Info: myfile.pdf , page21 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[21 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=211, page=22, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 22>
+Package pdftex.def Info: myfile.pdf , page22 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 22>
+Package pdftex.def Info: myfile.pdf , page22 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 22>
+Package pdftex.def Info: myfile.pdf , page22 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[22 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=217, page=23, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 23>
+Package pdftex.def Info: myfile.pdf , page23 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 23>
+Package pdftex.def Info: myfile.pdf , page23 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 23>
+Package pdftex.def Info: myfile.pdf , page23 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[23 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=221, page=24, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 24>
+Package pdftex.def Info: myfile.pdf , page24 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 24>
+Package pdftex.def Info: myfile.pdf , page24 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 24>
+Package pdftex.def Info: myfile.pdf , page24 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[24 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=226, page=25, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 25>
+Package pdftex.def Info: myfile.pdf , page25 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 25>
+Package pdftex.def Info: myfile.pdf , page25 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 25>
+Package pdftex.def Info: myfile.pdf , page25 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[25 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=234, page=26, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 26>
+Package pdftex.def Info: myfile.pdf , page26 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 26>
+Package pdftex.def Info: myfile.pdf , page26 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 26>
+Package pdftex.def Info: myfile.pdf , page26 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[26 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=239, page=27, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 27>
+Package pdftex.def Info: myfile.pdf , page27 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 27>
+Package pdftex.def Info: myfile.pdf , page27 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 27>
+Package pdftex.def Info: myfile.pdf , page27 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[27 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=248, page=28, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 28>
+Package pdftex.def Info: myfile.pdf , page28 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 28>
+Package pdftex.def Info: myfile.pdf , page28 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 28>
+Package pdftex.def Info: myfile.pdf , page28 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[28 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=253, page=29, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 29>
+Package pdftex.def Info: myfile.pdf , page29 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 29>
+Package pdftex.def Info: myfile.pdf , page29 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 29>
+Package pdftex.def Info: myfile.pdf , page29 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[29 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=264, page=30, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 30>
+Package pdftex.def Info: myfile.pdf , page30 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 30>
+Package pdftex.def Info: myfile.pdf , page30 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 30>
+Package pdftex.def Info: myfile.pdf , page30 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[30 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=268, page=31, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 31>
+Package pdftex.def Info: myfile.pdf , page31 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 31>
+Package pdftex.def Info: myfile.pdf , page31 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 31>
+Package pdftex.def Info: myfile.pdf , page31 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[31 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=276, page=32, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 32>
+Package pdftex.def Info: myfile.pdf , page32 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 32>
+Package pdftex.def Info: myfile.pdf , page32 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 32>
+Package pdftex.def Info: myfile.pdf , page32 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[32 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=283, page=33, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 33>
+Package pdftex.def Info: myfile.pdf , page33 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 33>
+Package pdftex.def Info: myfile.pdf , page33 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 33>
+Package pdftex.def Info: myfile.pdf , page33 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[33 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=294, page=34, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 34>
+Package pdftex.def Info: myfile.pdf , page34 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 34>
+Package pdftex.def Info: myfile.pdf , page34 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 34>
+Package pdftex.def Info: myfile.pdf , page34 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[34 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=298, page=35, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 35>
+Package pdftex.def Info: myfile.pdf , page35 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 35>
+Package pdftex.def Info: myfile.pdf , page35 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 35>
+Package pdftex.def Info: myfile.pdf , page35 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[35 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=302, page=36, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 36>
+Package pdftex.def Info: myfile.pdf , page36 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 36>
+Package pdftex.def Info: myfile.pdf , page36 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 36>
+Package pdftex.def Info: myfile.pdf , page36 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[36 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=306, page=37, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 37>
+Package pdftex.def Info: myfile.pdf , page37 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 37>
+Package pdftex.def Info: myfile.pdf , page37 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 37>
+Package pdftex.def Info: myfile.pdf , page37 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[37 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=311, page=38, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 38>
+Package pdftex.def Info: myfile.pdf , page38 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 38>
+Package pdftex.def Info: myfile.pdf , page38 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 38>
+Package pdftex.def Info: myfile.pdf , page38 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[38 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=315, page=39, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 39>
+Package pdftex.def Info: myfile.pdf , page39 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 39>
+Package pdftex.def Info: myfile.pdf , page39 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 39>
+Package pdftex.def Info: myfile.pdf , page39 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[39 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=319, page=40, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 40>
+Package pdftex.def Info: myfile.pdf , page40 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 40>
+Package pdftex.def Info: myfile.pdf , page40 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 40>
+Package pdftex.def Info: myfile.pdf , page40 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[40 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=323, page=41, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 41>
+Package pdftex.def Info: myfile.pdf , page41 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 41>
+Package pdftex.def Info: myfile.pdf , page41 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 41>
+Package pdftex.def Info: myfile.pdf , page41 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[41 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=327, page=42, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 42>
+Package pdftex.def Info: myfile.pdf , page42 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 42>
+Package pdftex.def Info: myfile.pdf , page42 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 42>
+Package pdftex.def Info: myfile.pdf , page42 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[42 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=331, page=43, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 43>
+Package pdftex.def Info: myfile.pdf , page43 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 43>
+Package pdftex.def Info: myfile.pdf , page43 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 43>
+Package pdftex.def Info: myfile.pdf , page43 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[43 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=336, page=44, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 44>
+Package pdftex.def Info: myfile.pdf , page44 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 44>
+Package pdftex.def Info: myfile.pdf , page44 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 44>
+Package pdftex.def Info: myfile.pdf , page44 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[44 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=340, page=45, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 45>
+Package pdftex.def Info: myfile.pdf , page45 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 45>
+Package pdftex.def Info: myfile.pdf , page45 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 45>
+Package pdftex.def Info: myfile.pdf , page45 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[45 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=344, page=46, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 46>
+Package pdftex.def Info: myfile.pdf , page46 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 46>
+Package pdftex.def Info: myfile.pdf , page46 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 46>
+Package pdftex.def Info: myfile.pdf , page46 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[46 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=348, page=47, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 47>
+Package pdftex.def Info: myfile.pdf , page47 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 47>
+Package pdftex.def Info: myfile.pdf , page47 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 47>
+Package pdftex.def Info: myfile.pdf , page47 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[47 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=352, page=48, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 48>
+Package pdftex.def Info: myfile.pdf , page48 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 48>
+Package pdftex.def Info: myfile.pdf , page48 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 48>
+Package pdftex.def Info: myfile.pdf , page48 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[48 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=356, page=49, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 49>
+Package pdftex.def Info: myfile.pdf , page49 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 49>
+Package pdftex.def Info: myfile.pdf , page49 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 49>
+Package pdftex.def Info: myfile.pdf , page49 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[49 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=361, page=50, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 50>
+Package pdftex.def Info: myfile.pdf , page50 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 50>
+Package pdftex.def Info: myfile.pdf , page50 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 50>
+Package pdftex.def Info: myfile.pdf , page50 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[50 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=365, page=51, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 51>
+Package pdftex.def Info: myfile.pdf , page51 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 51>
+Package pdftex.def Info: myfile.pdf , page51 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 51>
+Package pdftex.def Info: myfile.pdf , page51 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[51 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=369, page=52, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 52>
+Package pdftex.def Info: myfile.pdf , page52 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 52>
+Package pdftex.def Info: myfile.pdf , page52 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 52>
+Package pdftex.def Info: myfile.pdf , page52 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[52 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=373, page=53, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 53>
+Package pdftex.def Info: myfile.pdf , page53 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 53>
+Package pdftex.def Info: myfile.pdf , page53 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 53>
+Package pdftex.def Info: myfile.pdf , page53 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[53 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=377, page=54, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 54>
+Package pdftex.def Info: myfile.pdf , page54 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 54>
+Package pdftex.def Info: myfile.pdf , page54 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 54>
+Package pdftex.def Info: myfile.pdf , page54 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[54 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=381, page=55, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 55>
+Package pdftex.def Info: myfile.pdf , page55 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 55>
+Package pdftex.def Info: myfile.pdf , page55 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 55>
+Package pdftex.def Info: myfile.pdf , page55 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[55 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=386, page=56, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 56>
+Package pdftex.def Info: myfile.pdf , page56 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 56>
+Package pdftex.def Info: myfile.pdf , page56 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 56>
+Package pdftex.def Info: myfile.pdf , page56 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[56 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=390, page=57, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 57>
+Package pdftex.def Info: myfile.pdf , page57 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 57>
+Package pdftex.def Info: myfile.pdf , page57 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 57>
+Package pdftex.def Info: myfile.pdf , page57 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[57 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=394, page=58, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 58>
+Package pdftex.def Info: myfile.pdf , page58 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 58>
+Package pdftex.def Info: myfile.pdf , page58 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 58>
+Package pdftex.def Info: myfile.pdf , page58 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[58 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=398, page=59, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 59>
+Package pdftex.def Info: myfile.pdf , page59 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 59>
+Package pdftex.def Info: myfile.pdf , page59 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 59>
+Package pdftex.def Info: myfile.pdf , page59 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[59 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=402, page=60, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 60>
+Package pdftex.def Info: myfile.pdf , page60 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 60>
+Package pdftex.def Info: myfile.pdf , page60 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 60>
+Package pdftex.def Info: myfile.pdf , page60 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[60 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=406, page=61, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 61>
+Package pdftex.def Info: myfile.pdf , page61 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 61>
+Package pdftex.def Info: myfile.pdf , page61 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 61>
+Package pdftex.def Info: myfile.pdf , page61 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[61 <./myfile.pdf>]
+
+pdfTeX warning: pdflatex (file ./myfile.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.5> allowed
+<myfile.pdf, id=411, page=62, 697.0923pt x 839.35579pt>
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 62>
+Package pdftex.def Info: myfile.pdf , page62 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 62>
+Package pdftex.def Info: myfile.pdf , page62 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+File: myfile.pdf Graphic file (type pdf)
+<use myfile.pdf, page 62>
+Package pdftex.def Info: myfile.pdf , page62 used on input line 17.
+(pdftex.def)             Requested size: 614.36852pt x 739.74963pt.
+[62 <./myfile.pdf>] (document.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 128.69374pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3415 strings out of 476404
+ 59897 string characters out of 2793739
+ 1851324 words of memory out of 3000000
+ 23764 multiletter control sequences out of 15000+600000
+ 512586 words of font info for 33 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 76i,17n,79p,299b,422s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<C:/ProgramData/orey/Software/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb
+>
+Output written on document.pdf (62 pages, 2993348 bytes).
+PDF statistics:
+ 433 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 326 words of extra memory for PDF output out of 10000 (max. 10000000)
+
