@@ -18,3 +18,8 @@ Sample:
 
 ~fc-list | grep Quentincaps~ 
 
+** See what fonts are in PDF
+
+~pdffonts test.pdf~
+
+
