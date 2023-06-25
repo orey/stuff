@@ -23,3 +23,6 @@ Sample:
 ~pdffonts test.pdf~
 
 
+** Interesting Linux font packages
+
+~apt install ttf-mscorefonts-installer fonts-adf-tribun fonts-arkpandora fonts-croscore fonts-johnsmith-induni fonts-linuxlibertine~
