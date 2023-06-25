@@ -1,0 +1,20 @@
+* Installing a TTF font in Linux
+
+** Download it
+
+Extract and find the ttf files.
+
+** Copy to home directory the font
+
+The fonts local to the accoutn are located in =~/.local/share/fonts=.
+
+** Refresh the font cache
+
+~$ fc-cache -f -v~
+
+** Review font is installed
+
+Sample:
+
+~fc-list | grep Quentincaps~ 
+
