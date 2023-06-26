@@ -46,6 +46,10 @@ Install modules with `pip install module`.
 
 Even if you installed previously the portable version of Python, you will not be able to change the installation from the initial directory to another. If you try to copy your `Python` folder in another place on your hard drive, that will not work. You have to redo the process.
 
+### pip.ini in home directory
+
+Don't forget to include the pip.ini file in the home directory and to enable the main domain name of your company.
+
 ## Troubleshooting
 
 ### Installation error with the future module
