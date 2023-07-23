@@ -1,0 +1,5 @@
+* Yed
+
+See the batch file that fixes the default size of fonts in Debian.
+
+See also the `config/java` page.
