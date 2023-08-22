@@ -1,0 +1,4 @@
+* Fonctionnement sur Windows
+
+Installer "ghostscript" portable et mettre le répertoire "bin" dans le PATH.
+
