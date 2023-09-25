@@ -19,14 +19,14 @@ fi
 
 for f in $1
 do 
-    w=`identify -format %w $f`
-    h=`identify -format %h $f`
+    w=`identify -format %w "$f"`
+    h=`identify -format %h "$f"`
     if [ $w -eq $2 ] && [ $h -eq $3 ]
     then
         echo "$f: $wx$h - Not converted, already in a good format"
-        cp $f ./output/$f
+        cp "$f" "./output/$f"
     else
-        convert $f -resize $2x$3! ./output/$f
+        convert "$f" -resize $2x$3! "./output/$f"
         echo "$f: $wx$h - Converted"
     fi
 done
