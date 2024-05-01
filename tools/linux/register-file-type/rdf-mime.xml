@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+  <mime-type type="application/opera.desktop">
+    <comment>For RDF to open in opera</comment>
+    <glob pattern="*.rdf"/>
+  </mime-type>
+</mime-info>
