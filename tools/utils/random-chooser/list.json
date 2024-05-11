@@ -1,0 +1,16 @@
+{
+    "name" : "Name of the file",
+    "version" : "1.0",
+    "list" : [
+        {
+            "category" : "My cat",
+            "subcategory" : "May subcat",
+            "text" : "My text"
+        },
+        {
+            "category" : "My dog",
+            "subcategory" : "My subdog",
+            "text" : "My big text"
+        }
+    ]
+}
