@@ -15,7 +15,8 @@ cut-in-half () {
     for f in *.$1
     do
         echo "Splitting $f"
-        convert $f -crop 2x1@ -gaussian-blur 0.05 -quality 75% -resize 50% +repage +adjoin $f-%d.jpg
+        #convert $f -crop 2x1@ -gaussian-blur 0.05 -quality 75% -resize 50% +repage +adjoin $f-%d.jpg
+        convert $f -crop 2x1@ -quality 75% -resize 50% +repage +adjoin $f-%d.jpg
     done
 }
 
