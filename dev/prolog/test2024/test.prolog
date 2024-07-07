@@ -13,3 +13,5 @@ writeall([A|L]) :- write(A),write(','),writeall(L).
 
 putlast(A,M,L) :- append(M,[A],L).
 
+
+
