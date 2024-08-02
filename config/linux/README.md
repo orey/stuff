@@ -100,5 +100,11 @@ Put that command in the `.bashrc`.
 
 
 ```
-termtitle() { printf "\033]0;$*\007"; }
+function termtitle() {
+  if [[ -z "$ORIG" ]]; then
+    ORIG=$PS1
+  fi
+  TITLE="\[\e]2;$*\a\]"
+  PS1=${ORIG}${TITLE}
+}
 ```
