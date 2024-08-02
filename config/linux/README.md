@@ -93,3 +93,12 @@ Xft.dpi: 80
 ```
 
 100 is the standard value. 200 will zoom all graphical controls, and 80 will reduce everything.
+
+## Name a terminal
+
+Put that command in the `.bashrc`.
+
+
+```
+termtitle() { printf "\033]0;$*\007"; }
+```
