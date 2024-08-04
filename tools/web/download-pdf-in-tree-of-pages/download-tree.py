@@ -1,17 +1,10 @@
-import os
+import os, getopt, sys
 from html.parser import HTMLParser
 from urllib.parse import unquote
 import urllib.request
 from urllib.request import urlretrieve
 from string import Template
 
-
-# URLs
-URL = "https://the-great-url.com/where/youhave/files/to/retrieve/" #URL must finish by a /
-URLTEST = "https://your-test-url/"
-
-#Output file
-OUTPUT = "scanned-website.html"
 
 # GRAMMAR
 FOLDERS = "Folders"
@@ -112,20 +105,43 @@ def recursiveDownload(basefolder,url, depth):
             os.makedirs(os.path.join(basefolder,foldername))
             print("=== Folder '" + str(os.path.join(basefolder,foldername)) + "' created")
         recursiveDownload(os.path.join(basefolder, foldername),urlfolder, depth+1)
-            
+
+
+def usage():
+    print("Usage:\n> python download-tree.py -u URL")
+    print("-URL must use % characters replacings specials (spaces, etc.)")
+    exit(0)
+
+    
 def main():
-    #url = URLTEST
-    url = URL
-    print(url)
+    # get options
+    try:
+        opts, args = getopt.getopt(sys.argv[1:],
+                                   "-u:h",
+                                   ["url=", "help"])
+    except getopt.GetoptError:
+        usage()
+
+    URL = ""
+    if len(sys.argv) == 1 or opts == []:
+        usage()
+    for o, a in opts:
+        if o in ("-h", "--help"):
+            usage()
+        elif o in ("-u", "--url"):
+            URL = a
+            print("Root url: " + a)
+        else:
+            usage()
+
     #determine base folder
     basefolder = unquote(URL.split('/')[-2])
     if not os.path.exists(basefolder):
         os.makedirs(basefolder)
         print("=== Folder '" + basefolder + "' created")
-    recursiveDownload(basefolder,url, 1)
+    recursiveDownload(basefolder,URL, 1)
     print("All files retrieved. Exiting.")
 
-    
-if __name__ == "__main__":
-          main()
 
+if __name__ == "__main__":
+    main()
