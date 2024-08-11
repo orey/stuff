@@ -113,7 +113,7 @@ def analyze_target(path, sourcedict, analyze=False):
                 if analyze:
                     print("To remove from target: " + relativefilename)
                 else:
-                    print("File existing in target but not in source. Garbaging: " + completefilename + " ... ",end="")
+                    print("File existing in target but not in source. Garbaging: " + completefilename + " ... ",end="", flush=True)
                     interrupt()
                     garbage(completefilename)
                     print("Done.")
@@ -133,7 +133,7 @@ def analyze_target(path, sourcedict, analyze=False):
             print("To create in target: " + filetocreate)
         else:
             try:
-                print("Creating " + filetocreate + " ... ", end="")
+                print("Creating " + filetocreate + " ... ", end="", flush = True)
                 shutil.copyfile(value, filetocreate)
                 print("Done")
                 interrupt()
