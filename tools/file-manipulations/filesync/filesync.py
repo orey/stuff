@@ -113,9 +113,10 @@ def analyze_target(path, sourcedict, analyze=False):
                 if analyze:
                     print("To remove from target: " + relativefilename)
                 else:
-                    print("File existing in target but not in source. Garbaging: " + completefilename)
+                    print("File existing in target but not in source. Garbaging: " + completefilename + " ... ",end="")
                     interrupt()
                     garbage(completefilename)
+                    print("Done.")
     # 3. Create target files (and folders) based on existing source files that are not in target
     for key,value in sourcedict.items():
         filetocreate = os.path.join(path,key)
@@ -131,17 +132,22 @@ def analyze_target(path, sourcedict, analyze=False):
         if analyze:
             print("To create in target: " + filetocreate)
         else:
-            shutil.copyfile(value, filetocreate)
-            print("File " + filetocreate + " created in target")
-            interrupt()
+            try:
+                print("Creating " + filetocreate + " ... ", end="")
+                shutil.copyfile(value, filetocreate)
+                print("Done")
+                interrupt()
+            except:
+                print("Exception raised but still running: " + e)
     # 4. Remove the potential void folders in target
     for root, dirs, files in os.walk(path):
         if len(os.listdir(root)) == 0:
             interrupt("Folder is void and will be suppressed: " + root)
             try:
                 shutil.rmtree(root)
-            except:
+            except Exception as e:
                 print("The folder " + root + "is not existing anymore so cannot be removed...")
+                print("Exception raised but still running: " + e)
 
 
 #============================================ usage
