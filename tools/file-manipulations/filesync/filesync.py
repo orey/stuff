@@ -74,7 +74,7 @@ def analyze_source(path):
     dict = {}
     count = 0
     for root, dirs, files in os.walk(path):
-        print(dirs)
+        if DEBUG: print(dirs)
         for thefile in files: 
             count +=1
             # calculating the value
@@ -132,7 +132,8 @@ def analyze_target(path, sourcedict, analyze=False):
             print("To create in target: " + filetocreate)
         else:
             shutil.copyfile(value, filetocreate)
-            interrupt("File " + filetocreate + " created in target")
+            print("File " + filetocreate + " created in target")
+            interrupt()
     # 4. Remove the potential void folders in target
     for root, dirs, files in os.walk(path):
         if len(os.listdir(root)) == 0:
