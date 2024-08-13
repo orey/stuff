@@ -108,8 +108,8 @@ def recursiveDownload(basefolder,url, depth):
 
 
 def usage():
-    print("Usage:\n> python download-tree.py -u URL")
-    print("-URL must use % characters replacings specials (spaces, etc.)")
+    print('Usage:\n> python download-tree.py -u "URL"')
+    print("-URL must use % characters replacings specials (spaces, etc.) and be between double quotes")
     exit(0)
 
     
