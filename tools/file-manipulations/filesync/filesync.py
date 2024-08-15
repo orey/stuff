@@ -21,7 +21,7 @@ def interrupt(text=""):
     '''
     Manual breakpoint
     '''
-    if DEBUG == True:
+    if DEBUG == True or text == "DEBUG":
         if text != "":
             print(text)
         resp = input("Continue? ")
@@ -138,16 +138,16 @@ def analyze_target(path, sourcedict, analyze=False):
                 print("Done")
                 interrupt()
             except:
-                print("Exception raised but still running: " + e)
+                print("Exception raised but still running...")
     # 4. Remove the potential void folders in target
     for root, dirs, files in os.walk(path):
         if len(os.listdir(root)) == 0:
             interrupt("Folder is void and will be suppressed: " + root)
             try:
                 shutil.rmtree(root)
-            except Exception as e:
+            except:
                 print("The folder " + root + "is not existing anymore so cannot be removed...")
-                print("Exception raised but still running: " + e)
+                print("Exception raised but still running...")
 
 
 #============================================ usage
@@ -197,6 +197,13 @@ def main():
             target = a   
     #local = "/home/olivier/JDR-RPG/JDR/Ambre/"
     #remote = "/run/user/1000/gvfs/ftp:host=ls-wxl271.local/array1/DisqueBuffaloRaid1/JDR-RPG/JDR/Ambre/"
+    if not source.endswith('/'):
+        print("Warning, completing the source folder by a '/' at the end:")
+        source += '/'
+    if not target.endswith('/'):
+        print("Warning, completing the target folder by a '/' at the end:")
+        target += '/'
+    # run the process
     dict = analyze_source(source)
     analyze_target(target, dict, analyzemode)
 
