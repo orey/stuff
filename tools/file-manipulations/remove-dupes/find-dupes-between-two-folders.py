@@ -89,11 +89,10 @@ def analyze_reference(path):
 
 
 #============================================ analyze source
-def analyze_temp(path, dict):
+def analyze_temp(path, dict, analyzemode):
     '''
-    Analyze the files 
+    Creates a dict with {sha : fullpath/filename.ext}
     '''
-    dict = {}
     count = 0
     for root, dirs, files in os.walk(path):
         if DEBUG:
@@ -103,23 +102,22 @@ def analyze_temp(path, dict):
             # calculating the value
             completefilename = os.path.join(root,thefile)
             hash = str(sha256sum(completefilename))
-            dict[hash]=completefilename
-            #interrupt(dict)
             sys.stdout.write(str(count) + '|')
             sys.stdout.flush()
-    print("\n--- " + str(count) + " files found in " + path)
-    return dict
-
-
-
-
+            if hash in dict:
+                print("\nDuplicate: " + completefilename + " === " + dict[hash])
+                if not analyzemode:
+                    garbage(completefilename)
+                    print("In garbage: " + completefilename)
+    print("\n--- " + str(count) + " files compared from " + path)
+    return count
 
 
 #============================================ usage
 def usage():
     print("Analyze 2 folders to find the duplicates")
-    print("Usage: \n $ filesync -s [SOURCE_FOLDER] -t [TARGET_FOLDER] (-a) (-h)")
-    print("-SOURCE_FOLDER and TARGET_FOLDER are mandatory parameters")
+    print("Usage: \n $ filesync -r [REFERENCE_FOLDER] -t [TEMP_FOLDER] (-a) (-h)")
+    print("-REFERENCE_FOLDER and TEMP_FOLDER are mandatory parameters")
     print("-'-a' is just doing an analysis of the deltas")
     print("-'-h' is for help")
     sys.exit(0)    
@@ -128,16 +126,16 @@ def usage():
 #============================================ analyze target
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "s:t:g:adh",
-                                   ["source=", "target=", "garbage=", "analyze", "debug", "help"])
+        opts, args = getopt.getopt(sys.argv[1:], "r:t:g:adh",
+                                   ["ref=", "temp=", "garbage=", "analyze", "debug", "help"])
     except getopt.GetoptError:
         usage()
     if len(opts) == 0:
         usage()
     analyzemode = False
     garbage = ""
-    source = ""
-    target = ""
+    reference = ""
+    temp = ""
     for o, a in opts:
         if o in ("-h", "--help"):
             usage()
@@ -153,22 +151,22 @@ def main():
                 sys.exit()
             global GARBAGE
             GARBAGE = a
-        if o in ("-s", "--source"):
+        if o in ("-r", "--ref"):
             if not os.path.isdir(a):
-                print("Source folder '" + a + "' does not exist. Maybe there is a typo in the name. Exiting.")
+                print("Reference folder '" + a + "' does not exist. Maybe there is a typo in the name. Exiting.")
                 sys.exit()
-            source = a
-        if o in ("-t", "--target"):
+            reference = a
+        if o in ("-t", "--temp"):
             if not os.path.isdir(a):
-                print("Target folder '" + a + "' does not exist. Maybe there is a typo in the name. Exiting.")
+                print("Temp folder '" + a + "' does not exist. Maybe there is a typo in the name. Exiting.")
                 sys.exit()
-            target = a   
+            temp = a   
     #local = "/home/olivier/JDR-RPG/JDR/Ambre/"
     #remote = "/run/user/1000/gvfs/ftp:host=ls-wxl271.local/array1/DisqueBuffaloRaid1/JDR-RPG/JDR/Ambre/"
-    dict = analyze_reference(source)
-    print(dict)
-    #analyze_target(target, dict, analyzemode)
-
+    dict = analyze_reference(reference)
+    #print(dict)
+    analyze_temp(temp, dict, analyzemode)
+    
     
 if __name__ == "__main__":
     main()
