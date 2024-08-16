@@ -9,7 +9,7 @@ from datetime import datetime
 
 # Global constants
 GARBAGE = '/tmp/'
-TIMESTAMP = 'filesync_' + datetime.now().strftime('%Y%m%d_%H%M%S-%f')
+TIMESTAMP = 'duplicates_' + datetime.now().strftime('%Y%m%d_%H%M%S-%f')
 
 # Works with interrupt
 DEBUG = True
