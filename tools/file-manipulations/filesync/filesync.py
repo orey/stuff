@@ -14,6 +14,7 @@ TIMESTAMP = 'filesync_' + datetime.now().strftime('%Y%m%d_%H%M%S-%f')
 
 # Works with interrupt
 DEBUG = False
+VERBOSE = False
 
 
 #============================================ interrupt
@@ -103,7 +104,7 @@ def analyze_target(path, sourcedict, analyze=False):
             try:
                 # 1. Skip the identical files located at the same place
                 completesourcefilename = sourcedict[relativefilename]
-                print("Same file at the same place: " + relativefilename)
+                if VERBOSE: print("Same file at the same place: " + relativefilename)
                 interrupt()
                 # Remove from sourcedict
                 del sourcedict[relativefilename]
@@ -162,8 +163,8 @@ def usage():
 #============================================ analyze target
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "s:t:g:adh",
-                                   ["source=", "target=", "garbage=", "analyze", "debug", "help"])
+        opts, args = getopt.getopt(sys.argv[1:], "s:t:g:adhv",
+                                   ["source=", "target=", "garbage=", "analyze", "debug", "help", "verbose"])
     except getopt.GetoptError:
         usage()
     analyzemode = False
@@ -177,6 +178,10 @@ def main():
             print("Debug mode activated")
             global DEBUG
             DEBUG = True
+        if o in ("-v", "--verbose"):
+            print("Verbose mode activated")
+            global VERBOSE
+            VERBOSE = True
         if o in ("-a", "--analyze"):
             analyzemode = True
         if o in ("-g", "--garbage"):
