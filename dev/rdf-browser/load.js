@@ -1,34 +1,16 @@
 "use strict";
 
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById("myCanvas");
 const context = canvas.getContext('2d');
-const globalheight = 800;
-const globalwidth = 600;
-let W,H;
 
 const RelStrokeStyle =  '#009999';
 
 
-//========================================Define canvas
-function resize(fullscreen=false) {
-    if (fullscreen) {
-        W = window.innerWidth;
-        H = window.innerHeight;
-    }
-    else {
-        W = globalwidth;
-        H = globalheight;
-    }
-    canvas.width = W;
-    canvas.height = H;
-}
 
-window.onresize = resize;
-resize(false);
-
+//========================================clear
 function clearContext() {
     //context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    context.clearRect(0, 0, W, H);
+    context.clearRect(0, 0, 200, 100);
 }
 
 
