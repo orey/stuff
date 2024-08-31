@@ -17,6 +17,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background-color: gray;
 }
 *, body, button, input, select, textarea, canvas {
     text-rendering: optimizeLegibility;
@@ -24,3 +25,10 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     outline: 0;
 }
+
+.canvasstyle {
+    background-color:white;
+    outline: black 3px solid;
+    border:black 3px solid;
+}
+
