@@ -10,6 +10,12 @@ I found a work around by creating a new button and associating a new shortchut `
 
 ![ToolbarExec](ToolbarExec.png "ToolbarExec")
 
+Here is the setup:
+
+* Command: `gnome-terminal`
+* Parameters: ` -- bash -c "%p ; exec bash"`
+* Start path: `%D`
+
 This works pretty well.
 
 Note that it starts a script in a new terminal window and execute it. To be able to close the terminal when the execution is done, I just found this way:
