@@ -29,7 +29,7 @@ Here is a list of important tools and tricks to install the portable versions:
 
   * Cntlm local proxy
     * In case of "Couldn't compute FAST_CWD pointer", please check your ini file is in ISO format (and not UTF-8)
-    * A good alternative to Cntlm is Px proxy: https://github.com/genotrance/pxhttps://github.com/genotrance/px
+    * A good alternative to Cntlm is Px proxy: https://github.com/genotrance/px
   * DoubleCommander is running on evey environment ans is quite powerful
 
 ## Git
