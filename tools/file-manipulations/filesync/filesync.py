@@ -167,6 +167,8 @@ def main():
                                    ["source=", "target=", "garbage=", "analyze", "debug", "help", "verbose"])
     except getopt.GetoptError:
         usage()
+    if len(opts) == 0:
+        usage()
     analyzemode = False
     garbage = ""
     source = ""
