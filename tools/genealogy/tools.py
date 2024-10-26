@@ -1,7 +1,17 @@
+# USAGE
+#sys.path.append(".")
+#from tools import interrupt, generate_name
+
 import csv, time
+from datetime import datetime
 
 LOG = "run.log"
 FIRST = True
+
+#============================================ myprint
+def generate_name(lastname):
+    return str(datetime.now()).replace('-','').replace(' ','_').replace(':','').replace(".","") + "_" + lastname
+
 
 #============================================ myprint
 def myprint(str):
