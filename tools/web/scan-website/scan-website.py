@@ -3,10 +3,7 @@ import urllib.request
 from urllib.parse import unquote
 from string import Template
 import os
-
-# URLs
-URL = "https://your-url/"
-URLTEST = "https://your-test-url/"
+import argparse
 
 #Output file
 OUTPUT = "scanned-website.html"
@@ -113,8 +110,13 @@ def writeFooter(f):
 
             
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("url",
+                        help="URL of the website to parse",
+                        type=str)
+    args = parser.parse_args()
     #url = URLTEST
-    url = URL
+    url = args.url
     with open(OUTPUT, "w") as f:
         writeHeader(f, url)
         recursiveExplore(f, url, 1)

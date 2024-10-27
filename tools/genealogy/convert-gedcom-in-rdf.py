@@ -1,4 +1,4 @@
-import sys
+import sys, argparse, os
 from rdflib import Graph, Literal, URIRef, RDF, RDFS, XSD
 
 # local imports
@@ -7,10 +7,10 @@ from tools import interrupt, generate_name
 
 
 
-SOURCE = "/home/olivier/Documents/gedcom/20240402landry.ged"
-TARGETDIR = "/home/olivier/Documents/gedcom/"
-TARGETNAME = "20240402landry.ttl"
-TARGETGML = "20240402landry.gml"
+#SOURCE = "/home/olivier/Documents/gedcom/20240402landry.ged"
+#TARGETDIR = "/home/olivier/Documents/gedcom/"
+#TARGETNAME = "20240402landry.ttl"
+#TARGETGML = "20240402landry.gml"
 
 DOMAIN = "https://n.org/rdf/v01/"
 
@@ -265,13 +265,22 @@ def parse_families(g, chunks, names):
                            + '  source ' + gmlid(wife) + '\n  target '+ gmlid(child) + '\n]\n')
     gml.append(']\n')
     return count, gml
-                
-
-                    
-
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("SOURCE", help="The GED file with its path")
+    parser.add_argument("TARGETDIR", help="Target directory to generate file(s)")
+    parser.add_argument("--RDF", help="Option: generates a ttl file also (on top on the gml file)")
+    args = parser.parse_args()
+    SOURCE = args.SOURCE
+    #test if that works under windows
+    path_elems = os.path.normpath(SOURCE).split(os.sep)
+    rootname = path_elems[-1].split(".")[0]
+    TARGETDIR = args.TARGETDIR
+    TARGETNAME = rootname + ".ttl"
+    TARGETGML = rootname + ".gml"
+    
     g = Graph()
     print("Analyzing " + SOURCE)
     analyze(SOURCE)
@@ -291,9 +300,10 @@ def main():
     count, gml = parse_families(g, chunks, individuals)
     print("Found " + str(count) + " families in file " + SOURCE)
 
-    output = TARGETDIR + generate_name(TARGETNAME)
-    g.serialize(output, format='turtle')
-    print("Turtle file " + output + " generated")
+    if args.RDF:
+        output = TARGETDIR + generate_name(TARGETNAME)
+        g.serialize(output, format='turtle')
+        print("Turtle file " + output + " generated")
     
     outputgml = TARGETDIR + generate_name(TARGETGML)
     with open(outputgml, "w") as f:
