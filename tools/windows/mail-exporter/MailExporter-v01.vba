@@ -17,14 +17,11 @@ Function WhatMailbox()
     
     Dim nb As Integer
     nb = objNS.Folders.Count
-    Dim choiceArray(MAX_NB_OF_FOLDERS) As String
     
     For j = 1 To nb
         Set f = objNS.Folders.Item(j)
         Debug.Print j & " " & f.Name
         choices = choices & j & " " & f.Name + vbNewLine
-        ' warning: the index 0 is not used
-        choiceArray(j) = f.Name
     Next j
     Debug.Print choices
     
@@ -33,20 +30,16 @@ Function WhatMailbox()
     If x = "" Then
         MsgBox "No mailbox was selected. Exiting..."
         WhatMailbox = ""
-    Else
-        Debug.Print "*** Choice: " & choiceArray(x)
     End If
     
     ' getting folders in mailbox
     nb = objNS.Folders.Item(x).Folders.Count
     choices = ""
-    Dim choiceArrayFolders(MAX_NB_OF_FOLDERS) As String
     For j = 1 To nb
         Set f = objNS.Folders.Item(x).Folders.Item(j)
         Debug.Print j & " " & f.Name
         choices = choices & j & " " & f.Name + vbNewLine
         ' warning: the index 0 is not used
-        choiceArrayFolders(j) = f.Name
     Next j
     
     Dim y As Variant
@@ -54,8 +47,6 @@ Function WhatMailbox()
     If y = "" Then
         MsgBox "No folder was selected. Exiting..."
         WhatMailbox = ""
-    Else
-        Debug.Print "*** Choice: " & choiceArrayFolders(y)
     End If
     
     ' Preparing output
@@ -69,6 +60,10 @@ End Function
 
 
 Sub ExportMailsInFolder()
+
+    Dim StartTime As Double
+    Dim MinutesElapsed As String
+    StartTime = Timer
 
     Dim objNS As Outlook.NameSpace
     Dim objFolder As Outlook.MAPIFolder
@@ -151,7 +146,7 @@ Sub ExportMailsInFolder()
                         Set myatt = att
                         'Debug.Print myatt.FileName
                         If Not IsFile(OUTPUTFOLDER & datedisplay & myatt.FileName) Then
-                            myatt.SaveAsFile OUTPUTFOLDER & datedisplay & myatt.FileName
+                            myatt.SaveAsFile OUTPUTFOLDER & datedisplay & "-" & myatt.FileName
                             realCount = realCount + 1
                         Else
                             Debug.Print "File already exists"
@@ -161,7 +156,10 @@ Sub ExportMailsInFolder()
         End If
     Next
     
-    MsgBox "Real number of files created: " & realCount
+    'Determine how many seconds code took to run
+    MinutesElapsed = Format((Timer - StartTime) / 86400, "hh:mm:ss")
+
+    MsgBox "Real number of files created: " & realCount & " in " & MinutesElapsed & " minutes", vbInformation
     
     Debug.Print "*********** END *************************"
 End Sub
@@ -190,4 +188,3 @@ Function IsFile(ByVal fName As String) As Boolean
     On Error Resume Next
     IsFile = ((GetAttr(fName) And vbDirectory) <> vbDirectory)
 End Function
-
