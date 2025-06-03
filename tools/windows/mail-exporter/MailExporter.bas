@@ -1,3 +1,4 @@
+Attribute VB_Name = "MailExporter"
 Const test As String = "test"
 Const OUTPUTFOLDER = "C:\ProgramData\orey\data\outlook\test1\"
 
@@ -77,7 +78,7 @@ Sub ExportMailsInFolder()
     
     Debug.Print "stop"
     
-    Rem ======================== protection contre le nombre d'Ã©lÃ©ments sauvÃ©s
+    Rem ======================== protection contre le nombre d'éléments sauvés
     Dim x As Variant
     
     x = InputBox("How many items? (integer)" & vbNewLine & _
@@ -169,7 +170,7 @@ Const NC As String = "_"
 Dim temp As String
 temp = mystr
 Dim arr As Variant
-arr = Array(":", "/", "\", " ", "Â»", "Â«", Chr(34), ">", "<", "?", "|")
+arr = Array(":", "/", "\", " ", "»", "«", Chr(34), ">", "<", "?", "|")
 
 For Each ch In arr
     temp = Replace(temp, ch, NC)
