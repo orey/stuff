@@ -145,7 +145,7 @@ Sub ExportMailsInFolder()
                         Dim myatt As Attachment
                         Set myatt = att
                         'Debug.Print myatt.FileName
-                        If Not IsFile(OUTPUTFOLDER & datedisplay & myatt.FileName) Then
+                        If Not IsFile(OUTPUTFOLDER & datedisplay & "-" & myatt.FileName) Then
                             myatt.SaveAsFile OUTPUTFOLDER & datedisplay & "-" & myatt.FileName
                             realCount = realCount + 1
                         Else
