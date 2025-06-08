@@ -150,6 +150,8 @@ Function ExportTheFolder(folder As Outlook.folder) As Integer
         End
     End If
     
+    ' TODO: Il faudrait mettre le choix du folder
+    
     mmax = CInt(x)
     If mmax = 0 Then
         limit = False
