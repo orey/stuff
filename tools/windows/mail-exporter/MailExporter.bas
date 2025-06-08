@@ -1,6 +1,83 @@
 Attribute VB_Name = "MailExporter"
 Const test As String = "test"
-Const OUTPUTFOLDER = "C:\ProgramData\orey\data\outlook\test1\"
+Const OUTPUTFOLDER = "C:\ProgramData\orey\data\outlook\test2\"
+
+Public Type T_ChosenFolder
+    index As Integer
+    folder As Outlook.MAPIFolder
+End Type
+
+
+Function PathToExtract()
+    Dim mypath As New Collection
+    Dim objNS As Outlook.NameSpace
+    Dim nbbox As Integer
+    Dim res As Variant
+    
+    ' main namespace
+    Set objNS = GetNamespace("MAPI")
+        
+    res = ChooseOneFolder(objNS, mypath)
+    
+    Debug.Print "Stop"
+    
+    
+    
+    
+
+
+
+End Function
+
+
+Function ChooseOneFolder(rootfolder, mypath)
+
+    Dim fold, f As Outlook.MAPIFolder
+    Dim nb As Integer
+    Dim result As T_ChosenFolder
+    Dim choices As String
+
+    ' To get the autocompletion :)
+    Set fold = rootfolder
+    nb = fold.Folders.Count
+    
+    choices = "Here are the folders to choose from:" & vbNewLine & "[0] " & fold.name
+    
+    For j = 1 To nb
+        Set f = fold.Folders.Item(j)
+        choices = choices & "-> [" & j & "] " & f.name + vbNewLine
+    Next j
+    
+    Debug.Print choices
+    
+    Dim x As Variant
+    x = InputBox("Choose the number corresponding to the folder" & vbNewLine & choices, "Folder choice")
+    If x = "" Then
+        MsgBox "No mailbox was selected. Exiting..."
+        End
+    End If
+    
+    If x = 0 Then
+        ' The previous choice in the stack is correct
+        ChooseOneFolder = 0
+    Else
+        result.index = CInt(x)
+        result.folder = fold.Folders.Item(result.index)
+        mypath.Add result
+        Dim res As Variant
+        res = ChooseOneFolder(result.folder, mypath)
+        If res = 0 Then
+            ' The last is result
+            ChooseOneFolder = 0
+        Else
+            MsgBox "Super strange"
+        End If
+    End If
+    
+    
+
+End Function
+
 
 '----------------------------------------------------------------
 ' The objective of that function is to get the mailbox and folder
@@ -21,8 +98,8 @@ Function WhatMailbox()
     
     For j = 1 To nb
         Set f = objNS.Folders.Item(j)
-        Debug.Print j & " " & f.Name
-        choices = choices & j & " " & f.Name + vbNewLine
+        Debug.Print j & " " & f.name
+        choices = choices & j & " " & f.name + vbNewLine
     Next j
     Debug.Print choices
     
@@ -30,7 +107,7 @@ Function WhatMailbox()
     x = InputBox("Choose the number corresponding to the folder" & vbNewLine & choices, "Mailbox choice")
     If x = "" Then
         MsgBox "No mailbox was selected. Exiting..."
-        WhatMailbox = ""
+        End
     End If
     
     ' getting folders in mailbox
@@ -38,8 +115,8 @@ Function WhatMailbox()
     choices = ""
     For j = 1 To nb
         Set f = objNS.Folders.Item(x).Folders.Item(j)
-        Debug.Print j & " " & f.Name
-        choices = choices & j & " " & f.Name + vbNewLine
+        Debug.Print j & " " & f.name
+        choices = choices & j & " " & f.name + vbNewLine
         ' warning: the index 0 is not used
     Next j
     
@@ -47,7 +124,7 @@ Function WhatMailbox()
     y = InputBox("Choose the number corresponding to the folder" & vbNewLine & choices, "Folder choice")
     If y = "" Then
         MsgBox "No folder was selected. Exiting..."
-        WhatMailbox = ""
+        End
     End If
     
     ' Preparing output
@@ -87,7 +164,7 @@ Sub ExportMailsInFolder()
                  "'0' indicates all elements in folder are selected.", "Mail Exporter")
     If x = "" Then
         MsgBox "No mails are selected. Exiting..."
-        Exit Sub
+        End
     End If
     
     ' TODO recall the output folder to confirm
