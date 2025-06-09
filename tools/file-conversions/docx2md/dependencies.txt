@@ -1,0 +1,3 @@
+# docx2md does not manage titles
+python-docx
+markdownify
