@@ -8,12 +8,24 @@ WIN = "C:\\ProgramData\\orey\\data\\outlook\\202502-txt"
 LINUX = "/home/olivier/olivier-data/202502/"
 
 
-
+TOKENS = [
+    "From:",
+    "Sent:",
+    "To:",
+    "Cc:",
+    "Subject:",
+    "Attachments:"
+]
 
 class Mail():
     def __init__(self, mailtext):
-        for line in mailtext:
+        tab = mailtext.split("\n")
+        for line in tab:
             interrupt(line)
+            for token in TOKENS:
+                if line.startswith(token):
+                    print(token + " - " + line.replace(token, "").strip())
+                    
 
 
 

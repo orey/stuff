@@ -149,7 +149,7 @@ def interrupt(obj=None):
     '''
     if obj != None:
         print(obj)
-    resp = input("Continue? ")
+    resp = input("Continue? [n/no] ")
     if resp.upper() in ["n", "no", "N","NO"]:
         print("Goodbye!")
         exit(0)
