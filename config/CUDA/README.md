@@ -49,3 +49,8 @@ W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/Re
 6. Then I installed `cuda-9-1`. The installation is quite long because it is downloading a lot of packages.
 
 7. I then installed `cuda-core-9-1`.
+
+## Manual
+
+See also the pdf manual attached, I found it after the install!
+
