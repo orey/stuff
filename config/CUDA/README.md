@@ -54,3 +54,7 @@ W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1704/x86_64/Re
 
 See also the pdf manual attached, I found it after the install!
 
+## Torch installation
+
+
+pip install torch==1.7.1+cu92 torchvision==0.8.2+cu92 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
