@@ -1,7 +1,7 @@
 @echo off
 if "%1"=="" GOTO USAGE
 if "%2"=="" GOTO USAGE
-if "%1"=="" GOTO USAGE
+if "%3"=="" GOTO USAGE
 
 echo INFO Default password is "changeit"
 
