@@ -1,6 +1,7 @@
 from importlib.metadata import version
 
 import tokenize
+import sys
 
 import re
 
@@ -51,19 +52,88 @@ def build_dict(tokens):
 
 
 def scan(tokens, window, dic):
+    '''
+    next_tokens est un dic avec
+    key: concaténation des id des tokens, chacun paddé sur 4 char avec leading 0
+    value: [ [padded token id, nb occurence], [padded token id, nb occurence], etc. ]
+    '''
     next_tokens = {}
     for i in range(len(tokens)-window):
+        # getting the real words
         attention = tokens[i:i+window]
+        next = tokens[i+window]
+        # converting the key and value to nums based on dic
         key = ""
         for elem in attention:
-            key += str(dic[elem][0])
-        value = str(dic[tokens[i+window]][0])
-        #next_tokens.append((attention, tokens[i+window]))
-        if key in next_tokens:
-            print("***** We have one! *****")
+            # We pad elements to 4 with leading 0 because the dic is of size 1137
+            key += str("{:04d}".format(dic[elem][0]))
+        value = "{:04d}".format(dic[tokens[i+window]][0])
+        #breakpoint(f"Attention: {attention} - Next: {next}\nKey: {key} - Value: {value}")
+        # manage count
+        if key not in next_tokens:
+            next_tokens[key] = [[value, 1]]
         else:
-            next_tokens[key] = value
+            print("***** We have one! *****")
+            print(f"Attention: {attention}, next token: '{next}'")
+            # do we have already the value?
+            alternates = next_tokens[key]
+            #breakpoint(f"BEFORE - Alternates: {alternates} - Value: {value}")
+            exist = False
+            for e in alternates:
+                if e[0] == value:
+                    exist = True
+                    print("Value already exists")
+                    e[1] += 1
+            if not exist:
+                alternates.append([value, 1])
+            next_tokens[key] = alternates
+            #breakpoint(f"AFTER - Alternates: {alternates}")
     return next_tokens
+
+def smart_print(next_tokens, window, dic):
+    print("Printing only the singular items:")
+    for key, value in next_tokens.items():
+        if len(value) != 1:
+            print(f"Key: {key} - Value: {value}")
+            decode(dic, key, window, value)
+
+
+def breakpoint(obj):
+    print(obj)
+    a = input("Do you want to continue? ('n' will stop) ")
+    if a == "n":
+        print("Goodbye")
+        sys.exit()
+    
+
+
+def decode(dic, key, window, value):
+    key_elems = []
+    for i in range(int(len(key)/4)):
+        numrep = int(key[i*4:(i*4)+4])
+        #breakpoint(f"{i} - {numrep}")
+        mystr = ""
+        found = False
+        for k,v in dic.items():
+            if found:
+                break
+            else:
+                if v[0] == numrep:
+                    mystr = k
+                    found = True
+        key_elems.append(mystr)
+        #breakpoint(key_elems)
+    possibles = []
+    for elem in value:
+        numrep = int(elem[0])
+        mystr = ""
+        for k,v in dic.items():
+            if v[0] == numrep:
+                mystr = k
+                break;
+        possibles.append(mystr)
+    print(f"Key: {key_elems} - Possible next: {possibles}")
+        
 
 
 if __name__ == "__main__":
@@ -72,8 +142,12 @@ if __name__ == "__main__":
     dic = build_dict(tokens)
     print(dic)
     print(len(dic))
-    next_tokens = scan(tokens, 4, dic)
-    print(next_tokens)
+    window = 3
+    next_tokens = scan(tokens, window, dic)
+    smart_print(next_tokens, window, dic)
+    window = 4
+    next_tokens = scan(tokens, window, dic)
+    smart_print(next_tokens, window, dic)
     
     
 
