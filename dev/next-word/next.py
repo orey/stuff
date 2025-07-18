@@ -49,11 +49,20 @@ def build_dict(tokens):
             count +=1
     return dic
 
+
 def scan(tokens, window, dic):
-    next_tokens = []
+    next_tokens = {}
     for i in range(len(tokens)-window):
         attention = tokens[i:i+window]
-        next_tokens.append((attention, tokens[i+window]))
+        key = ""
+        for elem in attention:
+            key += str(dic[elem][0])
+        value = str(dic[tokens[i+window]][0])
+        #next_tokens.append((attention, tokens[i+window]))
+        if key in next_tokens:
+            print("***** We have one! *****")
+        else:
+            next_tokens[key] = value
     return next_tokens
 
 
