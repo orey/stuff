@@ -5,15 +5,16 @@ import sys
 
 import re
 
-#TO_REMOVE = []
+ADD_SPACE_AROUND = [".",",",";",":","!","?","'",'"',"-","(",")","—"]
+REPLACE_BY_SPACE = ["\n", "_"]
 
-
-def test():
+#-----------------------------------------------------------------------basic_tokenizer
+def basic_tokenizer():
     '''
     Avec le basic tokenizer "Gisburn's painting" le "'s" ne passe pas.
     '''
     line = ""
-    with tokenize.open('the-verdict.txt') as f:
+    with tokenize.open('the-verdict.txt', encoding="utf-8") as f:
         try:
             line = f.readline
             tokens = tokenize.generate_tokens(line)
@@ -23,7 +24,9 @@ def test():
             print(e)
             print(f"Incriminated line:\n---\n{line}\n---\n")
 
-def mytokenizer(f):
+            
+#-----------------------------------------------------------------------regex_tokenizer
+def regex_tokenizer(f):
     '''
     Test avec les re
     '''
@@ -33,48 +36,79 @@ def mytokenizer(f):
         print(tokens)
         return tokens
 
-def build_dict(tokens):
+
+#-----------------------------------------------------------------------manual_tokenizer
+def manual_tokenizer(f, verbose = False):
     '''
-    dict key : token
-    dict value : [integer_representation, nb_occurences]
+    More basic stuff
     '''
+    with open(f) as g:
+        text = g.read()[1:] #removing first char \ufeff
+        if verbose: print("Text read")
+        text = text.lower()
+        if verbose: print("Text in lower case")
+        for char in REPLACE_BY_SPACE:
+            text = text.replace(char," ")
+            if verbose: print(f"{char} removed")
+        for char in ADD_SPACE_AROUND:
+            text = text.replace(char," " + char + " ")
+            if verbose: print("Created spaces around << " + char + " >>")
+        return [x for x in text.split(" ") if x] #removing empty strings
+
+
+#-----------------------------------------------------------------------build_dict    
+def build_dict(words, verbose = False):
+    '''
+    dict key : word
+    dict value : [
+        string padded of integer_representation (auto-increment counter),
+        nb_occurences of the word in the text
+    ]
+    '''
+    padding_size = 4 #dic should not have more than 9999 words
     dic = {}
     count = 0
-    for token in tokens:
-        if token in dic:
-            rep = dic[token][0]
-            occ = dic[token][1]
-            dic[token] = [rep, occ+1]
+    tokenized_words = []
+    for word in words:
+        if word in dic:
+            rep = dic[word][0]
+            tokenized_words.append(rep)
+            occ = dic[word][1]
+            dic[word] = [rep, occ+1]
         else:
-            dic[token] = [count+1, 1]
+            rep = ("{:0"+ str(padding_size)+"d}").format(count+1)
+            tokenized_words.append(rep)
+            dic[word] = [rep, 1]
             count +=1
-    return dic
+    if verbose:
+        print(f"Dictionary of {len(dic)} words\n{dic}\n")
+        #print(f"Tokenized words:\n{tokenized_words}")
+        breakpoint("On fait une pause!")
+    return dic, tokenized_words
 
 
+#-----------------------------------------------------------------------build_dict    
 def scan(tokens, window, dic):
     '''
     next_tokens est un dic avec
     key: concaténation des id des tokens, chacun paddé sur 4 char avec leading 0
-    value: [ [padded token id, nb occurence], [padded token id, nb occurence], etc. ]
+    value: [ [padded_token_id, nb_occurence], [padded_token_id, nb_occurence], etc. ]
     '''
     next_tokens = {}
     for i in range(len(tokens)-window):
         # getting the real words
         attention = tokens[i:i+window]
-        next = tokens[i+window]
+        next_t = tokens[i+window]
         # converting the key and value to nums based on dic
         key = ""
         for elem in attention:
-            # We pad elements to 4 with leading 0 because the dic is of size 1137
-            key += str("{:04d}".format(dic[elem][0]))
-        value = "{:04d}".format(dic[tokens[i+window]][0])
-        #breakpoint(f"Attention: {attention} - Next: {next}\nKey: {key} - Value: {value}")
+            key += elem
+        value = next_t
         # manage count
         if key not in next_tokens:
             next_tokens[key] = [[value, 1]]
         else:
-            print("***** We have one! *****")
-            print(f"Attention: {attention}, next token: '{next}'")
+            print(f"***** We have one! ***** Attention: {attention}, next token: '{next_t}'")
             # do we have already the value?
             alternates = next_tokens[key]
             #breakpoint(f"BEFORE - Alternates: {alternates} - Value: {value}")
@@ -88,7 +122,10 @@ def scan(tokens, window, dic):
                 alternates.append([value, 1])
             next_tokens[key] = alternates
             #breakpoint(f"AFTER - Alternates: {alternates}")
+    breakpoint(next_tokens)
     return next_tokens
+
+
 
 def smart_print(next_tokens, window, dic):
     print("Printing only the singular items:")
@@ -133,21 +170,27 @@ def decode(dic, key, window, value):
                 break;
         possibles.append(mystr)
     print(f"Key: {key_elems} - Possible next: {possibles}")
-        
+
+
+def next_word(window):
+    '''
+    window should be a consolidated token list
+    '''
+    return
+    
 
 
 if __name__ == "__main__":
     #test()
-    tokens = mytokenizer('the-verdict.txt')
-    dic = build_dict(tokens)
-    print(dic)
-    print(len(dic))
-    window = 3
-    next_tokens = scan(tokens, window, dic)
-    smart_print(next_tokens, window, dic)
-    window = 4
-    next_tokens = scan(tokens, window, dic)
-    smart_print(next_tokens, window, dic)
+    #tokens = mytokenizer('the-verdict.txt')
+    words = manual_tokenizer('russian-folk-tales.txt',True)
+    dic, tokens = build_dict(words,True)
+    #window = 3
+    #next_tokens = scan(tokens, window, dic)
+    #smart_print(next_tokens, window, dic)
+    window_size = 4
+    next_tokens = scan(tokens, window_size, dic)
+    smart_print(next_tokens, window_size, dic)
     
     
 
