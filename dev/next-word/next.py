@@ -8,6 +8,15 @@ import re
 ADD_SPACE_AROUND = [".",",",";",":","!","?","'",'"',"-","(",")","—"]
 REPLACE_BY_SPACE = ["\n", "_"]
 
+#----------------------------------------------------------------------breakpoint
+def breakpoint(obj):
+    print(obj)
+    a = input("Do you want to continue? ('n' will stop) ")
+    if a == "n":
+        print("Goodbye")
+        sys.exit()
+    
+
 #-----------------------------------------------------------------------basic_tokenizer
 def basic_tokenizer():
     '''
@@ -126,7 +135,7 @@ def scan(tokens, window, dic):
     return next_tokens
 
 
-
+#----------------------------------------------------------------------smart_sprint
 def smart_print(next_tokens, window, dic):
     print("Printing only the singular items:")
     for key, value in next_tokens.items():
@@ -135,19 +144,11 @@ def smart_print(next_tokens, window, dic):
             decode(dic, key, window, value)
 
 
-def breakpoint(obj):
-    print(obj)
-    a = input("Do you want to continue? ('n' will stop) ")
-    if a == "n":
-        print("Goodbye")
-        sys.exit()
-    
-
-
+#----------------------------------------------------------------------decode
 def decode(dic, key, window, value):
     key_elems = []
     for i in range(int(len(key)/4)):
-        numrep = int(key[i*4:(i*4)+4])
+        numrep = key[i*4:(i*4)+4]
         #breakpoint(f"{i} - {numrep}")
         mystr = ""
         found = False
@@ -162,7 +163,7 @@ def decode(dic, key, window, value):
         #breakpoint(key_elems)
     possibles = []
     for elem in value:
-        numrep = int(elem[0])
+        numrep = elem[0]
         mystr = ""
         for k,v in dic.items():
             if v[0] == numrep:
@@ -172,14 +173,16 @@ def decode(dic, key, window, value):
     print(f"Key: {key_elems} - Possible next: {possibles}")
 
 
-def next_word(window):
+#-------------------------------------------------------------------next_word
+def next_word(window_tokens, next_tokens):
     '''
     window should be a consolidated token list
     '''
-    return
+    #reprendre ici
+    return next_tokens
     
 
-
+#------------------------------------------------------------------main
 if __name__ == "__main__":
     #test()
     #tokens = mytokenizer('the-verdict.txt')
