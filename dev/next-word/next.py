@@ -1,64 +1,41 @@
-from importlib.metadata import version
-
-import tokenize
+from unidecode import unidecode
 import sys
 
-import re
-
 ADD_SPACE_AROUND = [".",",",";",":","!","?","'",'"',"-","(",")","—"]
-REPLACE_BY_SPACE = ["\n", "_"]
+REPLACE = [
+    ("\n", " "),
+    ("_" , " "),
+    ("”" , '"'),
+    ("‘" , "'"),
+    ("“" , '"')
+]
+
+PADDING_SIZE = 4
 
 #----------------------------------------------------------------------breakpoint
-def breakpoint(obj):
-    print(obj)
+def breakpoint(obj=None):
+    if obj: print(obj)
     a = input("Do you want to continue? ('n' will stop) ")
     if a == "n":
         print("Goodbye")
         sys.exit()
     
 
-#-----------------------------------------------------------------------basic_tokenizer
-def basic_tokenizer():
-    '''
-    Avec le basic tokenizer "Gisburn's painting" le "'s" ne passe pas.
-    '''
-    line = ""
-    with tokenize.open('the-verdict.txt', encoding="utf-8") as f:
-        try:
-            line = f.readline
-            tokens = tokenize.generate_tokens(line)
-            for token in tokens:
-                print(token)
-        except Exception as e:
-            print(e)
-            print(f"Incriminated line:\n---\n{line}\n---\n")
-
-            
-#-----------------------------------------------------------------------regex_tokenizer
-def regex_tokenizer(f):
-    '''
-    Test avec les re
-    '''
-    with open(f) as g:
-        text = g.read()
-        tokens = re.findall(r'\w+', text)
-        print(tokens)
-        return tokens
-
-
 #-----------------------------------------------------------------------manual_tokenizer
 def manual_tokenizer(f, verbose = False):
     '''
-    More basic stuff
+    More basic stuff but working quite well
     '''
     with open(f) as g:
         text = g.read()[1:] #removing first char \ufeff
         if verbose: print("Text read")
+        text = unidecode(text)
+        if verbose: print("Accents removed")
         text = text.lower()
         if verbose: print("Text in lower case")
-        for char in REPLACE_BY_SPACE:
-            text = text.replace(char," ")
-            if verbose: print(f"{char} removed")
+        for before, after in REPLACE:
+            text = text.replace(before, after)
+            if verbose: print(f"{before} was replaced by {after}")
         for char in ADD_SPACE_AROUND:
             text = text.replace(char," " + char + " ")
             if verbose: print("Created spaces around << " + char + " >>")
@@ -66,134 +43,153 @@ def manual_tokenizer(f, verbose = False):
 
 
 #-----------------------------------------------------------------------build_dict    
-def build_dict(words, verbose = False):
+class WordDict:
     '''
-    dict key : word
-    dict value : [
-        string padded of integer_representation (auto-increment counter),
-        nb_occurences of the word in the text
-    ]
+    The dict maintains a dictionary that is the images of all the provided text
+    Sequentially, all words are assigned a token. The number of occurrences
+    of words is counted.
+    The dict enables to parse text and get back an array of tokens.
     '''
-    padding_size = 4 #dic should not have more than 9999 words
-    dic = {}
-    count = 0
-    tokenized_words = []
-    for word in words:
-        if word in dic:
-            rep = dic[word][0]
-            tokenized_words.append(rep)
-            occ = dic[word][1]
-            dic[word] = [rep, occ+1]
-        else:
-            rep = ("{:0"+ str(padding_size)+"d}").format(count+1)
-            tokenized_words.append(rep)
-            dic[word] = [rep, 1]
-            count +=1
-    if verbose:
-        print(f"Dictionary of {len(dic)} words\n{dic}\n")
-        #print(f"Tokenized words:\n{tokenized_words}")
-        breakpoint("On fait une pause!")
-    return dic, tokenized_words
+    def __init__(self):
+        '''
+        creates a dict with
+        dict key : word
+        dict value : [
+               string padded of integer_representation (auto-increment counter),
+               nb_occurences of the word in the texts that were provided
+            ]
+        '''
+        self.dic = {}
+        self.count = 0
+        
+    def add_words(self, words, verbose= False):
+        '''
+        words : array of words
+        returns the array of tokens
+        '''
+        tokenized_words = []
+        for word in words:
+            if word in self.dic:
+                # adding a new occurence
+                rep = self.dic[word][0]
+                tokenized_words.append(rep)
+                occ = self.dic[word][1]
+                self.dic[word] = [rep, occ+1]
+            else:
+                # adding the word in dic
+                rep = ("{:0"+ str(PADDING_SIZE)+"d}").format(self.count+1)
+                tokenized_words.append(rep)
+                self.dic[word] = [rep, 1]
+                self.count +=1
+        if verbose:
+            print(self)
+        return tokenized_words
 
+    def __str__(self):
+        st = ""
+        temp = dict(sorted(self.dic.items()))
+        for elem in temp:
+            st += f"{elem} ({temp[elem][1]}) | "
+        st += f"\nDictionary length is {len(self.dic)}\n"
+        return st
 
-#-----------------------------------------------------------------------build_dict    
-def scan(tokens, window, dic):
+    def decode(self, st):
+        st_elems = []
+        for i in range(int(len(st)/PADDING_SIZE)):
+            numrep = st[i*PADDING_SIZE:(i*PADDING_SIZE)+PADDING_SIZE]
+            mystr = ""
+            found = False
+            for k,v in self.dic.items():
+                if found:
+                    break
+                else:
+                    if v[0] == numrep:
+                        mystr = k
+                        found = True
+            st_elems.append(mystr)
+        return st_elems
+    
+#-----------------------------------------------------------------------build_dict
+class NextToken():
     '''
     next_tokens est un dic avec
     key: concaténation des id des tokens, chacun paddé sur 4 char avec leading 0
-    value: [ [padded_token_id, nb_occurence], [padded_token_id, nb_occurence], etc. ]
+    value: [
+      [padded_token_id, nb_occurence],
+      [padded_token_id, nb_occurence],
+      etc.
+    ]
+    Pas besoin du dic, NextToken travaille seulement sur les tokens
     '''
-    next_tokens = {}
-    for i in range(len(tokens)-window):
-        # getting the real words
-        attention = tokens[i:i+window]
-        next_t = tokens[i+window]
-        # converting the key and value to nums based on dic
-        key = ""
-        for elem in attention:
-            key += elem
-        value = next_t
-        # manage count
-        if key not in next_tokens:
-            next_tokens[key] = [[value, 1]]
-        else:
-            print(f"***** We have one! ***** Attention: {attention}, next token: '{next_t}'")
-            # do we have already the value?
-            alternates = next_tokens[key]
-            #breakpoint(f"BEFORE - Alternates: {alternates} - Value: {value}")
-            exist = False
-            for e in alternates:
-                if e[0] == value:
-                    exist = True
-                    print("Value already exists")
-                    e[1] += 1
-            if not exist:
-                alternates.append([value, 1])
-            next_tokens[key] = alternates
-            #breakpoint(f"AFTER - Alternates: {alternates}")
-    breakpoint(next_tokens)
-    return next_tokens
+    def __init__(self, window_size):
+        self.nex = {}
+        self.dic = dic
+        self.window = window_size
 
-
-#----------------------------------------------------------------------smart_sprint
-def smart_print(next_tokens, window, dic):
-    print("Printing only the singular items:")
-    for key, value in next_tokens.items():
-        if len(value) != 1:
-            print(f"Key: {key} - Value: {value}")
-            decode(dic, key, window, value)
-
-
-#----------------------------------------------------------------------decode
-def decode(dic, key, window, value):
-    key_elems = []
-    for i in range(int(len(key)/4)):
-        numrep = key[i*4:(i*4)+4]
-        #breakpoint(f"{i} - {numrep}")
-        mystr = ""
-        found = False
-        for k,v in dic.items():
-            if found:
-                break
+    def scan(self, tokens):
+        for i in range(len(tokens)-self.window):
+            # getting the real words
+            attention = tokens[i : i+self.window]
+            next_t = tokens[i+self.window]
+            # converting the key and value to nums based on dic
+            key = ""
+            for elem in attention:
+                key += elem
+            value = next_t
+            # manage count
+            if key not in self.nex:
+                self.nex[key] = [[value, 1]]
             else:
-                if v[0] == numrep:
-                    mystr = k
-                    found = True
-        key_elems.append(mystr)
-        #breakpoint(key_elems)
-    possibles = []
-    for elem in value:
-        numrep = elem[0]
-        mystr = ""
-        for k,v in dic.items():
-            if v[0] == numrep:
-                mystr = k
-                break;
-        possibles.append(mystr)
-    print(f"Key: {key_elems} - Possible next: {possibles}")
+                print(f"***** We have one! ***** Attention: {attention}, next token: '{next_t}'")
+                # do we have already the value?
+                alternates = self.nex[key]
+                #breakpoint(f"BEFORE - Alternates: {alternates} - Value: {value}")
+                exist = False
+                for e in alternates:
+                    if e[0] == value:
+                        exist = True
+                        print("Value already exists")
+                        e[1] += 1
+                if not exist:
+                    alternates.append([value, 1])
+                self.nex[key] = alternates
+                #breakpoint(f"AFTER - Alternates: {alternates}")
+        return True
 
+    def print(self, dic):
+        outstr = ""
+        for key, value in self.nex.items():
+            #showing only singular items
+            if len(value) != 1:
+                outstr = f"Key: {key} - Value: {value} |"
+                for word in dic.decode(key):
+                    outstr += f" {word}"
+                for elem in value:
+                    outstr += f" | {dic.decode(elem[0])[0]} ({str(elem[1])})"
+                print(outstr)
 
-#-------------------------------------------------------------------next_word
-def next_word(window_tokens, next_tokens):
-    '''
-    window should be a consolidated token list
-    '''
-    #reprendre ici
-    return next_tokens
     
-
 #------------------------------------------------------------------main
 if __name__ == "__main__":
     #test()
     #tokens = mytokenizer('the-verdict.txt')
     words = manual_tokenizer('russian-folk-tales.txt',True)
-    dic, tokens = build_dict(words,True)
-    #window = 3
-    #next_tokens = scan(tokens, window, dic)
-    #smart_print(next_tokens, window, dic)
-    window_size = 4
-    next_tokens = scan(tokens, window_size, dic)
-    smart_print(next_tokens, window_size, dic)
-    
-    
-
+    dic = WordDict()
+    tokens = dic.add_words(words)
+    print(dic)
+    breakpoint()
+    print(tokens)
+    breakpoint()
+    next4 = NextToken(4)
+    next4.scan(tokens)
+    next3 = NextToken(3)
+    next3.scan(tokens)
+    next2 = NextToken(2)
+    next2.scan(tokens)
+    breakpoint()
+    print("-"*20)
+    next4.print(dic)
+    #print("-"*20)
+    #next3.print(dic)
+    #print("-"*20)
+    #next2.print(dic)
