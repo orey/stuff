@@ -1,5 +1,5 @@
 from unidecode import unidecode
-import sys
+import sys, random, inspect
 
 ADD_SPACE_AROUND = [".",",",";",":","!","?","'",'"',"-","(",")","—"]
 REPLACE = [
@@ -11,24 +11,32 @@ REPLACE = [
 ]
 
 PADDING_SIZE = 4
+NOT_FOUND = "NOT_FOUND"
 
 #----------------------------------------------------------------------breakpoint
 def breakpoint(obj=None):
-    if obj: print(obj)
-    a = input("Do you want to continue? ('n' will stop) ")
+    prefix = "Breakpoint"
+    #print(inspect.stack()[0][3]) => breakpoint
+    print(f"{prefix} in {inspect.stack()[1][3]}")
+    if obj: print(f"{prefix}: {obj}")
+    a = input(f"{prefix}: Do you want to continue? ('n' will stop) ")
     if a == "n":
-        print("Goodbye")
+        print(f"{prefix}:Goodbye")
         sys.exit()
     
 
-#-----------------------------------------------------------------------manual_tokenizer
-def manual_tokenizer(f, verbose = False):
+#-----------------------------------------------------------------------file_tokenizer
+def file_tokenizer(f, verbose = False):
     '''
     More basic stuff but working quite well
     '''
     with open(f) as g:
         text = g.read()[1:] #removing first char \ufeff
         if verbose: print("Text read")
+        return my_tokenizer(text)
+
+#-----------------------------------------------------------------------my_tokenizer
+def my_tokenizer(text, verbose = False):
         text = unidecode(text)
         if verbose: print("Accents removed")
         text = text.lower()
@@ -126,7 +134,7 @@ class NextToken():
         self.dic = dic
         self.window = window_size
 
-    def scan(self, tokens):
+    def scan(self, tokens, verbose=False):
         for i in range(len(tokens)-self.window):
             # getting the real words
             attention = tokens[i : i+self.window]
@@ -140,7 +148,7 @@ class NextToken():
             if key not in self.nex:
                 self.nex[key] = [[value, 1]]
             else:
-                print(f"***** We have one! ***** Attention: {attention}, next token: '{next_t}'")
+                if verbose: print(f"***** We have one! ***** Attention: {attention}, next token: '{next_t}'")
                 # do we have already the value?
                 alternates = self.nex[key]
                 #breakpoint(f"BEFORE - Alternates: {alternates} - Value: {value}")
@@ -148,7 +156,7 @@ class NextToken():
                 for e in alternates:
                     if e[0] == value:
                         exist = True
-                        print("Value already exists")
+                        if verbose: print("Value already exists")
                         e[1] += 1
                 if not exist:
                     alternates.append([value, 1])
@@ -168,28 +176,105 @@ class NextToken():
                     outstr += f" | {dic.decode(elem[0])[0]} ({str(elem[1])})"
                 print(outstr)
 
+    def get_next(self, key, temperature=0):
+        '''
+        temperature is not used
+        '''
+        if key in self.nex:
+            #what token is most probable
+            value = self.nex[key]
+            occur = 0
+            # value : [ [token1, occ1], [token2, occ2], etc. ]
+            for i in range(len(value)):
+                occur += value[i][1]
+            proba = []
+            cumul = 0
+            for elem in value:
+                cumul += elem[1]
+                proba.append(cumul/occur)
+            #breakpoint(f"Value: {value}, Probas: {proba}")
+            rand = random.uniform(0,1)
+            theindex = 0
+            for i in range(len(proba)):
+                if rand < proba[i]:
+                    theindex = i
+                    break;
+            return value[theindex][0]
+        else:
+            return NOT_FOUND
+
+            
+def concatenate_arrays(arr1, arr2):
+    for elem in arr2:
+        arr1.append(elem)
+    return arr1
+                
+
+#------------------------------------------------------------------prompt
+def prompt(dic, nextlist, verbose = False):
+    tokens = []
+    while True:
+        #breakpoint(f"BEGIN {tokens}")
+        resp = input("Your input ('end' terminates) > ")
+        if resp == "end":
+            sys.exit()
+        if resp != "" and resp != None:
+            command = my_tokenizer(resp)
+            # warning: dic keeps memory of the user prompts
+            concatenate_arrays(tokens, dic.add_words(command))
+        else:
+            if len(tokens) == 0:
+                print("No tokens provided, you have to enter a query.")
+                continue
+        next_token=""
+        found = False
+        for nex in nextlist:
+            window = nex.window
+            if verbose: print(f"Verbose: Window size = {window}")
+            # keeping the last "window" size
+            kept = tokens[-window:]
+            if verbose:
+                print(f"Verbose: Tokens of the user input: {tokens}, kept: {kept}")
+                breakpoint()
+            key = ''.join(kept)
+            next_token = nex.get_next(key)
+            #breakpoint(f"Key: {key}, Next: {next_token}")
+            if next_token == NOT_FOUND:
+                if verbose: print(f"Verbose: For key={key}, next token not found")
+                continue
+            else:
+                found = True
+                tokens.append(next_token)
+                #breakpoint(f"Next: {next_token}, Tokens: {tokens}")
+                break
+        if not found:
+            nextuser = input("The next token was not found. Propose one: > ")
+            tokens.append(dic.add_words(nextuser))
+        print(f"Resulting context: {' '.join(dic.decode(''.join(tokens)))}")
+                
     
 #------------------------------------------------------------------main
 if __name__ == "__main__":
     #test()
     #tokens = mytokenizer('the-verdict.txt')
-    words = manual_tokenizer('russian-folk-tales.txt',True)
+    words = file_tokenizer('russian-folk-tales.txt',True)
     dic = WordDict()
     tokens = dic.add_words(words)
-    print(dic)
-    breakpoint()
-    print(tokens)
-    breakpoint()
+    #print(dic)
+    #breakpoint()
+    #print(tokens)
+    #breakpoint()
     next4 = NextToken(4)
     next4.scan(tokens)
     next3 = NextToken(3)
     next3.scan(tokens)
     next2 = NextToken(2)
     next2.scan(tokens)
-    breakpoint()
     print("-"*20)
-    next4.print(dic)
+    #next4.print(dic)
     #print("-"*20)
     #next3.print(dic)
     #print("-"*20)
     #next2.print(dic)
+    prompt(dic, [next4, next3, next2], False)
+    
