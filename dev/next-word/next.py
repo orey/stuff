@@ -170,6 +170,7 @@ class NextToken():
                     alternates.append([value, 1])
                 self.nex[key] = alternates
                 #breakpoint(f"AFTER - Alternates: {alternates}")
+        print(f"NextToken instance - Window size: {str(self.window)}, Nb of elements: {len(self.nex)}")
         return True
 
     def print(self, dic):
@@ -300,7 +301,7 @@ if __name__ == "__main__":
     #breakpoint()
     #print(tokens)
     #breakpoint()
-    attention_windows = [6, 5, 4]
+    attention_windows = [5, 4, 3]
     attentions = []
     temp = None
     for att in attention_windows:
