@@ -7,10 +7,12 @@ REPLACE = [
     ("_" , " "),
     ("”" , '"'),
     ("‘" , "'"),
-    ("“" , '"')
+    ("“" , '"'),
+    ("[" , "" ),
+    ("]" , "" )
 ]
 
-PADDING_SIZE = 4
+PADDING_SIZE = 5
 NOT_FOUND = "NOT_FOUND"
 
 #----------------------------------------------------------------------breakpoint
@@ -26,28 +28,29 @@ def breakpoint(obj=None):
     
 
 #-----------------------------------------------------------------------file_tokenizer
-def file_tokenizer(f, verbose = False):
+def file_tokenizer(f, keep_accents=False, verbose = False):
     '''
     More basic stuff but working quite well
     '''
     with open(f) as g:
         text = g.read()[1:] #removing first char \ufeff
         if verbose: print("Text read")
-        return my_tokenizer(text)
+        return my_tokenizer(text, keep_accents, verbose)
 
 #-----------------------------------------------------------------------my_tokenizer
-def my_tokenizer(text, verbose = False):
+def my_tokenizer(text, keep_accents = False, verbose = False):
+    if not keep_accents:
         text = unidecode(text)
         if verbose: print("Accents removed")
-        text = text.lower()
-        if verbose: print("Text in lower case")
-        for before, after in REPLACE:
-            text = text.replace(before, after)
-            if verbose: print(f"{before} was replaced by {after}")
-        for char in ADD_SPACE_AROUND:
-            text = text.replace(char," " + char + " ")
-            if verbose: print("Created spaces around << " + char + " >>")
-        return [x for x in text.split(" ") if x] #removing empty strings
+    text = text.lower()
+    if verbose: print("Text in lower case")
+    for before, after in REPLACE:
+        text = text.replace(before, after)
+        if verbose: print(f"{before} was replaced by {after}")
+    for char in ADD_SPACE_AROUND:
+        text = text.replace(char," " + char + " ")
+        if verbose: print("Created spaces around << " + char + " >>")
+    return [x for x in text.split(" ") if x] #removing empty strings
 
 
 #-----------------------------------------------------------------------build_dict    
@@ -93,13 +96,14 @@ class WordDict:
             print(self)
         return tokenized_words
 
-    def __str__(self):
+    def print(self, print_elems=False):
         st = ""
-        temp = dict(sorted(self.dic.items()))
-        for elem in temp:
-            st += f"{elem} ({temp[elem][1]}) | "
+        if print_elems:
+            temp = dict(sorted(self.dic.items()))
+            for elem in temp:
+                st += f"{elem} ({temp[elem][1]}) | "
         st += f"\nDictionary length is {len(self.dic)}\n"
-        return st
+        print(st)
 
     def decode(self, st):
         st_elems = []
@@ -116,6 +120,10 @@ class WordDict:
                         found = True
             st_elems.append(mystr)
         return st_elems
+
+    def dump(self, filename):
+        with open(filename, "w") as f:
+            f.write(f"{self.dic}")
     
 #-----------------------------------------------------------------------build_dict
 class NextToken():
@@ -178,7 +186,8 @@ class NextToken():
 
     def get_next(self, key, temperature=0):
         '''
-        temperature is not used
+        low temperature is apparition proba based
+        high temperature is equiprobable
         '''
         if key in self.nex:
             #what token is most probable
@@ -189,9 +198,15 @@ class NextToken():
                 occur += value[i][1]
             proba = []
             cumul = 0
-            for elem in value:
-                cumul += elem[1]
-                proba.append(cumul/occur)
+            if temperature < 50:
+                for elem in value:
+                    cumul += elem[1]
+                    proba.append(cumul/occur)
+            else:
+                # solutions that equiprobable
+                for elem in value:
+                    cumul += 1/len(value)
+                    proba.append(cumul)
             #breakpoint(f"Value: {value}, Probas: {proba}")
             rand = random.uniform(0,1)
             theindex = 0
@@ -203,7 +218,8 @@ class NextToken():
         else:
             return NOT_FOUND
 
-            
+
+#------------------------------------------------------------------concatenate_arrays
 def concatenate_arrays(arr1, arr2):
     for elem in arr2:
         arr1.append(elem)
@@ -211,70 +227,88 @@ def concatenate_arrays(arr1, arr2):
                 
 
 #------------------------------------------------------------------prompt
-def prompt(dic, nextlist, verbose = False):
+def prompt(dic, nextlist, keep_accents=False, temperature = 0, verbose = False):
+    '''
+    tokens est la structure qui contient tout le texte sous forme de tokens
+    '''
     tokens = []
     while True:
         #breakpoint(f"BEGIN {tokens}")
         resp = input("Your input ('end' terminates) > ")
+        window = 0
         if resp == "end":
             sys.exit()
-        if resp != "" and resp != None:
-            command = my_tokenizer(resp)
-            # warning: dic keeps memory of the user prompts
-            concatenate_arrays(tokens, dic.add_words(command))
+
+        if (resp == "" or resp == None) and (len(tokens) == 0):
+            print("No tokens were provided, you have to enter a query.")
+            continue
         else:
-            if len(tokens) == 0:
-                print("No tokens provided, you have to enter a query.")
-                continue
-        next_token=""
-        found = False
-        for nex in nextlist:
-            window = nex.window
-            if verbose: print(f"Verbose: Window size = {window}")
-            # keeping the last "window" size
-            kept = tokens[-window:]
-            if verbose:
-                print(f"Verbose: Tokens of the user input: {tokens}, kept: {kept}")
-                breakpoint()
-            key = ''.join(kept)
-            next_token = nex.get_next(key)
-            #breakpoint(f"Key: {key}, Next: {next_token}")
-            if next_token == NOT_FOUND:
-                if verbose: print(f"Verbose: For key={key}, next token not found")
-                continue
-            else:
-                found = True
-                tokens.append(next_token)
-                #breakpoint(f"Next: {next_token}, Tokens: {tokens}")
-                break
-        if not found:
-            nextuser = input("The next token was not found. Propose one: > ")
-            tokens.append(dic.add_words(nextuser))
-        print(f"Resulting context: {' '.join(dic.decode(''.join(tokens)))}")
+            #1. we tokenize the command
+            command = my_tokenizer(resp, keep_accents, verbose)
+            #breakpoint(command)
+
+            # warning: dic keeps memory of the user prompts and records the unknown words
+            # typed in the prompt
+            #2. we add it to the current tokens (maybe empty the first time)
+            concatenate_arrays(tokens, dic.add_words(command))
+            #breakpoint(tokens)
+
+            #3. looping though the NextToken instance
+            next_token=""
+            found = False
+            for nex in nextlist:
+                window = nex.window
+                thewindow = window
+                #breakpoint(f"Window size = {window}")
+
+                #4. keeping the last "window" size of the tokens to find a match
+                kept = tokens[-window:]
+                #breakpoint(f"Verbose: Tokens of the user input: {tokens}, kept: {kept}")
+
+                #5. Building the key
+                key = ''.join(kept)
+                next_token = nex.get_next(key, temperature)
+                #breakpoint(f"Key: {key}, Next: {next_token}")
+
+                if next_token == NOT_FOUND:
+                    #breakpoint(f"Verbose: For key={key}, next token not found")
+                    continue
+                else:
+                    found = True
+                    tokens.append(next_token)
+                    #breakpoint(f"Next: {next_token}, Tokens: {tokens}")
+                    break
+            if not found:
+                nextuser = input("The next token was not found. Propose one: > ")
+                command2 = my_tokenizer(nextuser, keep_accents, verbose)
+                concatenate_arrays(tokens, dic.add_words(command2))
+                thewindow = 0
+            print(f"Resulting context: {' '.join(dic.decode(''.join(tokens)))} ({str(thewindow)})")
                 
     
 #------------------------------------------------------------------main
 if __name__ == "__main__":
     #test()
-    #tokens = mytokenizer('the-verdict.txt')
-    words = file_tokenizer('russian-folk-tales.txt',True)
+    #tokens = mytokenizer('./content/the-verdict.txt')
+    #words = file_tokenizer('./content/russian-folk-tales.txt',False, True)
+    #words = file_tokenizer('./content/kjv-cleaned.txt')
+    words = file_tokenizer('./content/segond-clean.txt', True)
     dic = WordDict()
     tokens = dic.add_words(words)
-    #print(dic)
+    dic.print()
+    #dic.dump("dict-segond.txt")
     #breakpoint()
     #print(tokens)
     #breakpoint()
-    next4 = NextToken(4)
-    next4.scan(tokens)
-    next3 = NextToken(3)
-    next3.scan(tokens)
-    next2 = NextToken(2)
-    next2.scan(tokens)
+    attention_windows = [6, 5, 4]
+    attentions = []
+    temp = None
+    for att in attention_windows:
+        print(f"Creating attention window of size {att}")
+        temp = NextToken(att)
+        temp.scan(tokens)
+        attentions.append(temp)
+        print("Done")
     print("-"*20)
-    #next4.print(dic)
-    #print("-"*20)
-    #next3.print(dic)
-    #print("-"*20)
-    #next2.print(dic)
-    prompt(dic, [next4, next3, next2], False)
+    prompt(dic, attentions, True, 75, False)
     
