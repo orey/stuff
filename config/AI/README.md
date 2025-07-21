@@ -51,7 +51,6 @@ Usage:
 ```
 
 Then open http://localhost:8000 to have the chat window.
-```
 
 ## Links
 
