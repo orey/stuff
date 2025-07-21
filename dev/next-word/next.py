@@ -195,6 +195,7 @@ class NextToken():
             value = self.nex[key]
             occur = 0
             # value : [ [token1, occ1], [token2, occ2], etc. ]
+            print(f"choice between {len(value)}")
             for i in range(len(value)):
                 occur += value[i][1]
             proba = []
