@@ -1,0 +1,217 @@
+{
+    "encoding" : "latin_1",
+    "debugmode" : "False",
+    "configs" : [
+        {
+            "name" : "=== Configuration: DAIN LH NOS ===",
+            "start" : "10.Part N°/MFC",
+            "dain_number" : [
+                "MIDDLE",
+                "4.CoC/DAIN N°",
+                "5.Customer Order N°",
+                "FIRST_X",
+                "10"
+            ],
+            "date": [
+                "MIDDLE",
+                "Printed Date",
+                "28.",
+                "DATA"
+            ],
+            "contract": [
+                "MIDDLE",
+                "20.Prime Contract N°",
+                "21A.S/N - Batch N°",
+                "DATA"
+            ],
+            "consignor" : [
+                "MIDDLE",
+                "Consignor",
+                "Consignee",
+                "DATA"
+            ],
+            "consignee" : [
+                "MIDDLE",
+                "Consignee",
+                "9.NATO Stock N°",
+                "DATA"
+            ],
+            "part_number": [
+                "MIDDLE",
+                "10.Part N°/MFC",
+                "11.Blank",
+                "SPLIT_FIRST",
+                "/"
+            ],
+            "manufacturer_code": [
+                "MIDDLE",
+                "10.Part N°/MFC",
+                "11.Blank",
+                "SPLIT_LAST",
+                "/"
+            ],
+            "nato_stock_number": [
+                "MIDDLE",
+                "9.NATO Stock N°",
+                "ANNEX 1",
+                "FIRST_X",
+                "16"
+            ],
+            "description": [
+                "MIDDLE",
+                "18.Description",
+                "19.Goods Value",
+                "DATA"
+            ],
+            "goods_value": [
+                "MIDDLE",
+                "19.Goods Value/Currency Code",
+                "AMENDMENT YES",
+                "SPLIT_FIRST",
+                " "
+            ],
+            "currency_code": [
+                "MIDDLE",
+                "19.Goods Value/Currency Code",
+                "AMENDMENT YES",
+                "SPLIT_SECOND",
+                " "
+            ],
+            "quantity": [
+                "MIDDLE",
+                "13.Quantity",
+                "14.Unit of Issue",
+                "DATA"
+            ],
+            "unit_of_issue": [
+                "MIDDLE",
+                "14.Unit of Issue",
+                "15.Unit of Measure",
+                "DATA"
+            ],
+            "case_number" :[
+                "MIDDLE",
+                "Gross Weight (kg)",
+                "2. Copy",
+                "SPLIT_FIRST",
+                " "
+            ],
+            "dimensions" : [
+                "MIDDLE",
+                "DIMENSIONS",
+                "GROSS WEIGHT",
+                "DATA"
+            ],
+            "gross_weight" : [
+                "MIDDLE",
+                "GROSS WEIGHT",
+                "PART NUMBER - DESCRIPTION",
+                "DATA"
+            ]
+        },
+        {
+            "name" : "=== Configuration: DAIN AHF ===",
+            "start" : "CERTIFICATE OF CONFORMITY",
+            "dain_number" : [
+                "MIDDLE",
+                "CoC DAIN No",
+                "4 Customer Order",
+                "DATA"
+            ],
+            "date": [
+                "AFTER",
+                "validated by electronic signature",
+                "13"
+            ],
+            "contract": [
+                "MIDDLE",
+                "Prime Contract No",
+                "20 S/N°",
+                "DATA"
+            ],
+            "consignor" : [
+                "MIDDLE",
+                "Consignor",
+                "7 Consignee",
+                "DATA"
+            ],
+            "consignee" : [
+                "MIDDLE",
+                "Consignee",
+                "8 NATO Stock",
+                "DATA"
+            ],
+            "part_number": [
+                "MIDDLE",
+                "Part No/MFC",
+                "10 Blank",
+                "SPLIT_FIRST",
+                "/"
+            ],
+            "manufacturer_code": [
+                "MIDDLE",
+                "Part No/MFC",
+                "10 Blank",
+                "SPLIT_LAST",
+                "/"
+            ],
+            "nato_stock_number": [
+                "MIDDLE",
+                "NATO Stock No",
+                "9 Part No/MFC",
+                "DATA"
+            ],
+            "description": [
+                "MIDDLE",
+                "17 Description",
+                "18 Goods Value",
+                "DATA"
+            ],
+            "goods_value": [
+                "MIDDLE",
+                "Goods Value / Currency code",
+                "19 Prime Contract No",
+                "SPLIT_FIRST",
+                " "
+            ],
+            "currency_code": [
+                "MIDDLE",
+                "Goods Value / Currency code",
+                "19 Prime Contract No",
+                "SPLIT_SECOND",
+                " "
+            ],
+            "quantity": [
+                "MIDDLE",
+                "Quantity",
+                "13 Unit of Issue",
+                "DATA"
+            ],
+            "unit_of_issue": [
+                "MIDDLE",
+                "Unit of Issue",
+                "14 Unit of Measure",
+                "DATA"
+            ],
+            "case_number" :[
+                "BEFORE",
+                "1  /",
+                "SPLIT_FIRST",
+                " "
+            ],
+            "dimensions": [
+                "BEFORE",
+                "1  /",
+                "REMOVE_FIRST_LAST",
+                " "
+            ],
+            "gross_weight" : [
+                "BEFORE",
+                "1  /",
+                "SPLIT_LAST",
+                " "
+            ]
+        }
+        
+    ]
+}
