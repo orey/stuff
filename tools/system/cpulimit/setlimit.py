@@ -40,7 +40,7 @@ def limit(algo, verbose=False):
     if algo == AVERAGE:
         squota = str(round(QUOTA / len(pids), 0))
     else: # THRESHOLD:
-        squota = "50"
+        squota = str(QUOTA)
     # launch an instance of each limiter
     for pid in pids:
         if pid not in procs:
