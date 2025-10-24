@@ -1,8 +1,8 @@
 import subprocess, time
 
 QUOTA = 70 #percent
-SOFT = "opera"
-#SOFT = "chromium"
+#SOFT = "opera"
+SOFT = "chromium"
 DELAY = 30 #seconds
 
 
