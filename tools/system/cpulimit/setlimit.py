@@ -1,26 +1,26 @@
-import subprocess, time
+import subprocess, time, sys
 
 QUOTA = 70 #percent
-SOFT = "opera"
-#SOFT = "chromium"
 DELAY = 30 #seconds
+FILEROOT = "processes"
 
 
 procs = {} # key = procid, value = quota
 
-AVERAGE = 1
-THRESHOLD = 0
+AVERAGE_ALGO = 1
+THRESHOLD_ALGO = 0
 
 
-
-def limit(algo, verbose=False):
+#--------------------------------------------------- limit
+def limit(software, threshold, algo, verbose=False):
+    filename = FILEROOT + '_' + software + ".pid"
     # get the list of pids in a file to read the output
-    with open("processes.txt", "w") as f:
-        comp = subprocess.run(["pgrep", SOFT],
+    with open(filename, "w") as f:
+        comp = subprocess.run(["pgrep", software],
                               stdout = f)
     pids = []
     # read the output
-    with open("processes.txt", "r") as g:
+    with open(filename, "r") as g:
         pids = g.read().split("\n")
         if verbose:
             print(pids)
@@ -37,10 +37,10 @@ def limit(algo, verbose=False):
         del procs[k]
         print(k + " is no longer existing. Removed.")
     # determine per process quota
-    if algo == AVERAGE:
-        squota = str(round(QUOTA / len(pids), 0))
-    else: # THRESHOLD:
-        squota = str(QUOTA)
+    if algo == AVERAGE_ALGO:
+        squota = str(round(float(threshold) / len(pids), 0))
+    else: # THRESHOLD_ALGO:
+        squota = threshold
     # launch an instance of each limiter
     for pid in pids:
         if pid not in procs:
@@ -49,13 +49,18 @@ def limit(algo, verbose=False):
     if verbose:
         print(procs)
 
-
+#--------------------------------------------------- main
 if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python setlimit.py [program name] [threshold in %]")
+        sys.exit()
+    software = sys.argv[1]
+    threshold = sys.argv[2]
     run = 0
     while True:
-        print(f"************** Run {run+1}")
+        print(f"|{run+1}|",end="")
         run += 1
-        limit(THRESHOLD)
+        limit(software, threshold, THRESHOLD_ALGO)
         time.sleep(DELAY)
     
 
