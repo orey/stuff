@@ -158,9 +158,11 @@ const ELEMS = {
 }
 
                         
-
+/*-----------------------------------------------------------
+ The segment class is supposed to be called by the segmentFactory
+ *-----------------------------------------------------------*/
 class Segment {
-    // dataelements is an array
+    //--- dataelements is an array
     constructor(code, sfunction, dataelements) {
         this.code = code;
         this.sfunction = sfunction;
@@ -169,7 +171,7 @@ class Segment {
         this.applicability = null; //array
         this.values = null //array
     }
-    // integrate applicability in message context
+    //--- integrate applicability in message context
     setApplicability(typeofsegment) {
         this.typeofsegment = typeofsegment;
         let app = CONDS[typeofsegment];
@@ -181,9 +183,13 @@ class Segment {
         }
         this.applicability = app;
     }
-    // getting the string of data of the segment
+    //--- getting the string of data of the segment
     setValues(chain){
-        let chunks = chain.split(DES);
+        if (! chain.endsWith("'")) {
+            console.error("Error: The segment string should end by the character '.");
+            return -1;
+        }
+        let chunks = chain.substring(0,chain.length-1).split(DES);
         if (this.code != chunks[0]) {
             console.error("Data not inline with Segment type:"
                           + "\nData starting by: " + chunks[0]
@@ -222,6 +228,7 @@ class Segment {
                 break;
             default:
                 console.error("Grammar issue: Should not happen");
+            }
             
         }
         
@@ -229,6 +236,7 @@ class Segment {
     }
 }
 
+   
 function checkDataElementGrammar(dataelement,value) {
     /*
       Value should be a string
@@ -300,7 +308,9 @@ function checkDataElementGrammar(dataelement,value) {
 }
 
 function isAlphaNumeric(str) {
-  return str.match(/^[a-z0-9]+$/i) !== null;
+    //return str.match(/^[a-z0-9]+$/i) !== null;
+    return str.match(/^[\w\-\s]+$/) != null
+
 }
 
 function isAlpha(str) {
@@ -309,6 +319,24 @@ function isAlpha(str) {
 
 function isNumeric(str) {
   return str.match(/^[0-9]+$/i) !== null;
+}
+
+function testStrings(){
+    testcases = [
+        "123456",
+        "AzertuiopZZ",
+        "12azerY",
+        "_gsf-'",
+        "kgshfs%$£",
+        "Le vierge le vivace et le bel aujourd'hui"
+    ];
+    for (let test of testcases) {
+        console.log("Test case for '" + test + "'");
+        console.log("isAlphaNumeric? " + isAlphaNumeric(test));
+        console.log("isNumeric? " + isNumeric(test));
+        console.log("isAlpha? " + isAlpha(test));
+    }
+
 }
 
 
@@ -510,7 +538,7 @@ const UPIPCO = {
 }
 
 
-
+/*
 function checkDataElement(name,structure,applicability,data) {
     let tab = data.split(DAT);
     if (tab[0] != name){
@@ -526,7 +554,7 @@ function checkDataElement(name,structure,applicability,data) {
     }
     
 
-}
+}*/
 
 
 
@@ -536,5 +564,5 @@ let iph = segmentFactory("IPH1");
 console.log(iph);
 iph.setValues(testline);
 
-
+testStrings();
 
