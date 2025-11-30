@@ -31,7 +31,7 @@ function isAlphaNumeric(str) {
     // pure alpha numeric does not contain spaces
     if (str.match(/^[a-z0-9]+$/i) == null) {
         console.warn("The string is not fully alphanumeric. The following characters are theoretically illegal:");
-        acc = []
+        let acc = []
         for (let c of str)
             if (! ALPHANUMERIC.includes(c))
                 if (!acc.includes(c))
@@ -51,7 +51,7 @@ function isAlphaNumeric(str) {
 function isAlpha(str) {
     if (str.match(/^[a-z]+$/i) == null){
         console.warn("The string is not fully alpha. The following characters are theoretically illegal:");
-        acc = []
+        let acc = []
         for (let c of str)
             if (! ALPHA.includes(c))
                 if (!acc.includes(c))
@@ -69,7 +69,7 @@ function isAlpha(str) {
 function isNumeric(str) {
     if (str.match(/^[0-9]+$/i) == null) {
         console.warn("The string is not fully numeric. The following characters are theoretically illegal:");
-        acc = []
+        let acc = []
         for (let c of str)
             if (! NUMERIC.includes(c))
                 if (!acc.includes(c))
@@ -82,7 +82,7 @@ function isNumeric(str) {
 }
 
 function testStrings(){
-    testcases = [
+    let testcases = [
         "123456",
         "AzertuiopZZ",
         "12azerY",
@@ -301,7 +301,9 @@ class Segment {
     }
 }
 
-   
+/*-----------------------------------------------------------
+ checkDataElementGrammar
+ *-----------------------------------------------------------*/   
 function checkDataElementGrammar(dataelement,value) {
     /*
       Value should be a string
@@ -373,8 +375,9 @@ function checkDataElementGrammar(dataelement,value) {
 }
 
 
-
-
+/*-----------------------------------------------------------
+segmentFactory
+ *-----------------------------------------------------------*/
 function segmentFactory(name) {
     // Name is expected to be 3 char for the segment name
     //+ one number for implementation
@@ -479,7 +482,8 @@ function segmentFactory(name) {
     return seg;
 }
 
-CONDS = {
+
+const CONDS = {
     "CAS1": ["M","M","M","M","M","M","M","M","M","O-MC"],
     "CAS2": ["M","M","M","C","C","C","C","C","C","O-MC"],
     "CBS1": ["C","C","C","C","C","C"],
