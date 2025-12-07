@@ -6,100 +6,21 @@ License: GNU GPL v3
 ******************************************************/
 "use strict";
 
+const fs = require('fs');
+
+const AlphaNum = require("./utils.js");
+
+
 //================================================= Separators
 //end of segment
 const EOS = "'";
 //data element separator
 const DES = "+";
 //data element data separator
-const DAT = ":"
+const DAT = ":";
 
-
-//================================================= Fine grain management of chars
-const ALPHA = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-               "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-const EXTENDED_ALPHA = ALPHA.concat([" ","-"]);
-const NUMERIC = ["0","1","2","3","4","5","6","7","8","9"];
-const EXTENDED_NUMERIC = NUMERIC.concat([".",","]);
-const ALPHANUMERIC = ALPHA.concat(NUMERIC);
-const EXTENTED_ALPHANUMERIC = EXTENDED_ALPHA.concat(EXTENDED_NUMERIC);
-
-
-//================================================= isAlphaNumeric
-//TODO: after testing see if we can use EXTENDED_ALPHANUMERIC
-function isAlphaNumeric(str) {
-    // pure alpha numeric does not contain spaces
-    if (str.match(/^[a-z0-9]+$/i) == null) {
-        console.warn("The string is not fully alphanumeric. The following characters are theoretically illegal:");
-        let acc = []
-        for (let c of str)
-            if (! ALPHANUMERIC.includes(c))
-                if (!acc.includes(c))
-                    acc.push(c);
-        console.warn(acc);
-        return true;
-    }
-    else
-        return true;
-    //Alpha numeric including space
-    //return str.match(/^[\w\-\s]+$/) != null
-}
-
-
-//================================================= isAlpha
-//TODO: after testing see if we can use EXTENDED_ALPHA
-function isAlpha(str) {
-    if (str.match(/^[a-z]+$/i) == null){
-        console.warn("The string is not fully alpha. The following characters are theoretically illegal:");
-        let acc = []
-        for (let c of str)
-            if (! ALPHA.includes(c))
-                if (!acc.includes(c))
-                    acc.push(c);
-        console.warn(acc);
-        return true;
-    }
-    else
-        return true;
-}
-
-
-//================================================= isNumeric
-//TODO: after testing see if we can use EXTENDED_NUMERIC
-function isNumeric(str) {
-    if (str.match(/^[0-9]+$/i) == null) {
-        console.warn("The string is not fully numeric. The following characters are theoretically illegal:");
-        let acc = []
-        for (let c of str)
-            if (! NUMERIC.includes(c))
-                if (!acc.includes(c))
-                    acc.push(c);
-        console.warn(acc);
-        return true;
-    }
-    else
-        return true
-}
-
-function testStrings(){
-    let testcases = [
-        "123456",
-        "AzertuiopZZ",
-        "12azerY",
-        "_gsf-'",
-        "kgshfs%$£",
-        "Le vierge le vivace et le bel aujourd'hui",
-        "Va-t-il nous dechirer d'un coup de son aile ivre"
-    ];
-    for (let test of testcases) {
-        console.log("---")
-        console.log("Test case for '" + test + "'");
-        console.log("isAlphaNumeric? " + isAlphaNumeric(test));
-        console.log("isNumeric? " + isNumeric(test));
-        console.log("isAlpha? " + isAlpha(test));
-    }
-
-}
+const NAME = "_name_";
+const GROUP = "_GROUP";
 
 
 //================================================= Data elements grammar
@@ -342,7 +263,7 @@ function checkDataElementGrammar(dataelement,value) {
         console.log("Length of data element is compliant with the grammar")
     switch(gtype){
     case 0: //alphanum
-        if (isAlphaNumeric(value)){
+        if (AlphaNum.isAlphaNumeric(value)){
             console.log("Alphanumeric type compliant with the grammar")
             return true;
         }
@@ -351,7 +272,7 @@ function checkDataElementGrammar(dataelement,value) {
             return false;
         }
     case 1: //alpha
-        if (isAlpha(value)){
+        if (AlphaNum.isAlpha(value)){
             console.log("Alpha type compliant with the grammar")
             return true;
         }
@@ -360,7 +281,7 @@ function checkDataElementGrammar(dataelement,value) {
             return false;
         }
     case 2:
-        if (isNumeric(value)){
+        if (AlphaNum.isNumeric(value)){
             console.log("Numeric type compliant with the grammar")
             return true;
         }
@@ -533,45 +454,45 @@ const CONDS = {
     "VAS2": ["M","M-MM","C-CC"]
 }
 
-// UPIPCO structures
-const UPIPCO_GROUP4 = {
-    "CJS1": "M1",
-    "CKS1": "C99"
-}
 
-const UPIPCO_GROUP3 = {
-    "CES2": "M1",
-    "GROUP4": "C9"
-}
-
-const UPIPCO_GROUP1 = {
-    "CAS2": "M1",
-    "CBS1": "C1",
-    "CCS1": "C1",
-    "CDS1": "C1",
-    "GROUP3": "C10",
-    "CFS1": "C100",
-    "CGS1": "C1",
-    "CIS1": "C120"
-}
-
-const UPIPCO_GROUP2 = {
-    "PAS3": "M1",
-    "PBS3": "C1",
-    "PCS2": "C1",
-    "PDS2": "C1",
-    "PES2": "C1",
-    "PFS1": "C1",
-    "PGS1": "C1"
-}
-
-const UPIPCO = {
-    "IPH1": "M1",
-    "VAS2": "C8",
-    "OHS1": "C5",
-    "MAS1": "M20",
-    "GROUP1": "C100000",
-    "GROUP2": "C10000"
+const MESSAGES = {
+    "UPIPCO": {
+        "UPIPCO_GROUP4": {
+            "CJS1": "M1",
+            "CKS1": "C99"
+        },
+        "UPIPCO_GROUP3": {
+            "CES2": "M1",
+            "UPIPCO_GROUP4": "C9"
+        },
+        "UPIPCO_GROUP1": {
+            "CAS2": "M1",
+            "CBS1": "C1",
+            "CCS1": "C1",
+            "CDS1": "C1",
+            "UPIPCO_GROUP3": "C10",
+            "CFS1": "C100",
+            "CGS1": "C1",
+            "CIS1": "C120"
+        },
+        "UPIPCO_GROUP2": {
+            "PAS3": "M1",
+            "PBS3": "C1",
+            "PCS2": "C1",
+            "PDS2": "C1",
+            "PES2": "C1",
+            "PFS1": "C1",
+            "PGS1": "C1"
+        },
+        "UPIPCO": {
+            "IPH1": "M1",
+            "VAS2": "C8",
+            "OHS1": "C5",
+            "MAS1": "M20",
+            "UPIPCO_GROUP1": "C100000",
+            "UPIPCO_GROUP2": "C10000"
+        }
+    }
 }
 
 
@@ -594,12 +515,56 @@ function checkDataElement(name,structure,applicability,data) {
 }*/
 
 
+function exploreGroup(group, data, index, messagegrammar, verbose=false){
+    for (const [seg, gram] of Object.entries(group)){
+        if (seg.includes(GROUP)) {
+            if (verbose) console.log("=== Begining of group: " + seg + " - " + gram);
+            exploreGroup(messagegrammar[seg], data, index, messagegrammar, verbose);
+            if (verbose) console.log("=== End of group: " + seg + " - " + gram);
+        }
+        else {
+            if (verbose) console.log("== Segment found:" + seg + " - " + gram);
+            let key = seg.substring(0,3);
+            if (data[index].startsWith(key)) {
+                console.log("=> OK, index = " + index.toString());
+                console.log(key);
+                console.log(data[index]);
+                index +=1;
+            }
+            else {
+                console.log("=> NOT OK, index = " + index.toString());
+                console.log(key);
+                console.log(data[index]);
+                
+            }
+            
+        }
+    }
+}
 
+
+//================================================================ read messages
+function readMessage(messageid, data, verbose=false) {
+    let messagegrammar = MESSAGES[messageid];
+    let groupkey = messageid + GROUP;
+    exploreGroup(messagegrammar[messageid], data, 0, messagegrammar, verbose);
+            
+}
+
+
+//----------------------------------------------------------------- test
 const testline = "IPH+IPP:A0126X001+MTP:UPIPCO+ISS:M1+TOD:FA2A5+ADD:5355B+FID:S+MOI:JA+DRS:010+DRD:171125+LGE:UK+IPS:HYDRAULIC POWER'";
 
 let iph = segmentFactory("IPH1");
 console.log(iph);
 iph.setValues(testline);
 
-testStrings();
+//let contents = fs.readFileSync("5355B_UPIPCO_A0126X001_0006617.txt", 'utf8');
+let contents = fs.readFileSync("UPIPCO.txt", "utf8");
+let lines = contents.split("\r\n");
+console.log(lines);
+
+readMessage("UPIPCO", lines, true);
+
+
 
