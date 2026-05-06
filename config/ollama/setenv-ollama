@@ -1,0 +1,5 @@
+# Environment variables usable with "source setenv-ollama"
+export OLLAMA_PATH="/home/olivier/ai/ollama"
+export PATH="$OLLAMA_PATH/bin:$OLLAMA_PATH/lib/ollama:$PATH"
+export LD_LIBRARY_PATH="$OLLAMA_PATH/lib/ollama:$LD_LIBRARY_PATH"
+
