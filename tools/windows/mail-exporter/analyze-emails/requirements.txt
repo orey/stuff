@@ -1,0 +1,6 @@
+# requirements.txt
+# Install with: pip install -r requirements.txt
+
+anthropic
+pdfplumber
+python-docx
