@@ -5,8 +5,8 @@ from urllib.parse import quote
 # 1. get paramater from command line
 origin = sys.argv[1].replace("\\","/")
 filename = origin.split("/")[-1]
-stringtoformat = f"file:///{quote(origin)}"
+stringtoformat = f"[{filename}]({'file:///' +  quote(origin)})"
 pyperclip.copy(stringtoformat)
 
-print("Link for Freeplane created and copied in the clipboard")
+print("Link for obsidian created and copied in the clipboard")
 print(stringtoformat)
