@@ -1,0 +1,3 @@
+ZIGPATH=/home/olivier/Software/zig-0.17
+PATH=$ZIGPATH:$PATH
+export PATH
