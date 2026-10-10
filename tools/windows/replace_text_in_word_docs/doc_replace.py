@@ -143,19 +143,85 @@ def process_template(template_path, output_path, values):
 
 
 # ---------------------------------------------------------------------------
+# Optional PDF export (same file name, .pdf extension)
+# ---------------------------------------------------------------------------
+def pdf_with_word(docx_path):
+    """Convert using Microsoft Word (Windows, best fidelity)."""
+    import win32com.client  # pip install pywin32
+
+    word = win32com.client.DispatchEx("Word.Application")  # own instance
+    word.Visible = False
+    try:
+        doc = word.Documents.Open(str(docx_path.resolve()), ReadOnly=True)
+        try:
+            doc.SaveAs(str(docx_path.with_suffix(".pdf")), FileFormat=17)  # 17 = wdFormatPDF
+        finally:
+            doc.Close(False)
+    finally:
+        word.Quit()
+
+
+def pdf_with_libreoffice(docx_path):
+    """Convert using LibreOffice headless (free, cross-platform)."""
+    import shutil
+    import subprocess
+
+    soffice = shutil.which("soffice") or shutil.which("libreoffice")
+    if not soffice and sys.platform == "win32":
+        for candidate in (
+            r"C:\Program Files\LibreOffice\program\soffice.exe",
+            r"C:\Program Files (x86)\LibreOffice\program\soffice.exe",
+        ):
+            if Path(candidate).exists():
+                soffice = candidate
+                break
+    if not soffice:
+        raise FileNotFoundError("no Microsoft Word or LibreOffice available for PDF export")
+
+    subprocess.run(
+        [soffice, "--headless", "--convert-to", "pdf",
+         "--outdir", str(docx_path.parent), str(docx_path)],
+        check=True,
+        capture_output=True,
+        timeout=180,
+    )
+
+
+def make_pdf(docx_path):
+    """Create docx_path with a .pdf extension. Returns a status string."""
+    pdf_path = docx_path.with_suffix(".pdf")
+    try:
+        if sys.platform == "win32":
+            try:
+                pdf_with_word(docx_path)
+                if pdf_path.exists():
+                    return "ok (Microsoft Word)"
+            except Exception:
+                pass  # fall back to LibreOffice
+        pdf_with_libreoffice(docx_path)
+        if pdf_path.exists():
+            return "ok (LibreOffice)"
+        raise RuntimeError("converter finished but the PDF was not found")
+    except Exception as exc:
+        return f"FAILED: {exc}"
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 def main(argv):
-    if len(argv) != 2:
+    make_pdf_enabled = "--no-pdf" not in argv
+    args = [a for a in argv[1:] if a != "--no-pdf"]
+    if len(args) != 1:
         print(__doc__)
         return 2
 
-    ini_path = Path(argv[1])
+    ini_path = Path(args[0])
     if not ini_path.is_file():
         print(f"Error: config file not found: {ini_path}")
         return 1
 
-    parser = configparser.ConfigParser(interpolation=None)  # allow % in values
+    parser = configparser.ConfigParser(interpolation=None, delimiters=('='))  # allow % in values
     parser.optionxform = str                                # keep tag case as typed
     with open(ini_path, encoding="utf-8-sig") as fh:
         parser.read_file(fh)
@@ -186,6 +252,9 @@ def main(argv):
 
         used.update(replaced)
         print(f"  Output   : {output}")
+        if make_pdf_enabled:
+            print(f"  PDF      : {Path(output).with_suffix('.pdf')} "
+                  f"{make_pdf(Path(output))}")
         print(f"  Replaced : {len(replaced)} placeholder(s)")
         for tag in sorted(set(missing)):
             print(f"  WARNING: ${tag}$ has no value in [tags]; left unchanged.")
@@ -194,7 +263,6 @@ def main(argv):
         print(f"NOTE: tag '{tag}' from [tags] was not found in any template.")
 
     return exit_code
-
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
